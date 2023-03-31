@@ -1,0 +1,100 @@
+{
+    "name": "§6§n",
+    "description": "\n",
+    "hidden": true,
+
+    "type": "origins:multiple",
+    "above100": {
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "apoli:change_resource",
+            "resource": "*:stamina_var",
+            "operation": "add",
+            "change": 5
+        },
+        "condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:stamina_var",
+                    "comparison": "==",
+                    "compare_to": 0,
+                    "inverted": true
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:stamina_var",
+                    "comparison": ">=",
+                    "compare_to": 100
+                }
+            ]
+        },
+        "interval": 20,
+        "hidden": true
+    },
+    "below100": {
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "apoli:change_resource",
+            "resource": "*:stamina_var",
+            "operation": "add",
+            "change": 10
+        },
+        "condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:stamina_var",
+                    "comparison": "==",
+                    "compare_to": 0,
+                    "inverted": true
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:stamina_var",
+                    "comparison": "<",
+                    "compare_to": 100
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:stamina_var",
+                    "comparison": ">=",
+                    "compare_to": 50
+                }
+            ]
+        },
+        "interval": 20,
+        "hidden": true
+    },
+    "below50": {
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "apoli:change_resource",
+            "resource": "*:stamina_var",
+            "operation": "add",
+            "change": 5
+        },
+        "condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:stamina_var",
+                    "comparison": "==",
+                    "compare_to": 0,
+                    "inverted": true
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:stamina_var",
+                    "comparison": "<",
+                    "compare_to": 50
+                }
+            ]
+        },
+        "interval": 20,
+        "hidden": true
+    }
+}

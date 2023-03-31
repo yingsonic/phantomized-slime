@@ -1,0 +1,91 @@
+{
+    "name": "§6§nCombat",
+    "description": "In combat mode, you are ever so closer attuned to the shadows.\n",
+    "hidden": false,
+
+    "type": "origins:multiple",
+    "particles": {
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "apoli:execute_command",
+            "command": "execute as @s run function phlime:particles/combat"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:abilities/switch_var",
+            "comparison": "==",
+            "compare_to": 2
+        },
+        "interval": 5
+    },
+    "sword_reach": {
+        "type": "apoli:action_over_time",
+        "rising_action": {
+            "type": "apoli:execute_command",
+            "command": "scale set pehkui:entity_reach 1.25 @s"
+        },
+        "falling_action": {
+            "type": "apoli:execute_command",
+            "command": "scale reset pehkui:entity_reach @s"
+        },
+        "condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:abilities/switch_var",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "apoli:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "apoli:ingredient",
+                        "ingredient": {
+                            "tag": "phlime:swords"
+                        }
+                    }
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "sword_attr": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "attribute": "generic.attack_speed",
+                "operation": "multiply_total",
+                "value": 0.5
+            },
+            {
+                "attribute": "generic.attack_damage",
+                "operation": "multiply_total",
+                "value": -0.2
+            }
+        ],
+        "tick_rate": 1,
+        "condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:abilities/switch_var",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "apoli:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "apoli:ingredient",
+                        "ingredient": {
+                            "tag": "phlime:swords"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

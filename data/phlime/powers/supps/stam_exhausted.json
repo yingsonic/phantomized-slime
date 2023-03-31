@@ -1,0 +1,39 @@
+{
+    "type": "apoli:multiple",
+    "main": {
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "apoli:and",
+            "actions": [
+                {
+                    "type": "apoli:change_resource",
+                    "resource": "*:stamina_var",
+                    "operation": "add",
+                    "change": 10
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power revoke @s phlime:supps/stam_exhausted"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s phlime:supps/stam_regen"
+                }
+            ]
+        },
+        "interval": 200
+    },
+    "particles": {
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "apoli:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle dust 0.1 0.1 0.1 1.2 ~ ~0.5 ~ 0.32 0.6 0.32 0.05 4 force"
+                }
+            ]
+        },
+        "interval": 5
+    }
+}

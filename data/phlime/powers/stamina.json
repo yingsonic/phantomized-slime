@@ -1,0 +1,75 @@
+{
+    "name": "§6§nStamina",
+    "description": "You have a stamina bar, filling up to a max of 100. 10 stamina is regenerated every second, unless you are §oexhausted§r.\n\nAfter consuming too much stamina at once, you will become §oexhausted§r. In this state, you will not regenerate stamina for 10 seconds and be afflicted with slowness 1.\n",
+    "hidden": false,
+
+    "type": "origins:multiple",
+    "exhaust": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "title @s actionbar \"§cYou're exhausted.\""
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:slowness",
+                        "duration": 200,
+                        "amplifier": 0,
+                        "is_ambient": true,
+                        "show_particles": false,
+                        "show_icon": false
+                    }
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "entity.elder_guardian.curse",
+                    "volume": 0.5,
+                    "pitch": 0.8
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s phlime:supps/stam_exhausted"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power revoke @s phlime:supps/stam_regen"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_var",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:living"
+                },
+                {
+                    "type": "origins:power",
+                    "power": "*:supps/stam_exhausted",
+                    "inverted": true
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "var": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 100,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 20
+        }
+    }
+}

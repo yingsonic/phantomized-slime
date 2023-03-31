@@ -1,0 +1,157 @@
+{
+    "name": "§6§nGuardian",
+    "description": "In guardian mode, you are altered to defend and guard those you swore to protect.\n",
+    "hidden": false,
+
+    "type": "origins:multiple",
+    "particles": {
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "apoli:execute_command",
+            "command": "execute as @s run function phlime:particles/guardian"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:abilities/switch_var",
+            "comparison": "==",
+            "compare_to": 3
+        },
+        "interval": 7
+    },
+    "buff": {
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "radius": 10,
+            "bientity_action": {
+                "type": "apoli:and",
+                "actions": [
+                    {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "apoli:and",
+                            "actions": [
+                                {
+                                    "type": "origins:apply_effect",
+                                    "effect": {
+                                        "effect": "minecraft:regeneration",
+                                        "duration": 78,
+                                        "amplifier": 0,
+                                        "is_ambient": true,
+                                        "show_particles": true,
+                                        "show_icon": false
+                                    }
+                                },
+                                {
+                                    "type": "origins:apply_effect",
+                                    "effect": {
+                                        "effect": "minecraft:resistance",
+                                        "duration": 78,
+                                        "amplifier": 1,
+                                        "is_ambient": true,
+                                        "show_particles": true,
+                                        "show_icon": false
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "apoli:if_else",
+                            "condition": {
+                                "type": "origins:command",
+                                "command": "execute if entity @e[distance=0.0001..10,type=player]",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            "if_action": {
+                                "type": "apoli:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:apply_effect",
+                                        "effect": {
+                                            "effect": "minecraft:regeneration",
+                                            "duration": 78,
+                                            "amplifier": 0,
+                                            "is_ambient": true,
+                                            "show_particles": false,
+                                            "show_icon": false
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:apply_effect",
+                                        "effect": {
+                                            "effect": "minecraft:resistance",
+                                            "duration": 78,
+                                            "amplifier": 1,
+                                            "is_ambient": true,
+                                            "show_particles": false,
+                                            "show_icon": false
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+    
+            },
+            "bientity_condition": {
+                "type": "apoli:and",
+                "conditions": [
+                    {
+                        "type": "origins:can_see"
+                    },
+                    {
+                        "type": "apoli:target_condition",
+                        "condition": {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:player"
+                        }
+                    }
+                ]
+            }
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:abilities/switch_var",
+            "comparison": "==",
+            "compare_to": 3
+        },
+        "interval": 10
+    },
+    "slower": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "multiply_total",
+            "value": -0.25
+        },
+        "tick_rate": 10,
+        "condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:abilities/switch_var",
+                    "comparison": "==",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:stamina_var",
+                    "comparison": "<",
+                    "compare_to": 150
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @e[distance=0.0001..10,type=creeper]",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    }
+}

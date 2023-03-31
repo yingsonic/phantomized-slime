@@ -1,0 +1,83 @@
+{
+    "name": "§6§nRogue",
+    "description": "In rogue mode, you are more accustomed to scouting and not as much combat.\n",
+    "hidden": false,
+
+    "type": "origins:multiple",
+    "phase": {
+        "type": "apoli:phasing",
+        "blacklist": true,
+        "render_type": "blindness",
+        "view_distance": 15,
+        "block_condition": {
+            "type": "origins:in_tag",
+            "tag": "origins:unphasable"
+        },
+        "phase_down_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:sneaking"
+                },
+                {
+                    "type": "origins:on_block"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:abilities/switch_var",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "faster": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "multiply_total",
+            "value": 0.5
+        },
+        "tick_rate": 10,
+        "condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:abilities/switch_var",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:stamina_var",
+                    "comparison": ">=",
+                    "compare_to": 100
+                }
+            ]
+        }
+    },
+    "translucent": {
+        "type": "apoli:model_color",
+        "alpha": 0.5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:abilities/switch_var",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "damage_reduc": {
+        "type": "apoli:modify_damage_dealt",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.2
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:abilities/switch_var",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    }
+}

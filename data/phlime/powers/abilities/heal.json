@@ -1,0 +1,140 @@
+{
+    "name": "§b§nSlimey Regeneration",
+    "description": "Being a slime, you are able to heal and reconstruct your body in a more instantaneous way.\n",
+    "hidden": false,
+
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "§5Use §5%s §5to heal\nWill not activate if lacking stamina or if health is full\n\n§9§lCooldown: 0.75s"
+        }
+    ],
+
+    "type": "apoli:multiple",
+    "main": {
+        "type": "apoli:active_self",
+        "entity_action": {
+            "type": "apoli:if_else_list",
+            "actions": [
+                {
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "title @s actionbar \"§cYou don't have enough stamina to heal.\""
+                    },
+                    "condition": {
+                        "type": "apoli:resource",
+                        "resource": "*:stamina_var",
+                        "comparison": "<=",
+                        "compare_to": 0
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "title @s actionbar \"§cYou are already full health!\""
+                    },
+                    "condition": {
+                        "type": "origins:health",
+                        "comparison": "==",
+                        "compare_to": 20
+                    }
+                },
+                {
+                    "action": {
+                        "type": "apoli:and",
+                        "actions": [
+                            {
+                                "type": "apoli:if_else",
+                                "condition": {
+                                    "type": "apoli:resource",
+                                    "resource": "*:abilities/switch_var",
+                                    "comparison": "==",
+                                    "compare_to": 3
+                                },
+                                "if_action": {
+                                    "type": "apoli:trigger_cooldown",
+                                    "power": "*:*_cd_guardian"
+                                },
+                                "else_action": {
+                                    "type": "apoli:trigger_cooldown",
+                                    "power": "*:*_cd"
+                                }
+                            },
+                            {
+                                "type": "apoli:change_resource",
+                                "resource": "*:stamina_var",
+                                "operation": "add",
+                                "change": -10
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute as @s run function phlime:particles/heal"
+                            },
+                            {
+                                "type": "apoli:heal",
+                                "amount": 1
+                            },
+                            {
+                                "type": "origins:delay",
+                                "ticks": 8,
+                                "action": {
+                                    "type": "apoli:heal",
+                                    "amount": 1
+                                }
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "apoli:constant",
+                        "value": true
+                    }
+                }
+            ]   
+            
+        },
+        "condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_cd",
+                    "comparison": "<=",
+                    "compare_to": 0
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_cd_guardian",
+                    "comparison": "<=",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": true
+        }
+    },
+    "cd": {
+        "type": "apoli:cooldown",
+        "cooldown": 20,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 9
+        }
+    },
+    "cd_guardian": {
+        "type": "apoli:cooldown",
+        "cooldown": 15,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 9
+        }
+    }
+}

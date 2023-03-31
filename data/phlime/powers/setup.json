@@ -1,0 +1,76 @@
+{
+	"type": "origins:action_on_callback",
+	"entity_action_chosen": {
+		"type": "origins:and",
+		"actions": [
+			{
+				"type": "origins:execute_command",
+				"command": "execute as @s run function phlime:setup_chosen"
+			}
+		]
+	},
+	"entity_action_removed": {
+		"type": "origins:if_else",
+		"condition": {
+			"type": "origins:origin",
+			"origin": "phlime:phlime",
+			"inverted": true
+		},
+		"if_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "execute as @s run function phlime:setup_lost"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute as @s run COMMANDHERE"
+				}
+			]
+		}
+	},
+	"entity_action_added": {
+		"type": "origins:if_else",
+		"condition": {
+			"type": "origins:origin",
+			"origin": "phlime:phlime"
+		},
+		"if_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "execute as @s run function phlime:size"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute as @s run COMMANDHERE"
+				}
+			]
+		}
+	},
+	"entity_action_respawned": {
+		"type": "origins:if_else",
+		"condition": {
+			"type": "origins:origin",
+			"origin": "phlime:phlime"
+		},
+		"if_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "execute as @s run function phlime:size"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute as @s run COMMANDHERE"
+				}
+			]
+		}
+	},
+	"execute_chosen_when_orb": true,
+	"loading_priority": 0,
+	"hidden": true
+}

@@ -1,0 +1,25 @@
+{
+	"powers": [
+		"phlime:setup",
+		"phlime:abilities/switch",
+		"phlime:abilities/scythe",
+		"phlime:stamina",
+		"phlime:supps/stam_regen",
+		"phlime:abilities/heal",
+		"phlime:supps/modes_sprites",
+		"phlime:passives/rogue",
+		"phlime:passives/combat",
+		"phlime:passives/guardian",
+		"phlime:passives/regen_off"
+	],
+	"icon": {
+		"item": "minecraft:wither_rose"
+	},
+	"order": 10,
+	"impact": 3,
+
+	"name": "§5Phantomized Slime",
+	"description": "A reborn slime after dying to a player who was attempting to run from §o'something'§r lurking in the shadows. As a reborn slime, you have experienced death and swear to avenge and protect those in need.\n\nDue to being just a meek little slime, you avoid trouble and stick to the shadows, remembering what hunted the original player that killed you.",
+	
+	"comment": "Made by yingsonic on Fiverr"
+}

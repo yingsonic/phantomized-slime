@@ -1,0 +1,152 @@
+{
+    "name": "§6§n",
+    "description": "\n",
+    "hidden": false,
+
+    "type": "origins:multiple",
+    "spawn": {
+        "type": "apoli:active_self",
+        "entity_action": {
+            "type": "apoli:if_else",
+            "condition": {
+                "type": "apoli:and",
+                "conditions": [
+                    {
+                        "type": "apoli:equipped_item",
+                        "equipment_slot": "mainhand",
+                        "item_condition": {
+                            "type": "apoli:ingredient",
+                            "ingredient": {
+                                "tag": "phlime:hoes"
+                            }
+                        }
+                    },
+                    {
+                        "type": "apoli:resource",
+                        "resource": "*:*_has",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "apoli:resource",
+                        "resource": "*:*_uses",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                ]
+            },
+            "if_action": {
+                "type": "apoli:if_else",
+                "condition": {
+
+                },
+                "if_action": {
+
+                },
+                "else_action": {
+                    "type": "apoli:raycast",
+                    "distance": 8,
+                    "block": true,
+                    "entity": false,
+                    "shape_type": "visual",
+                    "fluid_handling": "any",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "say I've been hit!"
+                        }
+                    },
+                    "before_action": {
+                        "type": "origins:execute_command",
+                        "command": "say Before"
+                    },
+                    "hit_action": {
+                        "type": "apoli:and",
+                        "actions": [
+                            {
+                                "type": "apoli:change_resource",
+                                "resource": "*:*_has",
+                                "operation": "set",
+                                "change": 1
+                            },
+                            {
+                                "type": "apoli:change_resource",
+                                "resource": "*:*_uses",
+                                "operation": "set",
+                                "change": 5
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "give @s minecraft:stone_hoe{CustomModelData:ShadowScythe,Tags:[\"shadowScythe\"]}"
+                            }
+                        ]
+                    },
+                    "miss_action": {
+                        "type": "origins:execute_command",
+                        "command": "say After (miss)"
+                    },
+                    "block_action": {
+                        "type": "apoli:if_else",
+                        "condition": {
+                            "type": "origins:block",
+                            "block": "minecraft:obsidian"
+                        },
+                        "if_action": {
+                            "type": "origins:set_block",
+                            "block": "minecraft:air"
+                        }
+                    },  
+                    "command_at_hit": "particle dust_color_transition 0 0 0 1.05 0.25 0.25 0.25 ~ ~ ~ 0.5 0.5 0.5 10 15 force",
+                    "command_along_ray": "particle dust_color_transition 0 0 0 1.05 0.25 0.25 0.25 ~ ~ ~ 0.01 0.01 0.01 0.1 1 force",
+                    "command_step": 0.5,
+                    "command_along_ray_only_on_hit": true
+                }
+            }
+        },
+        "condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:abilities/switch_var",
+                    "comparison": "==",
+                    "compare_to": 2
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "cooldown": 10
+    },
+    "has": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "uses": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 5,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 20,
+            "condition": {
+                "type": "apoli:resource",
+                "resource": "*:*_uses",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    }
+}

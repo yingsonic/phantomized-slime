@@ -1,0 +1,55 @@
+{
+    "type": "apoli:multiple",
+    "rogue": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 14,
+            "condition": {
+                "type": "apoli:resource",
+                "resource": "*:abilities/switch_var",
+                "comparison": "==",
+                "compare_to": 1
+            }
+        }
+    },
+    "combat": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 1,
+            "condition": {
+                "type": "apoli:resource",
+                "resource": "*:abilities/switch_var",
+                "comparison": "==",
+                "compare_to": 2
+            }
+        }
+    },
+    "guardian": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 0,
+            "condition": {
+                "type": "apoli:resource",
+                "resource": "*:abilities/switch_var",
+                "comparison": "==",
+                "compare_to": 3
+            }
+        }
+    },
+    "hidden": true
+}
