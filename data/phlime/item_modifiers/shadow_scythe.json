@@ -1,0 +1,7 @@
+{
+    "function": "apoli:add_power",
+    "power": "phlime:supps/scythe_use",
+    "slot": "mainhand",
+    "hidden": false,
+    "negative": false
+}

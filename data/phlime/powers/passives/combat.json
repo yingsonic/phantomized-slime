@@ -87,5 +87,88 @@
                 }
             ]
         }
+    },
+    "pickaxe": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:apply_effect",
+            "effect": {
+                "effect": "minecraft:haste",
+                "duration": 8,
+                "amplifier": 2,
+                "is_ambient": true,
+                "show_particles": false,
+                "show_icon": false
+            }
+        },
+        "condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:abilities/switch_var",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "apoli:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "apoli:ingredient",
+                        "ingredient": {
+                            "tag": "phlime:pickaxes"
+                        }
+                    }
+                }
+            ]
+        },
+        "interval": 5
+    },
+    "scythe_check": {
+        "type": "origins:action_over_time",
+        "falling_action": {
+            "type": "apoli:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:abilities/scythe_has",
+                "comparison": "==",
+                "compare_to": 1
+            },
+            "if_action": {
+                "type": "apoli:and",
+                "actions": [
+                    {
+                        "type": "origins:modify_inventory",
+                        "inventory_type": "inventory",
+                        "item_action": {
+                            "type": "origins:consume"
+                        },
+                        "item_condition": {
+                            "type": "origins:has_power",
+                            "power": "phlime:supps/scythe_use"
+                        }
+                    },
+                    {
+                        "type": "apoli:change_resource",
+                        "resource": "*:abilities/scythe_uses",
+                        "operation": "set",
+                        "change": 0
+                    },
+                    {
+                        "type": "apoli:change_resource",
+                        "resource": "*:abilities/scythe_has",
+                        "operation": "set",
+                        "change": 0
+                    }
+                ]
+            }
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:abilities/switch_var",
+            "comparison": "==",
+            "compare_to": 2
+        },
+        "interval": 1
     }
 }
