@@ -32,7 +32,7 @@
                                         "type": "apoli:apply_effect",
                                         "effect": {
                                             "effect": "minecraft:slowness",
-                                            "duration": 40,
+                                            "duration": 20,
                                             "amplifier": 2,
                                             "is_ambient": true,
                                             "show_particles": true,
@@ -43,6 +43,12 @@
                                     {
                                         "type": "apoli:execute_command",
                                         "command": "execute as @s run function phlime:particles/scythe_strike"
+                                    },
+                                    {
+                                        "type": "origins:play_sound",
+                                        "sound": "block.respawn_anchor.charge",
+                                        "volume": 1,
+                                        "pitch": 0.8
                                     }
                                 ]
                             }
@@ -59,7 +65,7 @@
                 }
             },
             "include_target": true,
-            "radius": 5
+            "radius": 3
         },
         "self_action": {
             "type": "apoli:and",
@@ -138,13 +144,13 @@
             {
                 "attribute": "generic.attack_speed",
                 "operation": "multiply_total",
-                "value": -0.75
+                "value": -0.5
             }
         ]
     },
     "cd": {
         "type": "apoli:cooldown",
-        "cooldown": 20,
+        "cooldown": 40,
         "hud_render": {
             "should_render": false,
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
