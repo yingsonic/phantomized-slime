@@ -6,105 +6,140 @@
     "type": "origins:multiple",
     "main": {
         "type": "apoli:modify_damage_dealt",
-        "target_action": {
-            "type": "apoli:area_of_effect",
-            "bientity_action": {
-                "type": "origins:delay",
-                "ticks": 5,
-                "action": {
-                    "type": "origins:and",
-                    "actions": [
-                        {
-                            "type": "apoli:damage",
-                            "amount": 2,
-                            "source": {
-                                "name": "magic.player",
-                                "magic": true,
-                                "bypasses_armor": true
-                            }
-                        },
-                        {
-                            "type": "apoli:target_action",
-                            "action": {
-                                "type": "apoli:and",
-                                "actions": [
-                                    {
-                                        "type": "apoli:apply_effect",
-                                        "effect": {
-                                            "effect": "minecraft:slowness",
-                                            "duration": 20,
-                                            "amplifier": 2,
-                                            "is_ambient": true,
-                                            "show_particles": true,
-                                            "show_icon": false
-                                        }
-
-                                    },
-                                    {
-                                        "type": "apoli:execute_command",
-                                        "command": "execute as @s run function phlime:particles/scythe_strike"
-                                    },
-                                    {
-                                        "type": "origins:play_sound",
-                                        "sound": "block.respawn_anchor.charge",
-                                        "volume": 1,
-                                        "pitch": 0.8
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                }
-            },
-            "bientity_condition": {
-                "type": "apoli:target_condition",
-                "condition": {
-                    "type": "origins:origin",
-                    "origin": "phlime:phlime",
-                    "inverted": true
-                }
-            },
-            "include_target": true,
-            "radius": 3
-        },
-        "self_action": {
-            "type": "apoli:and",
-            "actions": [
-                {
-                    "type": "apoli:trigger_cooldown",
-                    "power": "*:*_cd"
-                },
-                {
-                    "type": "apoli:change_resource",
-                    "resource": "*:abilities/scythe_uses",
-                    "operation": "add",
-                    "change": -1
-                },
-                {
-                    "type": "origins:equipped_item_action",
-                    "equipment_slot": "mainhand",
+        "bientity_action": {
+            "type": "apoli:target_action",
+            "action": {
+                "type": "apoli:area_of_effect",
+                "bientity_action": {
+                    "type": "origins:delay",
+                    "ticks": 5,
                     "action": {
-                        "type": "origins:damage",
-                        "amount": 27,
-                        "ignore_unbreaking": true
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "apoli:damage",
+                                "amount": 3,
+                                "source": {
+                                    "name": "magic.player",
+                                    "magic": true,
+                                    "bypasses_armor": true
+                                }
+                            },
+                            {
+                                "type": "apoli:target_action",
+                                "action": {
+                                    "type": "apoli:and",
+                                    "actions": [
+                                        {
+                                            "type": "apoli:apply_effect",
+                                            "effect": {
+                                                "effect": "minecraft:slowness",
+                                                "duration": 20,
+                                                "amplifier": 2,
+                                                "is_ambient": true,
+                                                "show_particles": true,
+                                                "show_icon": false
+                                            }
+    
+                                        },
+                                        {
+                                            "type": "apoli:execute_command",
+                                            "command": "execute as @s run function phlime:particles/scythe_strike"
+                                        },
+                                        {
+                                            "type": "origins:play_sound",
+                                            "sound": "block.respawn_anchor.charge",
+                                            "volume": 1,
+                                            "pitch": 0.8
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
                     }
                 },
-                {
-                    "type": "apoli:if_else",
+                "bientity_condition": {
+                    "type": "apoli:target_condition",
                     "condition": {
+                        "type": "origins:origin",
+                        "origin": "phlime:phlime",
+                        "inverted": true
+                    }
+                },
+                "include_target": true,
+                "radius": 3
+            }
+        },
+        "self_action": {
+            "type": "apoli:if_else",
+            "condition": {
+                "type": "apoli:and",
+                "conditions": [
+                    {
                         "type": "apoli:resource",
                         "resource": "*:abilities/scythe_uses",
+                        "comparison": ">",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "apoli:resource",
+                        "resource": "*:abilities/scythe_has",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    {
+                        "type": "apoli:resource",
+                        "resource": "*:abilities/scythe_cd",
                         "comparison": "==",
                         "compare_to": 0
                     },
-                    "if_action": {
-                        "type": "apoli:change_resource",
-                        "resource": "*:abilities/scythe_has",
-                        "operation": "set",
-                        "change": 0
+                    {
+                        "type": "apoli:resource",
+                        "resource": "*:abilities/switch_var",
+                        "comparison": "==",
+                        "compare_to": 2
                     }
-                }
-            ]
+                ]
+            },
+            "if_action": {
+                "type": "apoli:and",
+                "actions": [
+                    {
+                        "type": "apoli:trigger_cooldown",
+                        "power": "*:abilities/scythe_cd"
+                    },
+                    {
+                        "type": "apoli:change_resource",
+                        "resource": "*:abilities/scythe_uses",
+                        "operation": "add",
+                        "change": -1
+                    },
+                    {
+                        "type": "origins:equipped_item_action",
+                        "equipment_slot": "mainhand",
+                        "action": {
+                            "type": "origins:damage",
+                            "amount": 27,
+                            "ignore_unbreaking": true
+                        }
+                    },
+                    {
+                        "type": "apoli:if_else",
+                        "condition": {
+                            "type": "apoli:resource",
+                            "resource": "*:abilities/scythe_uses",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        "if_action": {
+                            "type": "apoli:change_resource",
+                            "resource": "*:abilities/scythe_has",
+                            "operation": "set",
+                            "change": 0
+                        }
+                    }
+                ]
+            }
         },
         "condition": {
             "type": "apoli:and",
@@ -123,7 +158,7 @@
                 },
                 {
                     "type": "apoli:resource",
-                    "resource": "*:*_cd",
+                    "resource": "*:abilities/scythe_cd",
                     "comparison": "==",
                     "compare_to": 0
                 },
@@ -147,14 +182,5 @@
                 "value": -0.5
             }
         ]
-    },
-    "cd": {
-        "type": "apoli:cooldown",
-        "cooldown": 40,
-        "hud_render": {
-            "should_render": false,
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
-            "bar_index": 9
-        }
     }
 }
