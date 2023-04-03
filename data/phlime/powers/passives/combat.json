@@ -84,6 +84,11 @@
                             "tag": "phlime:swords"
                         }
                     }
+                },
+                {
+                    "type": "origins:has_power",
+                    "power": "phlime:supps/scythe_use",
+                    "inverted": true
                 }
             ]
         }
