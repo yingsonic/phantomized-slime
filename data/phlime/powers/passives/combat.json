@@ -100,7 +100,7 @@
             "effect": {
                 "effect": "minecraft:haste",
                 "duration": 8,
-                "amplifier": 2,
+                "amplifier": 1,
                 "is_ambient": true,
                 "show_particles": false,
                 "show_icon": false
