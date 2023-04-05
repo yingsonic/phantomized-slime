@@ -79,16 +79,21 @@
                     "type": "apoli:equipped_item",
                     "equipment_slot": "mainhand",
                     "item_condition": {
-                        "type": "apoli:ingredient",
-                        "ingredient": {
-                            "tag": "phlime:swords"
-                        }
+                        "type": "apoli:and",
+                        "conditions": [
+                            {
+                                "type": "apoli:ingredient",
+                                "ingredient": {
+                                    "tag": "phlime:swords"
+                                }
+                            },
+                            {
+                                "type": "origins:has_power",
+                                "power": "phlime:supps/scythe_use",
+                                "inverted": true
+                            }
+                        ]
                     }
-                },
-                {
-                    "type": "origins:has_power",
-                    "power": "phlime:supps/scythe_use",
-                    "inverted": true
                 }
             ]
         }

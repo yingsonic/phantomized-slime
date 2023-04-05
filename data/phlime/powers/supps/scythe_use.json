@@ -12,7 +12,7 @@
                 "type": "apoli:area_of_effect",
                 "bientity_action": {
                     "type": "origins:delay",
-                    "ticks": 5,
+                    "ticks": 8,
                     "action": {
                         "type": "origins:and",
                         "actions": [
@@ -32,19 +32,28 @@
                                     "actions": [
                                         {
                                             "type": "apoli:apply_effect",
-                                            "effect": {
-                                                "effect": "minecraft:slowness",
-                                                "duration": 20,
-                                                "amplifier": 2,
-                                                "is_ambient": true,
-                                                "show_particles": true,
-                                                "show_icon": false
-                                            }
-    
+                                            "effects": [
+                                                {
+                                                    "effect": "minecraft:slowness",
+                                                    "duration": 20,
+                                                    "amplifier": 0,
+                                                    "is_ambient": true,
+                                                    "show_particles": true,
+                                                    "show_icon": false
+                                                },
+                                                {
+                                                    "effect": "minecraft:blindness",
+                                                    "duration": 30,
+                                                    "amplifier": 0,
+                                                    "is_ambient": true,
+                                                    "show_particles": true,
+                                                    "show_icon": false
+                                                }
+                                            ]
                                         },
                                         {
                                             "type": "apoli:execute_command",
-                                            "command": "execute as @s run function phlime:particles/scythe_strike"
+                                            "command": "execute at @s run function phlime:particles/scythe_strike"
                                         },
                                         {
                                             "type": "origins:play_sound",
