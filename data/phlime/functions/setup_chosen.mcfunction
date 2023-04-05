@@ -3,5 +3,6 @@
 # Pehkui commands
 
 # Minecraft commands (scoreboard, teams, etc)
+scoreboard objectives add bondSID dummy "DarkBondSID"
 
 # Misc commands
