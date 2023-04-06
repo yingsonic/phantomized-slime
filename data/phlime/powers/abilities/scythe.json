@@ -7,70 +7,83 @@
     "spawn": {
         "type": "apoli:active_self",
         "entity_action": {
-            "type": "apoli:and",
-            "actions": [
-                {
-                    "type": "apoli:change_resource",
-                    "resource": "*:*_has",
-                    "operation": "set",
-                    "change": 1
-                },
-                {
-                    "type": "apoli:change_resource",
-                    "resource": "*:*_uses",
-                    "operation": "set",
-                    "change": 5
-                },
-                {
-                    "type": "origins:equipped_item_action",
-                    "equipment_slot": "mainhand",
-                    "action": {
-                        "type": "origins:consume",
-                        "amount": 1
-                    }
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "give @s minecraft:stone_sword{Enchantments:[{id:\"minecraft:sweeping_edge\",lvl:3s}],CustomModelData:8730001,Tags:[\"shadowScythe\"],HideFlags:1}"
-                },
-                {
-                    "type": "origins:modify_inventory",
-                    "inventory_type": "inventory",
-                    "item_action": {
-                        "type": "apoli:and",
-                        "actions": [
-                            {
-                                "type": "origins:modify",
-                                "modifier": "phlime:scythe/use"
-                            },
-                            {
-                                "type": "origins:modify",
-                                "modifier": "phlime:scythe/name"
-                            }
-                        ]
+            "type": "apoli:if_else",
+            "condition": {
+                "type": "apoli:resource",
+                "resource": "*:*_spawn_cd",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            "else_action": {
+                "type": "origins:execute_command",
+                "command": "title @s actionbar \"§cThis ability is on cooldown!\""
+            },
+            "if_action": {
+                "type": "apoli:and",
+                "actions": [
+                    {
+                        "type": "apoli:change_resource",
+                        "resource": "*:*_has",
+                        "operation": "set",
+                        "change": 1
                     },
-                    "item_condition": {
-                        "type": "origins:and",
-                        "conditions": [
-                            {
-                                "type": "apoli:ingredient",
-                                "ingredient": {
-                                    "item": "minecraft:stone_sword"
+                    {
+                        "type": "apoli:change_resource",
+                        "resource": "*:*_uses",
+                        "operation": "set",
+                        "change": 5
+                    },
+                    {
+                        "type": "origins:equipped_item_action",
+                        "equipment_slot": "mainhand",
+                        "action": {
+                            "type": "origins:consume",
+                            "amount": 1
+                        }
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "give @s minecraft:stone_sword{Enchantments:[{id:\"minecraft:sweeping_edge\",lvl:3s}],CustomModelData:8730001,Tags:[\"shadowScythe\"],HideFlags:1}"
+                    },
+                    {
+                        "type": "origins:modify_inventory",
+                        "inventory_type": "inventory",
+                        "item_action": {
+                            "type": "apoli:and",
+                            "actions": [
+                                {
+                                    "type": "origins:modify",
+                                    "modifier": "phlime:scythe/use"
+                                },
+                                {
+                                    "type": "origins:modify",
+                                    "modifier": "phlime:scythe/name"
                                 }
-                            },
-                            {
-                                "type": "apoli:nbt",
-                                "nbt": "{CustomModelData:8730001,Tags:[\"shadowScythe\"]}"
-                            },
-                            {
-                                "type": "origins:has_power",
-                                "power": "phlime:supps/scythe_use",
-                                "inverted": true
-                            }
-                        ]
+                            ]
+                        },
+                        "item_condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "apoli:ingredient",
+                                    "ingredient": {
+                                        "item": "minecraft:stone_sword"
+                                    }
+                                },
+                                {
+                                    "type": "apoli:nbt",
+                                    "nbt": "{CustomModelData:8730001,Tags:[\"shadowScythe\"]}"
+                                },
+                                {
+                                    "type": "origins:has_power",
+                                    "power": "phlime:supps/scythe_use",
+                                    "inverted": true
+                                }
+                            ]
+                        }
                     }
-                }
-            ]
+                ]
+            }
         },
         "condition": {
             "type": "apoli:and",
@@ -148,8 +161,20 @@
                 {
                     "type": "apoli:trigger_cooldown",
                     "power": "*:*_spawn_cd"
+                },
+                {
+                    "type": "apoli:change_resource",
+                    "resource": "*:supps/scythe_stacks_var",
+                    "operation": "set",
+                    "change": 0
                 }
             ]
+        },
+        "falling_action": {
+            "type": "apoli:change_resource",
+            "resource": "*:supps/scythe_stacks_var",
+            "operation": "set",
+            "change": 1
         },
         "condition": {
             "type": "apoli:resource",

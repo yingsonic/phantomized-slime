@@ -1,0 +1,66 @@
+{
+    "name": "§6§n",
+    "description": "\n",
+    "hidden": true,
+
+    "type": "origins:multiple",
+    "gain": {
+        "type": "apoli:self_action_on_hit",
+        "entity_action": {
+            "type": "apoli:change_resource",
+            "resource": "*:*_var",
+            "operation": "add",
+            "change": 1
+        },
+        "condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:abilities/scythe_uses",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:abilities/scythe_has",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:abilities/switch_var",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "apoli:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "apoli:and",
+                        "conditions": [
+                            {
+                                "type": "apoli:nbt",
+                                "nbt": "{Tags:[\"shadowScythe\"]}"
+                            },
+                            {
+                                "type": "origins:has_power",
+                                "power": "phlime:supps/scythe_use"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "cooldown": 8
+    },
+    "var": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 5,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true
+        }
+    }
+}
