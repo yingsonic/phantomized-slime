@@ -60,7 +60,7 @@
                             },
                             {
                                 "type": "apoli:nbt",
-                                "nbt": "{Tags:[\"shadowScythe\"]}"
+                                "nbt": "{CustomModelData:8730001,Tags:[\"shadowScythe\"]}"
                             },
                             {
                                 "type": "origins:has_power",
@@ -112,6 +112,43 @@
             "key": "key.origins.senary_active"
         },
         "cooldown": 10
+    },
+    "check": {
+        "type": "apoli:action_over_time",
+        "rising_action": {
+            "type": "origins:modify_inventory",
+            "inventory_type": "inventory",
+            "item_action": {
+                "type": "apoli:consume",
+                "amount": 1
+            },
+            "item_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "apoli:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:stone_sword"
+                        }
+                    },
+                    {
+                        "type": "apoli:nbt",
+                        "nbt": "{CustomModelData:8730001,Tags:[\"shadowScythe\"]}"
+                    },
+                    {
+                        "type": "origins:has_power",
+                        "power": "phlime:supps/scythe_use"
+                    }
+                ]
+            }
+        },
+        "condition": {
+            "type": "apoli:resource",
+            "resource": "*:*_uses",
+            "comparison": "<",
+            "compare_to": 1
+        },
+        "interval": 1
     },
     "has": {
         "type": "origins:resource",
