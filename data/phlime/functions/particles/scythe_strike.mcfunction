@@ -1,101 +1,163 @@
 #Particles Generated with: Cloud Wolf's Particle Grapher
-particle flame ^0.000 ^0.000 ^0.571 0 0 0 0 1 force @a
-particle flame ^0.114 ^0.014 ^0.560 0 0 0 0 1 force @a
-particle flame ^0.223 ^0.029 ^0.526 0 0 0 0 1 force @a
-particle flame ^0.323 ^0.043 ^0.472 0 0 0 0 1 force @a
-particle flame ^0.410 ^0.057 ^0.398 0 0 0 0 1 force @a
-particle flame ^0.481 ^0.071 ^0.309 0 0 0 0 1 force @a
-particle flame ^0.533 ^0.086 ^0.207 0 0 0 0 1 force @a
-particle flame ^0.563 ^0.100 ^0.097 0 0 0 0 1 force @a
-particle flame ^0.571 ^0.114 ^-0.017 0 0 0 0 1 force @a
-particle flame ^0.556 ^0.129 ^-0.130 0 0 0 0 1 force @a
-particle flame ^0.520 ^0.143 ^-0.238 0 0 0 0 1 force @a
-particle flame ^0.462 ^0.157 ^-0.336 0 0 0 0 1 force @a
-particle flame ^0.386 ^0.171 ^-0.421 0 0 0 0 1 force @a
-particle flame ^0.295 ^0.186 ^-0.490 0 0 0 0 1 force @a
-particle flame ^0.191 ^0.200 ^-0.538 0 0 0 0 1 force @a
-particle flame ^0.081 ^0.214 ^-0.566 0 0 0 0 1 force @a
-particle flame ^-0.033 ^0.229 ^-0.570 0 0 0 0 1 force @a
-particle flame ^-0.146 ^0.243 ^-0.552 0 0 0 0 1 force @a
-particle flame ^-0.253 ^0.257 ^-0.512 0 0 0 0 1 force @a
-particle flame ^-0.350 ^0.271 ^-0.452 0 0 0 0 1 force @a
-particle flame ^-0.432 ^0.286 ^-0.374 0 0 0 0 1 force @a
-particle flame ^-0.498 ^0.300 ^-0.280 0 0 0 0 1 force @a
-particle flame ^-0.544 ^0.314 ^-0.176 0 0 0 0 1 force @a
-particle flame ^-0.568 ^0.329 ^-0.064 0 0 0 0 1 force @a
-particle flame ^-0.569 ^0.343 ^0.050 0 0 0 0 1 force @a
-particle flame ^-0.548 ^0.357 ^0.162 0 0 0 0 1 force @a
-particle flame ^-0.505 ^0.371 ^0.268 0 0 0 0 1 force @a
-particle flame ^-0.442 ^0.386 ^0.363 0 0 0 0 1 force @a
-particle flame ^-0.361 ^0.400 ^0.443 0 0 0 0 1 force @a
-particle flame ^-0.265 ^0.414 ^0.506 0 0 0 0 1 force @a
-particle flame ^-0.160 ^0.429 ^0.549 0 0 0 0 1 force @a
-particle flame ^-0.047 ^0.443 ^0.569 0 0 0 0 1 force @a
-particle flame ^0.067 ^0.457 ^0.568 0 0 0 0 1 force @a
-particle flame ^0.178 ^0.471 ^0.543 0 0 0 0 1 force @a
-particle flame ^0.282 ^0.486 ^0.497 0 0 0 0 1 force @a
-particle flame ^0.375 ^0.500 ^0.431 0 0 0 0 1 force @a
-particle flame ^0.454 ^0.514 ^0.348 0 0 0 0 1 force @a
-particle flame ^0.514 ^0.529 ^0.251 0 0 0 0 1 force @a
-particle flame ^0.553 ^0.543 ^0.144 0 0 0 0 1 force @a
-particle flame ^0.571 ^0.557 ^0.031 0 0 0 0 1 force @a
-particle flame ^0.565 ^0.571 ^-0.083 0 0 0 0 1 force @a
-particle flame ^0.538 ^0.586 ^-0.194 0 0 0 0 1 force @a
-particle flame ^0.488 ^0.600 ^-0.297 0 0 0 0 1 force @a
-particle flame ^0.420 ^0.614 ^-0.388 0 0 0 0 1 force @a
-particle flame ^0.334 ^0.629 ^-0.463 0 0 0 0 1 force @a
-particle flame ^0.235 ^0.643 ^-0.521 0 0 0 0 1 force @a
-particle flame ^0.127 ^0.657 ^-0.557 0 0 0 0 1 force @a
-particle flame ^0.014 ^0.671 ^-0.571 0 0 0 0 1 force @a
-particle flame ^-0.100 ^0.686 ^-0.563 0 0 0 0 1 force @a
-particle flame ^-0.209 ^0.700 ^-0.532 0 0 0 0 1 force @a
-particle flame ^-0.311 ^0.714 ^-0.479 0 0 0 0 1 force @a
-particle flame ^-0.400 ^0.729 ^-0.408 0 0 0 0 1 force @a
-particle flame ^-0.473 ^0.743 ^-0.321 0 0 0 0 1 force @a
-particle flame ^-0.527 ^0.757 ^-0.220 0 0 0 0 1 force @a
-particle flame ^-0.561 ^0.771 ^-0.111 0 0 0 0 1 force @a
-particle flame ^-0.571 ^0.786 ^0.003 0 0 0 0 1 force @a
-particle flame ^-0.560 ^0.800 ^0.116 0 0 0 0 1 force @a
-particle flame ^-0.525 ^0.814 ^0.225 0 0 0 0 1 force @a
-particle flame ^-0.470 ^0.829 ^0.325 0 0 0 0 1 force @a
-particle flame ^-0.396 ^0.843 ^0.412 0 0 0 0 1 force @a
-particle flame ^-0.307 ^0.857 ^0.482 0 0 0 0 1 force @a
-particle flame ^-0.205 ^0.871 ^0.534 0 0 0 0 1 force @a
-particle flame ^-0.095 ^0.886 ^0.564 0 0 0 0 1 force @a
-particle flame ^0.019 ^0.900 ^0.571 0 0 0 0 1 force @a
-particle flame ^0.132 ^0.914 ^0.556 0 0 0 0 1 force @a
-particle flame ^0.240 ^0.929 ^0.519 0 0 0 0 1 force @a
-particle flame ^0.338 ^0.943 ^0.461 0 0 0 0 1 force @a
-particle flame ^0.423 ^0.957 ^0.384 0 0 0 0 1 force @a
-particle flame ^0.491 ^0.971 ^0.292 0 0 0 0 1 force @a
-particle flame ^0.539 ^0.986 ^0.189 0 0 0 0 1 force @a
-particle flame ^0.566 ^1.000 ^0.078 0 0 0 0 1 force @a
-particle flame ^0.570 ^1.014 ^-0.036 0 0 0 0 1 force @a
-particle flame ^0.552 ^1.029 ^-0.148 0 0 0 0 1 force @a
-particle flame ^0.511 ^1.043 ^-0.255 0 0 0 0 1 force @a
-particle flame ^0.450 ^1.057 ^-0.352 0 0 0 0 1 force @a
-particle flame ^0.372 ^1.071 ^-0.434 0 0 0 0 1 force @a
-particle flame ^0.278 ^1.086 ^-0.499 0 0 0 0 1 force @a
-particle flame ^0.173 ^1.100 ^-0.545 0 0 0 0 1 force @a
-particle flame ^0.062 ^1.114 ^-0.568 0 0 0 0 1 force @a
-particle flame ^-0.053 ^1.129 ^-0.569 0 0 0 0 1 force @a
-particle flame ^-0.165 ^1.143 ^-0.547 0 0 0 0 1 force @a
-particle flame ^-0.270 ^1.157 ^-0.504 0 0 0 0 1 force @a
-particle flame ^-0.365 ^1.171 ^-0.440 0 0 0 0 1 force @a
-particle flame ^-0.445 ^1.186 ^-0.359 0 0 0 0 1 force @a
-particle flame ^-0.507 ^1.200 ^-0.263 0 0 0 0 1 force @a
-particle flame ^-0.549 ^1.214 ^-0.157 0 0 0 0 1 force @a
-particle flame ^-0.570 ^1.229 ^-0.045 0 0 0 0 1 force @a
-particle flame ^-0.567 ^1.243 ^0.069 0 0 0 0 1 force @a
-particle flame ^-0.542 ^1.257 ^0.180 0 0 0 0 1 force @a
-particle flame ^-0.496 ^1.271 ^0.285 0 0 0 0 1 force @a
-particle flame ^-0.429 ^1.286 ^0.377 0 0 0 0 1 force @a
-particle flame ^-0.346 ^1.300 ^0.455 0 0 0 0 1 force @a
-particle flame ^-0.248 ^1.314 ^0.515 0 0 0 0 1 force @a
-particle flame ^-0.141 ^1.329 ^0.554 0 0 0 0 1 force @a
-particle flame ^-0.028 ^1.343 ^0.571 0 0 0 0 1 force @a
-particle flame ^0.086 ^1.357 ^0.565 0 0 0 0 1 force @a
-particle flame ^0.196 ^1.371 ^0.537 0 0 0 0 1 force @a
-particle flame ^0.299 ^1.386 ^0.487 0 0 0 0 1 force @a
-particle flame ^0.390 ^1.400 ^0.418 0 0 0 0 1 force @a
-particle flame ^0.465 ^1.414 ^0.332 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.000 ^0.000 ^0.571 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.070 ^0.009 ^0.567 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.140 ^0.018 ^0.554 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.207 ^0.026 ^0.533 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.271 ^0.035 ^0.503 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.331 ^0.044 ^0.466 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.386 ^0.053 ^0.422 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.435 ^0.062 ^0.371 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.477 ^0.071 ^0.315 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.512 ^0.079 ^0.254 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.539 ^0.088 ^0.189 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.559 ^0.097 ^0.121 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.569 ^0.106 ^0.051 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.571 ^0.115 ^-0.020 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.564 ^0.123 ^-0.090 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.549 ^0.132 ^-0.158 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.525 ^0.141 ^-0.225 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.494 ^0.150 ^-0.288 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.454 ^0.159 ^-0.346 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.408 ^0.168 ^-0.400 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.356 ^0.176 ^-0.447 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.298 ^0.185 ^-0.487 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.236 ^0.194 ^-0.520 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.170 ^0.203 ^-0.546 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.102 ^0.212 ^-0.562 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.032 ^0.220 ^-0.571 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.039 ^0.229 ^-0.570 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.109 ^0.238 ^-0.561 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.177 ^0.247 ^-0.543 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.243 ^0.256 ^-0.517 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.305 ^0.265 ^-0.484 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.362 ^0.273 ^-0.442 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.413 ^0.282 ^-0.394 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.459 ^0.291 ^-0.340 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.497 ^0.300 ^-0.281 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.528 ^0.309 ^-0.218 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.551 ^0.317 ^-0.151 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.565 ^0.326 ^-0.082 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.571 ^0.335 ^-0.012 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.568 ^0.344 ^0.058 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.557 ^0.353 ^0.128 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.537 ^0.362 ^0.196 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.509 ^0.370 ^0.260 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.473 ^0.379 ^0.321 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.430 ^0.388 ^0.377 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.380 ^0.397 ^0.427 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.325 ^0.406 ^0.470 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.264 ^0.414 ^0.507 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.200 ^0.423 ^0.535 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.132 ^0.432 ^0.556 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.063 ^0.441 ^0.568 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.007 ^0.450 ^0.571 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.078 ^0.459 ^0.566 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.147 ^0.467 ^0.552 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.214 ^0.476 ^0.530 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.277 ^0.485 ^0.500 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.337 ^0.494 ^0.462 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.391 ^0.503 ^0.417 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.439 ^0.511 ^0.365 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.481 ^0.520 ^0.308 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.515 ^0.529 ^0.247 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.542 ^0.538 ^0.181 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.560 ^0.547 ^0.113 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.570 ^0.556 ^0.044 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.571 ^0.564 ^-0.027 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.563 ^0.573 ^-0.097 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.547 ^0.582 ^-0.166 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.522 ^0.591 ^-0.232 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.490 ^0.600 ^-0.294 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.450 ^0.608 ^-0.352 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.403 ^0.617 ^-0.405 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.350 ^0.626 ^-0.452 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.292 ^0.635 ^-0.491 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.229 ^0.644 ^-0.524 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.163 ^0.653 ^-0.548 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.094 ^0.661 ^-0.564 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.024 ^0.670 ^-0.571 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.046 ^0.679 ^-0.570 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.116 ^0.688 ^-0.559 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.184 ^0.697 ^-0.541 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.249 ^0.705 ^-0.514 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.311 ^0.714 ^-0.479 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.368 ^0.723 ^-0.438 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.419 ^0.732 ^-0.389 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.463 ^0.741 ^-0.334 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.501 ^0.750 ^-0.275 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.531 ^0.758 ^-0.211 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.553 ^0.767 ^-0.144 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.567 ^0.776 ^-0.075 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.571 ^0.785 ^-0.005 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.568 ^0.794 ^0.066 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.555 ^0.802 ^0.135 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.534 ^0.811 ^0.203 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.505 ^0.820 ^0.267 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.469 ^0.829 ^0.327 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.425 ^0.838 ^0.382 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.374 ^0.847 ^0.432 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.318 ^0.855 ^0.474 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.258 ^0.864 ^0.510 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.193 ^0.873 ^0.538 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.125 ^0.882 ^0.558 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.055 ^0.891 ^0.569 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.015 ^0.899 ^0.571 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.085 ^0.908 ^0.565 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.154 ^0.917 ^0.550 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.221 ^0.926 ^0.527 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.284 ^0.935 ^0.496 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.343 ^0.944 ^0.457 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.397 ^0.952 ^0.411 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.444 ^0.961 ^0.359 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.485 ^0.970 ^0.302 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.519 ^0.979 ^0.240 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.544 ^0.988 ^0.174 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.562 ^0.996 ^0.106 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.570 ^1.005 ^0.036 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.570 ^1.014 ^-0.034 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.562 ^1.023 ^-0.104 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.545 ^1.032 ^-0.173 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.519 ^1.041 ^-0.239 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.486 ^1.049 ^-0.301 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.445 ^1.058 ^-0.358 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.398 ^1.067 ^-0.410 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.344 ^1.076 ^-0.456 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.285 ^1.085 ^-0.495 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.222 ^1.093 ^-0.526 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.156 ^1.102 ^-0.550 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.087 ^1.111 ^-0.565 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.017 ^1.120 ^-0.571 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.054 ^1.129 ^-0.569 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.124 ^1.138 ^-0.558 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.191 ^1.146 ^-0.538 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.256 ^1.155 ^-0.511 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.317 ^1.164 ^-0.475 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.373 ^1.173 ^-0.433 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.424 ^1.182 ^-0.383 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.468 ^1.190 ^-0.328 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.505 ^1.199 ^-0.268 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.534 ^1.208 ^-0.204 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.555 ^1.217 ^-0.137 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.567 ^1.226 ^-0.067 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.571 ^1.235 ^0.003 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.567 ^1.243 ^0.073 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.553 ^1.252 ^0.143 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.532 ^1.261 ^0.210 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.502 ^1.270 ^0.273 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.464 ^1.279 ^0.333 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.420 ^1.287 ^0.388 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.369 ^1.296 ^0.437 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.312 ^1.305 ^0.479 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.251 ^1.314 ^0.513 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.186 ^1.323 ^0.540 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.118 ^1.332 ^0.559 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^-0.048 ^1.340 ^0.569 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.022 ^1.349 ^0.571 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.093 ^1.358 ^0.564 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.161 ^1.367 ^0.548 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.228 ^1.376 ^0.524 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.290 ^1.384 ^0.492 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.349 ^1.393 ^0.453 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.402 ^1.402 ^0.406 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.449 ^1.411 ^0.354 0 0 0 0 1 force @a
+particle dust 0 0 0 0.85 ^0.489 ^1.420 ^0.296 0 0 0 0 1 force @a

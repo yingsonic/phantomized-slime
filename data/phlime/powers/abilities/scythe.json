@@ -61,6 +61,11 @@
                             {
                                 "type": "apoli:nbt",
                                 "nbt": "{Tags:[\"shadowScythe\"]}"
+                            },
+                            {
+                                "type": "origins:has_power",
+                                "power": "phlime:supps/scythe_use",
+                                "inverted": true
                             }
                         ]
                     }
