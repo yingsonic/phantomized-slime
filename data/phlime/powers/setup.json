@@ -6,6 +6,14 @@
 			{
 				"type": "origins:execute_command",
 				"command": "execute as @s run function phlime:setup_chosen"
+			},
+			{
+				"type": "apoli:delay",
+				"ticks": 1,
+				"action": {
+					"type": "origins:execute_command",
+					"command": "resource set @s phlime:abilities/scythe_spawn_cd 200"
+				}
 			}
 		]
 	},
@@ -22,10 +30,6 @@
 				{
 					"type": "origins:execute_command",
 					"command": "execute as @s run function phlime:setup_lost"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "execute as @s run COMMANDHERE"
 				}
 			]
 		}
@@ -71,6 +75,6 @@
 		}
 	},
 	"execute_chosen_when_orb": true,
-	"loading_priority": 0,
+	"loading_priority": 10,
 	"hidden": true
 }

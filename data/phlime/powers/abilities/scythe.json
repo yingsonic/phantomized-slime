@@ -31,7 +31,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "give @s minecraft:stone_sword{Enchantments:[{id:\"minecraft:sweeping_edge\",lvl:3s}],CustomModelData:8730001,Tags:[\"shadowScythe\"]}"
+                    "command": "give @s minecraft:stone_sword{Enchantments:[{id:\"minecraft:sweeping_edge\",lvl:3s}],CustomModelData:8730001,Tags:[\"shadowScythe\"],HideFlags:1}"
                 },
                 {
                     "type": "origins:modify_inventory",
@@ -116,31 +116,40 @@
     "check": {
         "type": "apoli:action_over_time",
         "rising_action": {
-            "type": "origins:modify_inventory",
-            "inventory_type": "inventory",
-            "item_action": {
-                "type": "apoli:consume",
-                "amount": 1
-            },
-            "item_condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "apoli:ingredient",
-                        "ingredient": {
-                            "item": "minecraft:stone_sword"
-                        }
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_inventory",
+                    "inventory_type": "inventory",
+                    "item_action": {
+                        "type": "apoli:consume",
+                        "amount": 1
                     },
-                    {
-                        "type": "apoli:nbt",
-                        "nbt": "{CustomModelData:8730001,Tags:[\"shadowScythe\"]}"
-                    },
-                    {
-                        "type": "origins:has_power",
-                        "power": "phlime:supps/scythe_use"
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "apoli:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:stone_sword"
+                                }
+                            },
+                            {
+                                "type": "apoli:nbt",
+                                "nbt": "{CustomModelData:8730001,Tags:[\"shadowScythe\"]}"
+                            },
+                            {
+                                "type": "origins:has_power",
+                                "power": "phlime:supps/scythe_use"
+                            }
+                        ]
                     }
-                ]
-            }
+                },
+                {
+                    "type": "apoli:trigger_cooldown",
+                    "power": "*:*_spawn_cd"
+                }
+            ]
         },
         "condition": {
             "type": "apoli:resource",
@@ -183,6 +192,32 @@
             "should_render": false,
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
             "bar_index": 9
+        }
+    },
+    "spawn_cd": {
+        "type": "apoli:cooldown",
+        "cooldown": 200,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 17,
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "apoli:resource",
+                        "resource": "*:*_uses",
+                        "comparison": "<",
+                        "compare_to": 1
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:abilities/switch_var",
+                        "comparison": "==",
+                        "compare_to": 2
+                    }
+                ]
+            }
         }
     }
 }
