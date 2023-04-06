@@ -12,7 +12,7 @@
 				"ticks": 1,
 				"action": {
 					"type": "origins:execute_command",
-					"command": "resource set @s phlime:abilities/scythe_spawn_cd 200"
+					"command": "resource set @s phlime:abilities/scythe_spawn_cd 600"
 				}
 			}
 		]

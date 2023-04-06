@@ -29,6 +29,12 @@
                     },
                     {
                         "type": "apoli:change_resource",
+                        "resource": "*:stamina_var",
+                        "operation": "add",
+                        "change": -15
+                    },
+                    {
+                        "type": "apoli:change_resource",
                         "resource": "*:*_uses",
                         "operation": "set",
                         "change": 5
@@ -126,7 +132,7 @@
         },
         "cooldown": 10
     },
-    "check": {
+    "var_check": {
         "type": "apoli:action_over_time",
         "rising_action": {
             "type": "origins:and",
@@ -184,6 +190,123 @@
         },
         "interval": 1
     },
+    "change_check": {
+        "type": "origins:action_over_time",
+        "falling_action": {
+            "type": "apoli:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:abilities/scythe_has",
+                "comparison": "==",
+                "compare_to": 1
+            },
+            "if_action": {
+                "type": "apoli:and",
+                "actions": [
+                    {
+                        "type": "origins:modify_inventory",
+                        "inventory_type": "inventory",
+                        "item_action": {
+                            "type": "origins:consume"
+                        },
+                        "item_condition": {
+                            "type": "origins:has_power",
+                            "power": "phlime:supps/scythe_use"
+                        }
+                    },
+                    {
+                        "type": "apoli:change_resource",
+                        "resource": "*:abilities/scythe_uses",
+                        "operation": "set",
+                        "change": 0
+                    },
+                    {
+                        "type": "apoli:change_resource",
+                        "resource": "*:abilities/scythe_has",
+                        "operation": "set",
+                        "change": 0
+                    },
+                    {
+                        "type": "apoli:if_else",
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "*:supps/scythe_stacks_var",
+                            "comparison": ">",
+                            "compare_to": 0
+                        },
+                        "if_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "apoli:execute_command",
+                                    "command": "execute at @s run function phlime:particles/scythe_strike"
+                                },
+                                {
+                                    "type": "apoli:area_of_effect",
+                                    "bientity_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "apoli:damage",
+                                                "amount": 5,
+                                                "source": {
+                                                    "name": "magic.player",
+                                                    "magic": true,
+                                                    "bypasses_armor": false
+                                                }
+                                            },
+                                            {
+                                                "type": "apoli:target_action",
+                                                "action": {
+                                                    "type": "apoli:and",
+                                                    "actions": [
+                                                        {
+                                                            "type": "apoli:apply_effect",
+                                                            "effect": {
+                                                                "effect": "minecraft:blindness",
+                                                                "duration": 30,
+                                                                "amplifier": 0,
+                                                                "is_ambient": true,
+                                                                "show_particles": true,
+                                                                "show_icon": false
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "origins:play_sound",
+                                                            "sound": "block.respawn_anchor.charge",
+                                                            "volume": 1.5,
+                                                            "pitch": 0.8
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "bientity_condition": {
+                                        "type": "apoli:target_condition",
+                                        "condition": {
+                                            "type": "origins:origin",
+                                            "origin": "phlime:phlime",
+                                            "inverted": true
+                                        }
+                                    },
+                                    "include_target": false,
+                                    "radius": 5
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:abilities/switch_var",
+            "comparison": "==",
+            "compare_to": 2
+        },
+        "interval": 1
+    },
     "has": {
         "type": "origins:resource",
         "min": 0,
@@ -199,15 +322,7 @@
         "max": 5,
         "start_value": 0,
         "hud_render": {
-            "should_render": true,
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
-            "bar_index": 17,
-            "condition": {
-                "type": "apoli:resource",
-                "resource": "*:*_uses",
-                "comparison": ">",
-                "compare_to": 0
-            }
+            "should_render": false
         }
     },
     "cd": {
@@ -221,7 +336,7 @@
     },
     "spawn_cd": {
         "type": "apoli:cooldown",
-        "cooldown": 200,
+        "cooldown": 600,
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
