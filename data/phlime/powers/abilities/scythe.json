@@ -34,9 +34,9 @@
                     "command": "give @s minecraft:stone_sword{Enchantments:[{id:\"minecraft:sweeping_edge\",lvl:3s}],CustomModelData:8730001,Tags:[\"shadowScythe\"]}"
                 },
                 {
-                    "type": "origins:equipped_item_action",
-                    "equipment_slot": "mainhand",
-                    "action": {
+                    "type": "origins:modify_inventory",
+                    "inventory_type": "inventory",
+                    "item_action": {
                         "type": "apoli:and",
                         "actions": [
                             {
@@ -46,6 +46,21 @@
                             {
                                 "type": "origins:modify",
                                 "modifier": "phlime:scythe/name"
+                            }
+                        ]
+                    },
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "apoli:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:stone_sword"
+                                }
+                            },
+                            {
+                                "type": "apoli:nbt",
+                                "nbt": "{Tags:[\"shadowScythe\"]}"
                             }
                         ]
                     }
