@@ -1,0 +1,60 @@
+{
+    "name": "§6§n",
+    "description": "\n",
+    "hidden": false,
+
+    "type": "origins:multiple",
+    "main": {
+        "type": "apoli:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "apoli:execute_command",
+                    "command": "say Error 404, Tendril Whip Not Found"
+                },
+                {
+                    "type": "apoli:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:abilities/scythe_has",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    "if_action": {
+                        "type": "apoli:change_resource",
+                        "resource": "*:stamina_var",
+                        "operation": "add",
+                        "change": -50
+                    },
+                    "else_action": {
+                        "type": "apoli:change_resource",
+                        "resource": "*:stamina_var",
+                        "operation": "add",
+                        "change": -25
+                    }
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:abilities/switch_var",
+                    "comparison": "==",
+                    "compare_to": 2
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": false,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 0
+        },
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "cooldown": 5
+    }
+}

@@ -1,0 +1,92 @@
+{
+    "name": "§6§n",
+    "description": "\n",
+    "hidden": false,
+
+    "type": "origins:multiple",
+    "main": {
+        "type": "apoli:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "apoli:area_of_effect",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "apoli:damage",
+                                "amount": 5,
+                                "source": {
+                                    "name": "magic.player",
+                                    "magic": true,
+                                    "bypasses_armor": false
+                                }
+                            },
+                            {
+                                "type": "apoli:target_action",
+                                "action": {
+                                    "type": "apoli:and",
+                                    "actions": [
+                                        {
+                                            "type": "apoli:apply_effect",
+                                            "effect": {
+                                                "effect": "minecraft:blindness",
+                                                "duration": 30,
+                                                "amplifier": 0,
+                                                "is_ambient": true,
+                                                "show_particles": true,
+                                                "show_icon": false
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:play_sound",
+                                            "sound": "block.respawn_anchor.charge",
+                                            "volume": 1.5,
+                                            "pitch": 1.25
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "apoli:can_see"
+                            },
+                            {
+                                "type": "apoli:target_condition",
+                                "condition": {
+                                    "type": "origins:nbt",
+                                    "nbt": "{Tags: ['phlimeTempImmune']}",
+                                    "inverted": true
+                                }
+                            }
+                        ]
+                    },
+                    "include_target": false,
+                    "radius": 6
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": false,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 0
+        },
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "cooldown": 1
+    }
+}

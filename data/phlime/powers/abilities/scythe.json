@@ -254,6 +254,12 @@
                                     }
                                 },
                                 {
+                                    "type": "origins:play_sound",
+                                    "sound": "entity.enderman.teleport",
+                                    "volume": 1.5,
+                                    "pitch": 1
+                                },
+                                {
                                     "type": "apoli:area_of_effect",
                                     "bientity_action": {
                                         "type": "origins:and",
@@ -287,7 +293,7 @@
                                                             "type": "origins:play_sound",
                                                             "sound": "block.respawn_anchor.charge",
                                                             "volume": 1.5,
-                                                            "pitch": 0.8
+                                                            "pitch": 1.25
                                                         }
                                                     ]
                                                 }
@@ -295,12 +301,20 @@
                                         ]
                                     },
                                     "bientity_condition": {
-                                        "type": "apoli:target_condition",
-                                        "condition": {
-                                            "type": "origins:nbt",
-                                            "nbt": "{Tags: ['phlimeTempImmune']}",
-                                            "inverted": true
-                                        }
+                                        "type": "origins:and",
+                                        "conditions": [
+                                            {
+                                                "type": "apoli:can_see"
+                                            },
+                                            {
+                                                "type": "apoli:target_condition",
+                                                "condition": {
+                                                    "type": "origins:nbt",
+                                                    "nbt": "{Tags: ['phlimeTempImmune']}",
+                                                    "inverted": true
+                                                }
+                                            }
+                                        ]
                                     },
                                     "include_target": false,
                                     "radius": 5
