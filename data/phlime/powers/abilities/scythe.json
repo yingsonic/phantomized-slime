@@ -242,6 +242,18 @@
                                     "command": "execute at @s run function phlime:particles/scythe_strike"
                                 },
                                 {
+                                    "type": "apoli:execute_command",
+                                    "command": "tag @s add phlimeTempImmune"
+                                },
+                                {
+                                    "type": "apoli:delay",
+                                    "ticks": 1,
+                                    "action": {
+                                        "type": "apoli:execute_command",
+                                        "command": "tag @s remove phlimeTempImmune"
+                                    }
+                                },
+                                {
                                     "type": "apoli:area_of_effect",
                                     "bientity_action": {
                                         "type": "origins:and",
@@ -285,8 +297,8 @@
                                     "bientity_condition": {
                                         "type": "apoli:target_condition",
                                         "condition": {
-                                            "type": "origins:origin",
-                                            "origin": "phlime:phlime",
+                                            "type": "origins:nbt",
+                                            "nbt": "{Tags: ['phlimeTempImmune']}",
                                             "inverted": true
                                         }
                                     },
