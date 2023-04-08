@@ -10,64 +10,96 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "apoli:area_of_effect",
-                    "bientity_action": {
+                    "type": "apoli:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:slowness",
+                        "duration": 5,
+                        "amplifier": 254,
+                        "is_ambient": true,
+                        "show_particles": false,
+                        "show_icon": false
+                    }
+                },
+                {
+                    "type": "apoli:delay",
+                    "ticks": 5,
+                    "action": {
                         "type": "origins:and",
                         "actions": [
                             {
-                                "type": "apoli:damage",
-                                "amount": 5,
-                                "source": {
-                                    "name": "magic.player",
-                                    "magic": true,
-                                    "bypasses_armor": false
-                                }
+                                "type": "apoli:change_resource",
+                                "resource": "*:stamina_var",
+                                "operation": "add",
+                                "change": -100
                             },
                             {
-                                "type": "apoli:target_action",
-                                "action": {
-                                    "type": "apoli:and",
+                                "type": "origins:play_sound",
+                                "sound": "entity.enderman.teleport",
+                                "volume": 1.5,
+                                "pitch": 1.1
+                            },
+                            {
+                                "type": "apoli:area_of_effect",
+                                "bientity_action": {
+                                    "type": "origins:and",
                                     "actions": [
                                         {
-                                            "type": "apoli:apply_effect",
-                                            "effect": {
-                                                "effect": "minecraft:blindness",
-                                                "duration": 30,
-                                                "amplifier": 0,
-                                                "is_ambient": true,
-                                                "show_particles": true,
-                                                "show_icon": false
+                                            "type": "apoli:damage",
+                                            "amount": 5,
+                                            "source": {
+                                                "name": "magic.player",
+                                                "magic": true,
+                                                "bypasses_armor": false
                                             }
                                         },
                                         {
-                                            "type": "origins:play_sound",
-                                            "sound": "block.respawn_anchor.charge",
-                                            "volume": 1.5,
-                                            "pitch": 1.25
+                                            "type": "apoli:target_action",
+                                            "action": {
+                                                "type": "apoli:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "apoli:apply_effect",
+                                                        "effect": {
+                                                            "effect": "minecraft:blindness",
+                                                            "duration": 30,
+                                                            "amplifier": 0,
+                                                            "is_ambient": true,
+                                                            "show_particles": true,
+                                                            "show_icon": false
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "origins:play_sound",
+                                                        "sound": "block.respawn_anchor.charge",
+                                                        "volume": 1.5,
+                                                        "pitch": 0.6
+                                                    }
+                                                ]
+                                            }
                                         }
                                     ]
-                                }
+                                },
+                                "bientity_condition": {
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type": "apoli:can_see"
+                                        },
+                                        {
+                                            "type": "apoli:target_condition",
+                                            "condition": {
+                                                "type": "origins:nbt",
+                                                "nbt": "{Tags: ['phlimeTempImmune']}",
+                                                "inverted": true
+                                            }
+                                        }
+                                    ]
+                                },
+                                "include_target": false,
+                                "radius": 6
                             }
                         ]
-                    },
-                    "bientity_condition": {
-                        "type": "origins:and",
-                        "conditions": [
-                            {
-                                "type": "apoli:can_see"
-                            },
-                            {
-                                "type": "apoli:target_condition",
-                                "condition": {
-                                    "type": "origins:nbt",
-                                    "nbt": "{Tags: ['phlimeTempImmune']}",
-                                    "inverted": true
-                                }
-                            }
-                        ]
-                    },
-                    "include_target": false,
-                    "radius": 6
+                    }
                 }
             ]
         },
@@ -75,7 +107,16 @@
             "type": "origins:and",
             "conditions": [
                 {
-                    
+                    "type": "origins:resource",
+                    "resource": "*:abilities/switch_var",
+                    "comparison": "==",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:stamina_var",
+                    "comparison": ">=",
+                    "compare_to": 100
                 }
             ]
         },
