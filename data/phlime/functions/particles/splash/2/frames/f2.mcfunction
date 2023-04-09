@@ -1,0 +1,21 @@
+
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.909 ^0.416 ^1.000 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.910 ^0.473 ^1.025 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.906 ^0.530 ^1.050 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.900 ^0.588 ^1.075 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.889 ^0.647 ^1.100 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.875 ^0.707 ^1.125 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.858 ^0.766 ^1.150 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.836 ^0.826 ^1.175 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.811 ^0.885 ^1.200 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.781 ^0.944 ^1.225 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.748 ^1.001 ^1.250 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.711 ^1.058 ^1.275 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.670 ^1.114 ^1.300 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.625 ^1.168 ^1.325 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.577 ^1.220 ^1.350 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.525 ^1.271 ^1.375 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.469 ^1.319 ^1.400 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.410 ^1.365 ^1.425 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.347 ^1.408 ^1.450 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.281 ^1.448 ^1.475 0 0 0 0 1 force @a

@@ -1,0 +1,21 @@
+
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.212 ^1.485 ^1.500 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.139 ^1.519 ^1.525 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.064 ^1.549 ^1.550 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^-0.013 ^1.575 ^1.575 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^-0.093 ^1.597 ^1.600 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^-0.176 ^1.615 ^1.625 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^-0.260 ^1.629 ^1.650 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^-0.347 ^1.639 ^1.675 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^-0.434 ^1.644 ^1.700 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^-0.524 ^1.644 ^1.725 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^-0.614 ^1.639 ^1.750 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^-0.705 ^1.629 ^1.775 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^-0.797 ^1.614 ^1.800 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^-0.888 ^1.594 ^1.825 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^-0.980 ^1.569 ^1.850 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^-1.072 ^1.539 ^1.875 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^-1.163 ^1.503 ^1.900 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^-1.252 ^1.462 ^1.925 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^-1.341 ^1.416 ^1.950 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^-1.428 ^1.364 ^1.975 0 0 0 0 1 force @a

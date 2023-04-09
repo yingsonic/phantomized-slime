@@ -21,22 +21,87 @@
                     }
                 },
                 {
+                    "type": "origins:change_resource",
+                    "resource": "*:stamina_var",
+                    "operation": "add",
+                    "change": -100
+                },
+                {
+                    "type": "apoli:trigger_cooldown",
+                    "power": "*:*_particles_cd"
+                },
+                {
+                    "type": "apoli:delay",
+                    "ticks": 2,
+                    "action": {
+                        "type": "apoli:area_of_effect",
+                        "bientity_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:add_velocity",
+                                    "set": true,
+                                    "z": -1
+                                },
+                                {
+                                    "type": "apoli:target_action",
+                                    "action": {
+                                        "type": "apoli:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:play_sound",
+                                                "sound": "entity.horse.breathe",
+                                                "volume": 1.5,
+                                                "pitch": 0.6
+                                            },
+                                            {
+                                                "type": "origins:play_sound",
+                                                "sound": "entity.horse.breathe",
+                                                "volume": 1.5,
+                                                "pitch": 0.4
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "bientity_condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "apoli:can_see"
+                                },
+                                {
+                                    "type": "apoli:target_condition",
+                                    "condition": {
+                                        "type": "origins:nbt",
+                                        "nbt": "{Tags: ['phlimeTempImmune']}",
+                                        "inverted": true
+                                    }
+                                }
+                            ]
+                        },
+                        "include_target": false,
+                        "radius": 5
+                    }
+                },
+                {
                     "type": "apoli:delay",
                     "ticks": 5,
                     "action": {
                         "type": "origins:and",
                         "actions": [
                             {
-                                "type": "apoli:change_resource",
-                                "resource": "*:stamina_var",
-                                "operation": "add",
-                                "change": -100
-                            },
-                            {
                                 "type": "origins:play_sound",
                                 "sound": "entity.enderman.teleport",
                                 "volume": 1.5,
                                 "pitch": 1.1
+                            },
+                            {
+                                "type": "origins:play_sound",
+                                "sound": "block.respawn_anchor.charge",
+                                "volume": 1.5,
+                                "pitch": 0.6
                             },
                             {
                                 "type": "apoli:area_of_effect",
@@ -61,18 +126,12 @@
                                                         "type": "apoli:apply_effect",
                                                         "effect": {
                                                             "effect": "minecraft:blindness",
-                                                            "duration": 30,
+                                                            "duration": 50,
                                                             "amplifier": 0,
                                                             "is_ambient": true,
                                                             "show_particles": true,
                                                             "show_icon": false
                                                         }
-                                                    },
-                                                    {
-                                                        "type": "origins:play_sound",
-                                                        "sound": "block.respawn_anchor.charge",
-                                                        "volume": 1.5,
-                                                        "pitch": 0.6
                                                     }
                                                 ]
                                             }
@@ -96,7 +155,7 @@
                                     ]
                                 },
                                 "include_target": false,
-                                "radius": 6
+                                "radius": 5
                             }
                         ]
                     }
@@ -129,5 +188,33 @@
             "key": "key.origins.primary_active"
         },
         "cooldown": 1
+    },
+    "particles": {
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function phlime:particles/corruptive_splash"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_particles_cd",
+            "comparison": ">",
+            "compare_to": 0
+        },
+        "interval": 1
+    },
+    "particles_cd": {
+        "type": "apoli:cooldown",
+        "cooldown": 6,
+        "hud_render": {
+            "should_render": false,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 0
+        }
     }
 }

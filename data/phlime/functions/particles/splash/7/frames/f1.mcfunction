@@ -1,0 +1,21 @@
+
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.421 ^-0.270 ^0.500 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.455 ^-0.261 ^0.525 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.490 ^-0.249 ^0.550 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.525 ^-0.235 ^0.575 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.559 ^-0.217 ^0.600 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.593 ^-0.197 ^0.625 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.626 ^-0.174 ^0.650 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.659 ^-0.148 ^0.675 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.690 ^-0.119 ^0.700 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.720 ^-0.087 ^0.725 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.748 ^-0.053 ^0.750 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.775 ^-0.016 ^0.775 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.800 ^0.023 ^0.800 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.822 ^0.065 ^0.825 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.843 ^0.110 ^0.850 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.861 ^0.156 ^0.875 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.876 ^0.204 ^0.900 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.889 ^0.255 ^0.925 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.899 ^0.307 ^0.950 0 0 0 0 1 force @a
+particle dust_color_transition 0.45 0.1 0.9 1.3 0.1 0.1 0.1 ^0.906 ^0.361 ^0.975 0 0 0 0 1 force @a
