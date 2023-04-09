@@ -46,8 +46,8 @@
                 {
                     "type": "origins:resource",
                     "resource": "*:*_var",
-                    "comparison": "==",
-                    "compare_to": 0
+                    "comparison": "<=",
+                    "compare_to": 5
                 },
                 {
                     "type": "origins:living"

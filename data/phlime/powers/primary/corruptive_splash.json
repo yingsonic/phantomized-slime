@@ -52,7 +52,7 @@
                                                 "type": "origins:play_sound",
                                                 "sound": "entity.horse.breathe",
                                                 "volume": 1.5,
-                                                "pitch": 0.6
+                                                "pitch": 0.2
                                             },
                                             {
                                                 "type": "origins:play_sound",
@@ -110,7 +110,7 @@
                                     "actions": [
                                         {
                                             "type": "apoli:damage",
-                                            "amount": 5,
+                                            "amount": 10,
                                             "source": {
                                                 "name": "magic.player",
                                                 "magic": true,
@@ -139,20 +139,7 @@
                                     ]
                                 },
                                 "bientity_condition": {
-                                    "type": "origins:and",
-                                    "conditions": [
-                                        {
-                                            "type": "apoli:can_see"
-                                        },
-                                        {
-                                            "type": "apoli:target_condition",
-                                            "condition": {
-                                                "type": "origins:nbt",
-                                                "nbt": "{Tags: ['phlimeTempImmune']}",
-                                                "inverted": true
-                                            }
-                                        }
-                                    ]
+                                    "type": "apoli:can_see"
                                 },
                                 "include_target": false,
                                 "radius": 5
@@ -192,13 +179,8 @@
     "particles": {
         "type": "apoli:action_over_time",
         "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "function phlime:particles/corruptive_splash"
-                }
-            ]
+            "type": "origins:execute_command",
+            "command": "function phlime:particles/corruptive_splash"
         },
         "condition": {
             "type": "origins:resource",
