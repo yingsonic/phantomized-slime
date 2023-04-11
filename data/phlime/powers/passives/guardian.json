@@ -11,10 +11,22 @@
             "command": "execute as @s run function phlime:particles/guardian"
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:abilities/switch_var",
-            "comparison": "==",
-            "compare_to": 3
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:abilities/switch_var",
+                    "comparison": "==",
+                    "compare_to": 3
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:stamina_var",
+                    "comparison": "<=",
+                    "compare_to": 5,
+                    "inverted": true
+                }
+            ]
         },
         "interval": 7
     },

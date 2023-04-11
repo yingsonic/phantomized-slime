@@ -74,7 +74,7 @@
             "type": "apoli:change_resource",
             "resource": "*:stamina_var",
             "operation": "add",
-            "change": 5
+            "change": 10
         },
         "condition": {
             "type": "apoli:and",
@@ -82,8 +82,8 @@
                 {
                     "type": "apoli:resource",
                     "resource": "*:stamina_var",
-                    "comparison": "==",
-                    "compare_to": 0,
+                    "comparison": "<=",
+                    "compare_to": 5,
                     "inverted": true
                 },
                 {
@@ -94,7 +94,7 @@
                 }
             ]
         },
-        "interval": 20,
+        "interval": 15,
         "hidden": true
     }
 }

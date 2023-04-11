@@ -1,0 +1,34 @@
+{
+    "name": "§6§n",
+    "description": "\n",
+    "hidden": false,
+
+    "type": "origins:multiple",
+    "gain": {
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:passives/rogue_stack_var",
+            "operation": "add",
+            "change": 1
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:abilities/switch_var",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:passives/rogue_is_phasing",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "interval": 20
+    }
+}

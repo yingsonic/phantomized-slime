@@ -4,6 +4,106 @@
     "hidden": false,
 
     "type": "origins:multiple",
+    "phase_toggle": {
+        "type": "apoli:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_is_phasing",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar \"§7You have entered into an ephemeral state.\""
+                            },
+                            {
+                                "type": "apoli:change_resource",
+                                "resource": "*:*_is_phasing",
+                                "operation": "set",
+                                "change": 1
+                            },
+                            {
+                                "type": "apoli:execute_command",
+                                "command": "power grant @s phlime:supps/rogue_stacks"
+                            },
+                            {
+                                "type": "apoli:change_resource",
+                                "resource": "*:*_stack_var",
+                                "operation": "set",
+                                "change": 0
+                            },
+                            {
+                                "type": "apoli:change_resource",
+                                "resource": "*:*_shroud_timer",
+                                "operation": "set",
+                                "change": 60
+                            }
+                        ]
+                    },
+                    "else_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:play_sound",
+                                "sound": "block.respawn_anchor.deplete",
+                                "volume": 1,
+                                "pitch": 1.1
+                            },
+                            {
+                                "type": "apoli:change_resource",
+                                "resource": "*:*_is_phasing",
+                                "operation": "set",
+                                "change": 0
+                            },
+                            {
+                                "type": "apoli:execute_command",
+                                "command": "power revoke @s phlime:supps/rogue_stacks"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_stack_var",
+                                    "comparison": ">",
+                                    "compare_to": 0
+                                },
+                                "if_action": {
+                                    "type": "apoli:trigger_cooldown",
+                                    "power": "*:*_shroud_timer"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:abilities/switch_var",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.senary_active"
+        },
+        "cooldown": 10
+    },
     "phase": {
         "type": "apoli:phasing",
         "blacklist": true,
@@ -25,10 +125,21 @@
             ]
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:abilities/switch_var",
-            "comparison": "==",
-            "compare_to": 1
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:abilities/switch_var",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_phasing",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
         }
     },
     "faster": {
@@ -57,14 +168,46 @@
             ]
         }
     },
-    "translucent": {
+    "translucent_normal": {
         "type": "apoli:model_color",
-        "alpha": 0.5,
+        "alpha": 0.6,
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:abilities/switch_var",
-            "comparison": "==",
-            "compare_to": 1
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:abilities/switch_var",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_phasing",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "translucent_phasing": {
+        "type": "apoli:model_color",
+        "alpha": 0.2,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:abilities/switch_var",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_phasing",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
         }
     },
     "damage_reduc": {
@@ -78,6 +221,99 @@
             "resource": "*:abilities/switch_var",
             "comparison": "==",
             "compare_to": 1
+        }
+    },
+    "falling_mode": {
+        "type": "apoli:action_over_time",
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "apoli:execute_command",
+                    "command": "power revoke @s phlime:supps/rogue_stacks"
+                },
+                {
+                    "type": "apoli:change_resource",
+                    "resource": "*:*_is_phasing",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "apoli:change_resource",
+                    "resource": "*:*_stack_var",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "apoli:change_resource",
+                    "resource": "*:*_shroud_timer",
+                    "operation": "set",
+                    "change": 40
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:abilities/switch_var",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "is_phasing": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "stack_var": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_is_phasing",
+                "comparison": "==",
+                "compare_to": 1
+            }
+        }
+    },
+    "shroud_timer": {
+        "type": "apoli:cooldown",
+        "cooldown": 40,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 0,
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_shroud_timer",
+                        "comparison": ">",
+                        "compare_to": 2
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_is_phasing",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                ]
+            },
+            "inverted": true
         }
     }
 }

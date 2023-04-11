@@ -116,6 +116,19 @@
                     "resource": "*:*_cd",
                     "comparison": "==",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:passives/rogue_is_phasing",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:passives/rogue_shroud_timer",
+                    "comparison": ">",
+                    "compare_to": 0,
+                    "inverted": true
                 }
             ]
         },
