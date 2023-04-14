@@ -163,6 +163,9 @@
                     "resource": "*:stamina_var",
                     "comparison": ">=",
                     "compare_to": 100
+                },
+                {
+                    "type": "origins:on_block"
                 }
             ]
         },

@@ -10,8 +10,10 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "apoli:execute_command",
-                    "command": "say Error 404, Tendril Whip Not Found"
+                    "type": "origins:change_resource",
+                    "resource": "*:*_var",
+                    "operation": "set",
+                    "change": 1
                 },
                 {
                     "type": "apoli:if_else",
@@ -44,6 +46,26 @@
                     "resource": "*:abilities/switch_var",
                     "comparison": "==",
                     "compare_to": 2
+                },
+                {
+                    "type": "apoli:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "apoli:and",
+                        "conditions": [
+                            {
+                                "type": "apoli:ingredient",
+                                "ingredient": {
+                                    "tag": "phlime:swords"
+                                },
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:has_power",
+                                "power": "phlime:supps/scythe_use"
+                            }
+                        ]
+                    }
                 }
             ]
         },
@@ -56,5 +78,87 @@
             "key": "key.origins.primary_active"
         },
         "cooldown": 5
+    },
+    "check": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:area_of_effect",
+                    "bientity_action": {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute as @p at @s anchored eyes facing entity @e[sort=nearest,limit=1,type=!player] eyes anchored feet positioned ^ ^ ^1 rotated as @s positioned ^ ^ ^-1 if entity @s[distance=..0.3] run effect give @e[type=!player,sort=nearest,limit=1] glowing 10 10 true"
+                                }
+                            ]
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:actor_condition",
+                                "condition": {
+                                    "type": "origins:command",
+                                    "command": "execute as @s at @s if entity @e[tag=watcherFriend, distance=..5] as @e[tag=watcherFriend] if score @s WatcherFriend = @p WatcherFriend",
+                                    "comparison": "==",
+                                    "compare_to": 1,
+                                    "inverted": true
+                                }
+                            },
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:and",
+                                    "conditions": [
+
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "radius": 16
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_var",
+                    "operation": "set",
+                    "change": 1
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_var",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:scoreboard",
+                    "objective": "WatcherWatchTimer",
+                    "comparison": "<=",
+                    "compare_to": 0,
+                    "inverted": true
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "var": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
     }
 }
