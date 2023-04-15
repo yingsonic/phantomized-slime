@@ -36,6 +36,15 @@
                             {
                                 "type": "origins:actor_action",
                                 "action": {
+                                    "type": "origins:play_sound",
+                                    "sound": "block.roots.break",
+                                    "volume": 1.5,
+                                    "pitch": 0.8
+                                }
+                            },
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
                                     "type": "origins:swing_hand",
                                     "hand": "MAIN_HAND"
                                 }
@@ -80,7 +89,7 @@
                                         "actions": [
                                             {
                                                 "type": "apoli:damage",
-                                                "amount": 8,
+                                                "amount": 6,
                                                 "source": {
                                                     "name": "magic.player",
                                                     "magic": true,
@@ -194,8 +203,8 @@
                         "type": "origins:execute_command",
                         "command": "title @s actionbar \"§cYou missed!\""
                     },
-                    "command_along_ray": "particle minecraft:soul_fire_flame",
-                    "command_step": 1,
+                    "command_along_ray": "particle minecraft:dust 0 0 0 2 ~ ~ ~ 0 0 0 0.05 1 force",
+                    "command_step": 0.5,
                     "command_along_ray_only_on_hit": true
                 }
             ]

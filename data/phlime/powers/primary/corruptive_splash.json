@@ -116,7 +116,7 @@
                                     "actions": [
                                         {
                                             "type": "apoli:damage",
-                                            "amount": 10,
+                                            "amount": 9,
                                             "source": {
                                                 "name": "magic.player",
                                                 "magic": true,
@@ -148,13 +148,17 @@
                                     "type": "apoli:can_see"
                                 },
                                 "include_target": false,
-                                "radius": 5
+                                "radius": 4
                             },
                             {
                                 "type": "apoli:change_resource",
                                 "resource": "*:disable_jump_var",
                                 "operation": "set",
                                 "change": 0
+                            },
+                            {
+                                "type": "apoli:trigger_cooldown",
+                                "power": "*:*_cd"
                             }
                         ]
                     }
@@ -178,6 +182,12 @@
                 },
                 {
                     "type": "origins:on_block"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_cd",
+                    "comparison": "==",
+                    "compare_to": 0
                 }
             ]
         },
@@ -190,6 +200,21 @@
             "key": "key.origins.primary_active"
         },
         "cooldown": 1
+    },
+    "cd": {
+        "type": "apoli:cooldown",
+        "cooldown": 160,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 0,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:abilities/switch_var",
+                "comparison": "==",
+                "compare_to": 3
+            }
+        }
     },
     "particles": {
         "type": "apoli:action_over_time",

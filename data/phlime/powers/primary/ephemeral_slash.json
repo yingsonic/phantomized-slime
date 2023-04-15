@@ -59,6 +59,12 @@
                         "change": -75
                     },
                     {
+                        "type": "origins:play_sound",
+                        "sound": "minecraft:block.medium_amethyst_bud.break",
+                        "volume": 2,
+                        "pitch": 2
+                    },
+                    {
                         "type": "origins:and",
                         "actions": [
                             {
@@ -91,7 +97,7 @@
                                                 "type": "origins:target_action",
                                                 "action": {
                                                     "type": "origins:execute_command",
-                                                    "command": "say woo particles!"
+                                                    "command": "execute positioned ~ ~1.5 ~ facing ^-100 ^1 ^ positioned ^0.75 ^-0.75 ^-0.625 run function phlime:particles/slash/1"
                                                 }
                                             }
                                         },
@@ -235,6 +241,12 @@
                             "type": "origins:and",
                             "actions": [
                                 {
+                                    "type": "origins:play_sound",
+                                    "sound": "minecraft:block.medium_amethyst_bud.break",
+                                    "volume": 2,
+                                    "pitch": 2
+                                },
+                                {
                                     "type": "origins:and",
                                     "actions": [
                                         {
@@ -267,7 +279,7 @@
                                                             "type": "origins:target_action",
                                                             "action": {
                                                                 "type": "origins:execute_command",
-                                                                "command": "say woo particles!"
+                                                                "command": "execute positioned ~ ~1.5 ~ facing ^-100 ^1 ^ positioned ^0.75 ^-0.75 ^0.625 run function phlime:particles/slash/2"
                                                             }
                                                         }
                                                     },
@@ -414,6 +426,12 @@
                             "type": "origins:and",
                             "actions": [
                                 {
+                                    "type": "origins:play_sound",
+                                    "sound": "minecraft:block.medium_amethyst_bud.break",
+                                    "volume": 3,
+                                    "pitch": 1.5
+                                },
+                                {
                                     "type": "origins:and",
                                     "actions": [
                                         {
@@ -449,7 +467,7 @@
                                                                 "actions": [
                                                                     {
                                                                         "type": "origins:execute_command",
-                                                                        "command": "say woo particles!"
+                                                                        "command": "execute positioned ~ ~1.5 ~ facing ^-100 ^1 ^ positioned ^0.75 ^ ^-1.25 run function phlime:particles/slash/3"
                                                                     },
                                                                     {
                                                                         "type": "origins:execute_command",
@@ -554,6 +572,13 @@
                                                         }
                                                     ]
                                                 }
+                                            },
+                                            {
+                                                "type": "origins:actor_action",
+                                                "action": {
+                                                    "type": "apoli:trigger_cooldown",
+                                                    "power": "*:*_cd"
+                                                }
                                             }
                                         ]
                                     },
@@ -616,10 +641,7 @@
             "miss_action": {
                 "type": "origins:execute_command",
                 "command": "title @s actionbar \"§cYou missed!\""
-            },
-            "command_along_ray": "particle minecraft:soul_fire_flame",
-            "command_step": 1,
-            "command_along_ray_only_on_hit": true
+            }
         },
         "condition": {
             "type": "origins:and",
@@ -662,6 +684,12 @@
                 {
                     "type": "origins:sneaking",
                     "inverted": true
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_cd",
+                    "comparison": "==",
+                    "compare_to": 0
                 }
             ]
         },
@@ -674,5 +702,20 @@
             "key": "key.origins.primary_active"
         },
         "cooldown": 60
+    },
+    "cd": {
+        "type": "apoli:cooldown",
+        "cooldown": 200,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 0,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:abilities/switch_var",
+                "comparison": "==",
+                "compare_to": 2
+            }
+        }
     }
 }

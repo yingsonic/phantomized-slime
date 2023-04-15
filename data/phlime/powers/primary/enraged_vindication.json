@@ -7,7 +7,7 @@
         "type": "apoli:active_self",
         "entity_action": {
             "type": "origins:raycast",
-            "distance": 8,
+            "distance": 10,
             "block": false,
             "entity": true,
             "shape_type": "visual",
@@ -16,7 +16,7 @@
                 "type": "origins:target_action",
                 "action": {
                     "type": "origins:execute_command",
-                    "command": "summon minecraft:armor_stand ~ ~ ~ {Marker:1b,CustomName:{\"text\":\"Enraged Vindication\",\"color\":\"dark_grey\"},Invisible:1b,PersistenceRequired:1b,Invulnerable:1b,NoGravity:1b,Tags:[\"enragedVindMarker\",\"tempVind\"]}"
+                    "command": "execute as @s at @s run summon minecraft:armor_stand ~ ~ ~ {Marker:1b,CustomName:{\"text\":\"Enraged Vindication\",\"color\":\"dark_grey\"},Invisible:1b,PersistenceRequired:1b,Invulnerable:1b,NoGravity:1b,Tags:[\"enragedVindMarker\",\"tempVind\"]}"
                 }
             },
             "hit_action": {
@@ -25,6 +25,14 @@
                     {
                         "type": "origins:execute_command",
                         "command": "function phlime:sid/vind"
+                    },
+                    {
+                        "type": "apoli:execute_command",
+                        "command": "execute as @s at @s as @e if score @p vindSID = @s vindSID at @e run tp @s[type=minecraft:armor_stand] ~ ~ ~ -180 0"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "execute positioned ~ ~1.15 ~ run function phlime:particles/vindication_start"
                     },
                     {
                         "type": "apoli:change_resource",
@@ -46,6 +54,12 @@
                         ]
                     },
                     {
+                        "type": "origins:play_sound",
+                        "sound": "block.redstone_torch.burnout",
+                        "volume": 1.5,
+                        "pitch": 1.2
+                    },
+                    {
                         "type": "apoli:area_of_effect",
                         "bientity_action": {
                             "type": "origins:and",
@@ -61,7 +75,7 @@
                                                     "type": "origins:target_action",
                                                     "action": {
                                                         "type": "apoli:damage",
-                                                        "amount": 7,
+                                                        "amount": 9,
                                                         "source": {
                                                             "name": "magic.player",
                                                             "magic": true,
@@ -133,12 +147,1012 @@
                                     "type": "origins:target_action",
                                     "action": {
                                         "type": "apoli:damage",
-                                        "amount": 7,
+                                        "amount": 9,
                                         "source": {
                                             "name": "magic.player",
                                             "magic": true,
                                             "bypasses_armor": false
                                         }
+                                    }
+                                },
+                                {
+                                    "type": "apoli:delay",
+                                    "ticks": 60,
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:actor_action",
+                                                "action": {
+                                                    "type": "apoli:execute_command",
+                                                    "command": "tag @s add phlimeTempImmune"
+                                                }
+                                            },
+                                            {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:choice",
+                                                    "actions": [
+                                                        {
+                                                            "element": {
+                                                                "type": "origins:and",
+                                                                "actions": [
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "execute positioned ~ ~2 ~ positioned ^2 ^ ^-2 facing ~1 ~ ~ run function phlime:particles/vindication_linger"
+                                                                    },
+                                                                    {
+                                                                        "type": "apoli:area_of_effect",
+                                                                        "bientity_action": {
+                                                                            "type": "origins:and",
+                                                                            "actions": [
+                                                                                {
+                                                                                    "type": "origins:target_action",
+                                                                                    "action": {
+                                                                                        "type": "apoli:damage",
+                                                                                        "amount": 6,
+                                                                                        "source": {
+                                                                                            "name": "magic.player",
+                                                                                            "magic": true,
+                                                                                            "bypasses_armor": false
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                {
+                                                                                    "type": "apoli:target_action",
+                                                                                    "action": {
+                                                                                        "type": "apoli:and",
+                                                                                        "actions": [
+                                                                                            {
+                                                                                                "type": "apoli:apply_effect",
+                                                                                                "effect": {
+                                                                                                    "effect": "minecraft:blindness",
+                                                                                                    "duration": 30,
+                                                                                                    "amplifier": 0,
+                                                                                                    "is_ambient": true,
+                                                                                                    "show_particles": true,
+                                                                                                    "show_icon": false
+                                                                                                }
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "bientity_condition": {
+                                                                            "type": "origins:and",
+                                                                            "conditions": [
+                                                                                {
+                                                                                    "type": "apoli:can_see"
+                                                                                },
+                                                                                {
+                                                                                    "type": "apoli:target_condition",
+                                                                                    "condition": {
+                                                                                        "type": "origins:nbt",
+                                                                                        "nbt": "{Tags: ['phlimeTempImmune']}",
+                                                                                        "inverted": true
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "include_target": false,
+                                                                        "radius": 2
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "weight": 1
+                                                        },
+                                                        {
+                                                            "element": {
+                                                                "type": "origins:and",
+                                                                "actions": [
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "execute positioned ~ ~2 ~ positioned ^2 ^ ^-2 facing ~1 ~ ~ run function phlime:particles/vindication_linger"
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "execute positioned ~ ~3 ~ positioned ^2 ^ ^2 facing ~ ~ ~1 run function phlime:particles/vindication_linger"
+                                                                    },
+                                                                    {
+                                                                        "type": "apoli:area_of_effect",
+                                                                        "bientity_action": {
+                                                                            "type": "origins:and",
+                                                                            "actions": [
+                                                                                {
+                                                                                    "type": "origins:target_action",
+                                                                                    "action": {
+                                                                                        "type": "apoli:damage",
+                                                                                        "amount": 7,
+                                                                                        "source": {
+                                                                                            "name": "magic.player",
+                                                                                            "magic": true,
+                                                                                            "bypasses_armor": false
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                {
+                                                                                    "type": "apoli:target_action",
+                                                                                    "action": {
+                                                                                        "type": "apoli:and",
+                                                                                        "actions": [
+                                                                                            {
+                                                                                                "type": "apoli:apply_effect",
+                                                                                                "effect": {
+                                                                                                    "effect": "minecraft:blindness",
+                                                                                                    "duration": 30,
+                                                                                                    "amplifier": 0,
+                                                                                                    "is_ambient": true,
+                                                                                                    "show_particles": true,
+                                                                                                    "show_icon": false
+                                                                                                }
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "bientity_condition": {
+                                                                            "type": "origins:and",
+                                                                            "conditions": [
+                                                                                {
+                                                                                    "type": "apoli:can_see"
+                                                                                },
+                                                                                {
+                                                                                    "type": "apoli:target_condition",
+                                                                                    "condition": {
+                                                                                        "type": "origins:nbt",
+                                                                                        "nbt": "{Tags: ['phlimeTempImmune']}",
+                                                                                        "inverted": true
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "include_target": false,
+                                                                        "radius": 2
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "weight": 1
+                                                        },
+                                                        {
+                                                            "element": {
+                                                                "type": "origins:and",
+                                                                "actions": [
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "execute positioned ~ ~2 ~ positioned ^2 ^ ^-2 facing ~1 ~ ~ run function phlime:particles/vindication_linger"
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "execute positioned ~ ~3 ~ positioned ^2 ^ ^2 facing ~ ~ ~1 run function phlime:particles/vindication_linger"
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "execute positioned ~ ~3 ~ positioned ^-2 ^ ^2 facing ~-1 ~ ~ run function phlime:particles/vindication_linger"
+                                                                    },
+                                                                    {
+                                                                        "type": "apoli:area_of_effect",
+                                                                        "bientity_action": {
+                                                                            "type": "origins:and",
+                                                                            "actions": [
+                                                                                {
+                                                                                    "type": "origins:target_action",
+                                                                                    "action": {
+                                                                                        "type": "apoli:damage",
+                                                                                        "amount": 9,
+                                                                                        "source": {
+                                                                                            "name": "magic.player",
+                                                                                            "magic": true,
+                                                                                            "bypasses_armor": false
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                {
+                                                                                    "type": "apoli:target_action",
+                                                                                    "action": {
+                                                                                        "type": "apoli:and",
+                                                                                        "actions": [
+                                                                                            {
+                                                                                                "type": "apoli:apply_effect",
+                                                                                                "effect": {
+                                                                                                    "effect": "minecraft:blindness",
+                                                                                                    "duration": 30,
+                                                                                                    "amplifier": 0,
+                                                                                                    "is_ambient": true,
+                                                                                                    "show_particles": true,
+                                                                                                    "show_icon": false
+                                                                                                }
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "bientity_condition": {
+                                                                            "type": "origins:and",
+                                                                            "conditions": [
+                                                                                {
+                                                                                    "type": "apoli:can_see"
+                                                                                },
+                                                                                {
+                                                                                    "type": "apoli:target_condition",
+                                                                                    "condition": {
+                                                                                        "type": "origins:nbt",
+                                                                                        "nbt": "{Tags: ['phlimeTempImmune']}",
+                                                                                        "inverted": true
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "include_target": false,
+                                                                        "radius": 2
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "weight": 1
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "origins:actor_action",
+                                                "action": {
+                                                    "type": "apoli:execute_command",
+                                                    "command": "tag @s remove phlimeTempImmune"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "apoli:delay",
+                                    "ticks": 100,
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:actor_action",
+                                                "action": {
+                                                    "type": "apoli:execute_command",
+                                                    "command": "tag @s add phlimeTempImmune"
+                                                }
+                                            },
+                                            {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:choice",
+                                                    "actions": [
+                                                        {
+                                                            "element": {
+                                                                "type": "origins:and",
+                                                                "actions": [
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "execute positioned ~ ~2 ~ positioned ^2 ^ ^-2 facing ~1 ~ ~ run function phlime:particles/vindication_linger"
+                                                                    },
+                                                                    {
+                                                                        "type": "apoli:area_of_effect",
+                                                                        "bientity_action": {
+                                                                            "type": "origins:and",
+                                                                            "actions": [
+                                                                                {
+                                                                                    "type": "origins:target_action",
+                                                                                    "action": {
+                                                                                        "type": "apoli:damage",
+                                                                                        "amount": 6,
+                                                                                        "source": {
+                                                                                            "name": "magic.player",
+                                                                                            "magic": true,
+                                                                                            "bypasses_armor": false
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                {
+                                                                                    "type": "apoli:target_action",
+                                                                                    "action": {
+                                                                                        "type": "apoli:and",
+                                                                                        "actions": [
+                                                                                            {
+                                                                                                "type": "apoli:apply_effect",
+                                                                                                "effect": {
+                                                                                                    "effect": "minecraft:blindness",
+                                                                                                    "duration": 30,
+                                                                                                    "amplifier": 0,
+                                                                                                    "is_ambient": true,
+                                                                                                    "show_particles": true,
+                                                                                                    "show_icon": false
+                                                                                                }
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "bientity_condition": {
+                                                                            "type": "origins:and",
+                                                                            "conditions": [
+                                                                                {
+                                                                                    "type": "apoli:can_see"
+                                                                                },
+                                                                                {
+                                                                                    "type": "apoli:target_condition",
+                                                                                    "condition": {
+                                                                                        "type": "origins:nbt",
+                                                                                        "nbt": "{Tags: ['phlimeTempImmune']}",
+                                                                                        "inverted": true
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "include_target": false,
+                                                                        "radius": 2
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "weight": 1
+                                                        },
+                                                        {
+                                                            "element": {
+                                                                "type": "origins:and",
+                                                                "actions": [
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "execute positioned ~ ~2 ~ positioned ^2 ^ ^-2 facing ~1 ~ ~ run function phlime:particles/vindication_linger"
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "execute positioned ~ ~3 ~ positioned ^2 ^ ^2 facing ~ ~ ~1 run function phlime:particles/vindication_linger"
+                                                                    },
+                                                                    {
+                                                                        "type": "apoli:area_of_effect",
+                                                                        "bientity_action": {
+                                                                            "type": "origins:and",
+                                                                            "actions": [
+                                                                                {
+                                                                                    "type": "origins:target_action",
+                                                                                    "action": {
+                                                                                        "type": "apoli:damage",
+                                                                                        "amount": 7,
+                                                                                        "source": {
+                                                                                            "name": "magic.player",
+                                                                                            "magic": true,
+                                                                                            "bypasses_armor": false
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                {
+                                                                                    "type": "apoli:target_action",
+                                                                                    "action": {
+                                                                                        "type": "apoli:and",
+                                                                                        "actions": [
+                                                                                            {
+                                                                                                "type": "apoli:apply_effect",
+                                                                                                "effect": {
+                                                                                                    "effect": "minecraft:blindness",
+                                                                                                    "duration": 30,
+                                                                                                    "amplifier": 0,
+                                                                                                    "is_ambient": true,
+                                                                                                    "show_particles": true,
+                                                                                                    "show_icon": false
+                                                                                                }
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "bientity_condition": {
+                                                                            "type": "origins:and",
+                                                                            "conditions": [
+                                                                                {
+                                                                                    "type": "apoli:can_see"
+                                                                                },
+                                                                                {
+                                                                                    "type": "apoli:target_condition",
+                                                                                    "condition": {
+                                                                                        "type": "origins:nbt",
+                                                                                        "nbt": "{Tags: ['phlimeTempImmune']}",
+                                                                                        "inverted": true
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "include_target": false,
+                                                                        "radius": 2
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "weight": 1
+                                                        },
+                                                        {
+                                                            "element": {
+                                                                "type": "origins:and",
+                                                                "actions": [
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "execute positioned ~ ~2 ~ positioned ^2 ^ ^-2 facing ~1 ~ ~ run function phlime:particles/vindication_linger"
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "execute positioned ~ ~3 ~ positioned ^2 ^ ^2 facing ~ ~ ~1 run function phlime:particles/vindication_linger"
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "execute positioned ~ ~3 ~ positioned ^-2 ^ ^2 facing ~-1 ~ ~ run function phlime:particles/vindication_linger"
+                                                                    },
+                                                                    {
+                                                                        "type": "apoli:area_of_effect",
+                                                                        "bientity_action": {
+                                                                            "type": "origins:and",
+                                                                            "actions": [
+                                                                                {
+                                                                                    "type": "origins:target_action",
+                                                                                    "action": {
+                                                                                        "type": "apoli:damage",
+                                                                                        "amount": 9,
+                                                                                        "source": {
+                                                                                            "name": "magic.player",
+                                                                                            "magic": true,
+                                                                                            "bypasses_armor": false
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                {
+                                                                                    "type": "apoli:target_action",
+                                                                                    "action": {
+                                                                                        "type": "apoli:and",
+                                                                                        "actions": [
+                                                                                            {
+                                                                                                "type": "apoli:apply_effect",
+                                                                                                "effect": {
+                                                                                                    "effect": "minecraft:blindness",
+                                                                                                    "duration": 30,
+                                                                                                    "amplifier": 0,
+                                                                                                    "is_ambient": true,
+                                                                                                    "show_particles": true,
+                                                                                                    "show_icon": false
+                                                                                                }
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "bientity_condition": {
+                                                                            "type": "origins:and",
+                                                                            "conditions": [
+                                                                                {
+                                                                                    "type": "apoli:can_see"
+                                                                                },
+                                                                                {
+                                                                                    "type": "apoli:target_condition",
+                                                                                    "condition": {
+                                                                                        "type": "origins:nbt",
+                                                                                        "nbt": "{Tags: ['phlimeTempImmune']}",
+                                                                                        "inverted": true
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "include_target": false,
+                                                                        "radius": 2
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "weight": 1
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "origins:actor_action",
+                                                "action": {
+                                                    "type": "apoli:execute_command",
+                                                    "command": "tag @s remove phlimeTempImmune"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "apoli:delay",
+                                    "ticks": 140,
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:actor_action",
+                                                "action": {
+                                                    "type": "apoli:execute_command",
+                                                    "command": "tag @s add phlimeTempImmune"
+                                                }
+                                            },
+                                            {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:choice",
+                                                    "actions": [
+                                                        {
+                                                            "element": {
+                                                                "type": "origins:and",
+                                                                "actions": [
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "execute positioned ~ ~2 ~ positioned ^2 ^ ^-2 facing ~1 ~ ~ run function phlime:particles/vindication_linger"
+                                                                    },
+                                                                    {
+                                                                        "type": "apoli:area_of_effect",
+                                                                        "bientity_action": {
+                                                                            "type": "origins:and",
+                                                                            "actions": [
+                                                                                {
+                                                                                    "type": "origins:target_action",
+                                                                                    "action": {
+                                                                                        "type": "apoli:damage",
+                                                                                        "amount": 6,
+                                                                                        "source": {
+                                                                                            "name": "magic.player",
+                                                                                            "magic": true,
+                                                                                            "bypasses_armor": false
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                {
+                                                                                    "type": "apoli:target_action",
+                                                                                    "action": {
+                                                                                        "type": "apoli:and",
+                                                                                        "actions": [
+                                                                                            {
+                                                                                                "type": "apoli:apply_effect",
+                                                                                                "effect": {
+                                                                                                    "effect": "minecraft:blindness",
+                                                                                                    "duration": 30,
+                                                                                                    "amplifier": 0,
+                                                                                                    "is_ambient": true,
+                                                                                                    "show_particles": true,
+                                                                                                    "show_icon": false
+                                                                                                }
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "bientity_condition": {
+                                                                            "type": "origins:and",
+                                                                            "conditions": [
+                                                                                {
+                                                                                    "type": "apoli:can_see"
+                                                                                },
+                                                                                {
+                                                                                    "type": "apoli:target_condition",
+                                                                                    "condition": {
+                                                                                        "type": "origins:nbt",
+                                                                                        "nbt": "{Tags: ['phlimeTempImmune']}",
+                                                                                        "inverted": true
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "include_target": false,
+                                                                        "radius": 2
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "weight": 1
+                                                        },
+                                                        {
+                                                            "element": {
+                                                                "type": "origins:and",
+                                                                "actions": [
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "execute positioned ~ ~2 ~ positioned ^2 ^ ^-2 facing ~1 ~ ~ run function phlime:particles/vindication_linger"
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "execute positioned ~ ~3 ~ positioned ^2 ^ ^2 facing ~ ~ ~1 run function phlime:particles/vindication_linger"
+                                                                    },
+                                                                    {
+                                                                        "type": "apoli:area_of_effect",
+                                                                        "bientity_action": {
+                                                                            "type": "origins:and",
+                                                                            "actions": [
+                                                                                {
+                                                                                    "type": "origins:target_action",
+                                                                                    "action": {
+                                                                                        "type": "apoli:damage",
+                                                                                        "amount": 7,
+                                                                                        "source": {
+                                                                                            "name": "magic.player",
+                                                                                            "magic": true,
+                                                                                            "bypasses_armor": false
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                {
+                                                                                    "type": "apoli:target_action",
+                                                                                    "action": {
+                                                                                        "type": "apoli:and",
+                                                                                        "actions": [
+                                                                                            {
+                                                                                                "type": "apoli:apply_effect",
+                                                                                                "effect": {
+                                                                                                    "effect": "minecraft:blindness",
+                                                                                                    "duration": 30,
+                                                                                                    "amplifier": 0,
+                                                                                                    "is_ambient": true,
+                                                                                                    "show_particles": true,
+                                                                                                    "show_icon": false
+                                                                                                }
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "bientity_condition": {
+                                                                            "type": "origins:and",
+                                                                            "conditions": [
+                                                                                {
+                                                                                    "type": "apoli:can_see"
+                                                                                },
+                                                                                {
+                                                                                    "type": "apoli:target_condition",
+                                                                                    "condition": {
+                                                                                        "type": "origins:nbt",
+                                                                                        "nbt": "{Tags: ['phlimeTempImmune']}",
+                                                                                        "inverted": true
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "include_target": false,
+                                                                        "radius": 2
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "weight": 1
+                                                        },
+                                                        {
+                                                            "element": {
+                                                                "type": "origins:and",
+                                                                "actions": [
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "execute positioned ~ ~2 ~ positioned ^2 ^ ^-2 facing ~1 ~ ~ run function phlime:particles/vindication_linger"
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "execute positioned ~ ~3 ~ positioned ^2 ^ ^2 facing ~ ~ ~1 run function phlime:particles/vindication_linger"
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "execute positioned ~ ~3 ~ positioned ^-2 ^ ^2 facing ~-1 ~ ~ run function phlime:particles/vindication_linger"
+                                                                    },
+                                                                    {
+                                                                        "type": "apoli:area_of_effect",
+                                                                        "bientity_action": {
+                                                                            "type": "origins:and",
+                                                                            "actions": [
+                                                                                {
+                                                                                    "type": "origins:target_action",
+                                                                                    "action": {
+                                                                                        "type": "apoli:damage",
+                                                                                        "amount": 9,
+                                                                                        "source": {
+                                                                                            "name": "magic.player",
+                                                                                            "magic": true,
+                                                                                            "bypasses_armor": false
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                {
+                                                                                    "type": "apoli:target_action",
+                                                                                    "action": {
+                                                                                        "type": "apoli:and",
+                                                                                        "actions": [
+                                                                                            {
+                                                                                                "type": "apoli:apply_effect",
+                                                                                                "effect": {
+                                                                                                    "effect": "minecraft:blindness",
+                                                                                                    "duration": 30,
+                                                                                                    "amplifier": 0,
+                                                                                                    "is_ambient": true,
+                                                                                                    "show_particles": true,
+                                                                                                    "show_icon": false
+                                                                                                }
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "bientity_condition": {
+                                                                            "type": "origins:and",
+                                                                            "conditions": [
+                                                                                {
+                                                                                    "type": "apoli:can_see"
+                                                                                },
+                                                                                {
+                                                                                    "type": "apoli:target_condition",
+                                                                                    "condition": {
+                                                                                        "type": "origins:nbt",
+                                                                                        "nbt": "{Tags: ['phlimeTempImmune']}",
+                                                                                        "inverted": true
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "include_target": false,
+                                                                        "radius": 2
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "weight": 1
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "origins:actor_action",
+                                                "action": {
+                                                    "type": "apoli:execute_command",
+                                                    "command": "tag @s remove phlimeTempImmune"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "apoli:delay",
+                                    "ticks": 180,
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:actor_action",
+                                                "action": {
+                                                    "type": "apoli:execute_command",
+                                                    "command": "tag @s add phlimeTempImmune"
+                                                }
+                                            },
+                                            {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:choice",
+                                                    "actions": [
+                                                        {
+                                                            "element": {
+                                                                "type": "origins:and",
+                                                                "actions": [
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "execute positioned ~ ~2 ~ positioned ^2 ^ ^-2 facing ~1 ~ ~ run function phlime:particles/vindication_linger"
+                                                                    },
+                                                                    {
+                                                                        "type": "apoli:area_of_effect",
+                                                                        "bientity_action": {
+                                                                            "type": "origins:and",
+                                                                            "actions": [
+                                                                                {
+                                                                                    "type": "origins:target_action",
+                                                                                    "action": {
+                                                                                        "type": "apoli:damage",
+                                                                                        "amount": 6,
+                                                                                        "source": {
+                                                                                            "name": "magic.player",
+                                                                                            "magic": true,
+                                                                                            "bypasses_armor": false
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                {
+                                                                                    "type": "apoli:target_action",
+                                                                                    "action": {
+                                                                                        "type": "apoli:and",
+                                                                                        "actions": [
+                                                                                            {
+                                                                                                "type": "apoli:apply_effect",
+                                                                                                "effect": {
+                                                                                                    "effect": "minecraft:blindness",
+                                                                                                    "duration": 30,
+                                                                                                    "amplifier": 0,
+                                                                                                    "is_ambient": true,
+                                                                                                    "show_particles": true,
+                                                                                                    "show_icon": false
+                                                                                                }
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "bientity_condition": {
+                                                                            "type": "origins:and",
+                                                                            "conditions": [
+                                                                                {
+                                                                                    "type": "apoli:can_see"
+                                                                                },
+                                                                                {
+                                                                                    "type": "apoli:target_condition",
+                                                                                    "condition": {
+                                                                                        "type": "origins:nbt",
+                                                                                        "nbt": "{Tags: ['phlimeTempImmune']}",
+                                                                                        "inverted": true
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "include_target": false,
+                                                                        "radius": 2
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "weight": 1
+                                                        },
+                                                        {
+                                                            "element": {
+                                                                "type": "origins:and",
+                                                                "actions": [
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "execute positioned ~ ~2 ~ positioned ^2 ^ ^-2 facing ~1 ~ ~ run function phlime:particles/vindication_linger"
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "execute positioned ~ ~3 ~ positioned ^2 ^ ^2 facing ~ ~ ~1 run function phlime:particles/vindication_linger"
+                                                                    },
+                                                                    {
+                                                                        "type": "apoli:area_of_effect",
+                                                                        "bientity_action": {
+                                                                            "type": "origins:and",
+                                                                            "actions": [
+                                                                                {
+                                                                                    "type": "origins:target_action",
+                                                                                    "action": {
+                                                                                        "type": "apoli:damage",
+                                                                                        "amount": 7,
+                                                                                        "source": {
+                                                                                            "name": "magic.player",
+                                                                                            "magic": true,
+                                                                                            "bypasses_armor": false
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                {
+                                                                                    "type": "apoli:target_action",
+                                                                                    "action": {
+                                                                                        "type": "apoli:and",
+                                                                                        "actions": [
+                                                                                            {
+                                                                                                "type": "apoli:apply_effect",
+                                                                                                "effect": {
+                                                                                                    "effect": "minecraft:blindness",
+                                                                                                    "duration": 30,
+                                                                                                    "amplifier": 0,
+                                                                                                    "is_ambient": true,
+                                                                                                    "show_particles": true,
+                                                                                                    "show_icon": false
+                                                                                                }
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "bientity_condition": {
+                                                                            "type": "origins:and",
+                                                                            "conditions": [
+                                                                                {
+                                                                                    "type": "apoli:can_see"
+                                                                                },
+                                                                                {
+                                                                                    "type": "apoli:target_condition",
+                                                                                    "condition": {
+                                                                                        "type": "origins:nbt",
+                                                                                        "nbt": "{Tags: ['phlimeTempImmune']}",
+                                                                                        "inverted": true
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "include_target": false,
+                                                                        "radius": 2
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "weight": 1
+                                                        },
+                                                        {
+                                                            "element": {
+                                                                "type": "origins:and",
+                                                                "actions": [
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "execute positioned ~ ~2 ~ positioned ^2 ^ ^-2 facing ~1 ~ ~ run function phlime:particles/vindication_linger"
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "execute positioned ~ ~3 ~ positioned ^2 ^ ^2 facing ~ ~ ~1 run function phlime:particles/vindication_linger"
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "execute positioned ~ ~3 ~ positioned ^-2 ^ ^2 facing ~-1 ~ ~ run function phlime:particles/vindication_linger"
+                                                                    },
+                                                                    {
+                                                                        "type": "apoli:area_of_effect",
+                                                                        "bientity_action": {
+                                                                            "type": "origins:and",
+                                                                            "actions": [
+                                                                                {
+                                                                                    "type": "origins:target_action",
+                                                                                    "action": {
+                                                                                        "type": "apoli:damage",
+                                                                                        "amount": 9,
+                                                                                        "source": {
+                                                                                            "name": "magic.player",
+                                                                                            "magic": true,
+                                                                                            "bypasses_armor": false
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                {
+                                                                                    "type": "apoli:target_action",
+                                                                                    "action": {
+                                                                                        "type": "apoli:and",
+                                                                                        "actions": [
+                                                                                            {
+                                                                                                "type": "apoli:apply_effect",
+                                                                                                "effect": {
+                                                                                                    "effect": "minecraft:blindness",
+                                                                                                    "duration": 30,
+                                                                                                    "amplifier": 0,
+                                                                                                    "is_ambient": true,
+                                                                                                    "show_particles": true,
+                                                                                                    "show_icon": false
+                                                                                                }
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "bientity_condition": {
+                                                                            "type": "origins:and",
+                                                                            "conditions": [
+                                                                                {
+                                                                                    "type": "apoli:can_see"
+                                                                                },
+                                                                                {
+                                                                                    "type": "apoli:target_condition",
+                                                                                    "condition": {
+                                                                                        "type": "origins:nbt",
+                                                                                        "nbt": "{Tags: ['phlimeTempImmune']}",
+                                                                                        "inverted": true
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "include_target": false,
+                                                                        "radius": 2
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "weight": 1
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "origins:actor_action",
+                                                "action": {
+                                                    "type": "apoli:execute_command",
+                                                    "command": "tag @s remove phlimeTempImmune"
+                                                }
+                                            }
+                                        ]
                                     }
                                 }
                             ]
@@ -204,10 +1218,7 @@
             "miss_action": {
                 "type": "origins:execute_command",
                 "command": "title @s actionbar \"§cYou missed!\""
-            },
-            "command_along_ray": "particle minecraft:soul_fire_flame",
-            "command_step": 1,
-            "command_along_ray_only_on_hit": true
+            }
         },
         "condition": {
             "type": "origins:and",
