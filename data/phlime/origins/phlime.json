@@ -15,8 +15,10 @@
 		"phlime:primary/tendril_whip",
 		"phlime:primary/corruptive_splash",
 		"phlime:primary/ephemeral_slash",
+		"phlime:primary/enraged_vindication",
 		"phlime:primary/shroud",
-		"phlime:supps/scythe_stacks"
+		"phlime:supps/scythe_stacks",
+		"phlime:disable_jump"
 	],
 	"icon": {
 		"item": "minecraft:wither_rose"

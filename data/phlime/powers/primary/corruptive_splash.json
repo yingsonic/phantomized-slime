@@ -21,6 +21,12 @@
                     }
                 },
                 {
+                    "type": "apoli:change_resource",
+                    "resource": "*:disable_jump_var",
+                    "operation": "set",
+                    "change": 1
+                },
+                {
                     "type": "origins:change_resource",
                     "resource": "*:stamina_var",
                     "operation": "add",
@@ -143,6 +149,12 @@
                                 },
                                 "include_target": false,
                                 "radius": 5
+                            },
+                            {
+                                "type": "apoli:change_resource",
+                                "resource": "*:disable_jump_var",
+                                "operation": "set",
+                                "change": 0
                             }
                         ]
                     }

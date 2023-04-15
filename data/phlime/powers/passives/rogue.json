@@ -160,10 +160,21 @@
                     "compare_to": 1
                 },
                 {
-                    "type": "origins:resource",
-                    "resource": "*:stamina_var",
-                    "comparison": ">=",
-                    "compare_to": 100
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:stamina_var",
+                            "comparison": ">=",
+                            "compare_to": 50
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_is_phasing",
+                            "comparison": "==",
+                            "compare_to": 1
+                        }
+                    ]   
                 }
             ]
         }
@@ -210,7 +221,7 @@
             ]
         }
     },
-    "damage_reduc": {
+    "damage_dealt": {
         "type": "apoli:modify_damage_dealt",
         "modifier": {
             "operation": "multiply_total",
@@ -219,6 +230,19 @@
         "condition": {
             "type": "origins:resource",
             "resource": "*:abilities/switch_var",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "damage_taken_phasing": {
+        "type": "apoli:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.5
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_is_phasing",
             "comparison": "==",
             "compare_to": 1
         }
@@ -264,6 +288,40 @@
             ]
         },
         "interval": 1
+    },
+    "ash": {
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "apoli:execute_command",
+            "command": "particle minecraft:white_ash ~ ~1 ~ 0.05 0.5 0.05 0 1 force"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:abilities/switch_var",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:moving"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_phasing",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:stamina_var",
+                    "comparison": ">=",
+                    "compare_to": 50
+                }
+            ]
+        },
+        "interval": 3
     },
     "is_phasing": {
         "type": "origins:resource",

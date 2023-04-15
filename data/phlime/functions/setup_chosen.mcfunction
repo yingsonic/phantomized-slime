@@ -4,6 +4,7 @@
 
 # Minecraft commands (scoreboard, teams, etc)
 scoreboard objectives add bondSID dummy "DarkBondSID"
-scoreboard objectives add slashSID dummy "EphemeralSlashSID"
+scoreboard objectives add slashSID dummy "PhantomSlashSID"
+scoreboard objectives add vindSID dummy "EnragedVindicationSID"
 
 # Misc commands
