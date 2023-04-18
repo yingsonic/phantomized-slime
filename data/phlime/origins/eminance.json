@@ -1,0 +1,20 @@
+{
+	"powers": [
+		"phlime:setup",
+		"phlime:passives/regen_off",
+		"phlime:abilities/heal",
+		"phlime:eminance/passives",
+		"phlime:eminance/parry"
+	],
+	"icon": {
+		"item": "minecraft:barrier"
+	},
+	"order": 10,
+	"impact": 3,
+
+	"name": "§5The Eminance of Shadow",
+	"description": "...?",
+	
+	"comment": "Made by yingsonic on Fiverr",
+    "unchoosable": false
+}

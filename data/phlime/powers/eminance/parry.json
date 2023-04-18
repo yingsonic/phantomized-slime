@@ -1,0 +1,121 @@
+{
+    "name": "§6§n",
+    "description": "\n",
+    "hidden": false,
+
+    "type": "origins:multiple",
+    "main": {
+        "type": "origins:modify_damage_taken",
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "MAIN_HAND"
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "*:*_cd"
+                }
+            ]   
+        },
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_cd",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "tag": "phlime:swords"
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "particles": {
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "condition": {
+                        "type": "origins:command",
+                        "command": "execute if entity @s[x_rotation=-30..30]",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "execute anchored eyes positioned ^-0.31 ^-0.3 ^0.1 run particle dust 0.6 0.4 0.8 1 ~ ~ ~ 0 0 0 0.5 10 force"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:command",
+                        "command": "execute if entity @s[x_rotation=-50..-30]",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "execute anchored eyes positioned ~ ~2 ~ positioned ^-0.2 ^-0.5 ^-0.25 run particle dust 0.6 0.4 0.8 1 ~ ~ ~ 0 0 0 0.5 10 force"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:command",
+                        "command": "execute if entity @s[x_rotation=30..50]",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "execute anchored eyes positioned ~ ~2 ~ positioned ^-0.55 ^-0.7 ^0.45 run particle dust 0.6 0.4 0.8 1 ~ ~ ~ 0 0 0 0.5 10 force"
+                    }
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_cd",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "tag": "phlime:swords"
+                        }
+                    }
+                }
+            ]
+        },
+        "interval": 10
+    },
+    "cd": {
+        "type": "apoli:cooldown",
+        "cooldown": 200,
+        "hud_render": {
+            "should_render": false
+        }
+    }
+}

@@ -1,0 +1,166 @@
+{
+    "name": "§6§n",
+    "description": "\n",
+    "hidden": false,
+
+    "type": "origins:multiple",
+    "punch": {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 6
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:empty"
+            }
+        }
+    },
+    "speed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "generic.movement_speed",
+            "operation": "multiply_total",
+            "value": 0.35
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "tag": "phlime:swords"
+                }
+            },
+            "inverted": true
+        },
+        "tick_rate": 1
+    },
+    "sword_speed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "generic.movement_speed",
+            "operation": "multiply_total",
+            "value": 1.35
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "tag": "phlime:swords"
+                }
+            }
+        },
+        "tick_rate": 1
+    },
+    "fist_reach": {
+        "type": "apoli:action_over_time",
+        "rising_action": {
+            "type": "apoli:execute_command",
+            "command": "scale set pehkui:entity_reach 1.1 @s"
+        },
+        "falling_action": {
+            "type": "apoli:execute_command",
+            "command": "scale reset pehkui:entity_reach @s"
+        },
+        "condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "apoli:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:empty"
+                    }
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "sword_reach": {
+        "type": "apoli:action_over_time",
+        "rising_action": {
+            "type": "apoli:execute_command",
+            "command": "scale set pehkui:entity_reach 1.15 @s"
+        },
+        "falling_action": {
+            "type": "apoli:execute_command",
+            "command": "scale reset pehkui:entity_reach @s"
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "tag": "phlime:swords"
+                }
+            }
+        },
+        "interval": 1
+    },
+    "disable_tools": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "condition": {
+                        "type": "apoli:equipped_item",
+                        "equipment_slot": "mainhand",
+                        "item_condition": {
+                            "type": "origins:ingredient",
+                            "ingredient": {
+                                "type": "origins:ingredient",
+                                "tag": "phlime:tools"
+                            }
+                        }
+                    },
+                    "action": {
+                        "type": "origins:drop_inventory",
+                        "inventory_type": "inventory",
+                        "item_condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:ingredient",
+                                    "ingredient": {
+                                        "type": "origins:ingredient",
+                                        "tag": "phlime:tools"
+                                    }
+                                },
+                                {
+                                    "type": "origins:amount",
+                                    "comparison": "==",
+                                    "compare_to": 1
+                                }
+                            ]
+                        },
+                        "retain_ownership": true,
+                        "amount": 1
+                    }
+                }
+            ]
+        },
+        "interval": 10
+    },
+    "jump_boost": {
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "apoli:apply_effect",
+            "effect": {
+                "effect": "minecraft:jump_boost",
+                "duration": 19,
+                "amplifier": 0,
+                "is_ambient": true,
+                "show_particles": false,
+                "show_icon": false
+            }
+        },
+        "interval": 9
+    }
+}

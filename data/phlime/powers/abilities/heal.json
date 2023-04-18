@@ -107,6 +107,34 @@
                     "resource": "*:*_cd_guardian",
                     "comparison": "<=",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:passives/transformation_var",
+                            "comparison": "==",
+                            "compare_to": 300
+                        },
+                        {
+                            "type": "origins:or",
+                            "conditions": [
+                                {
+                                    "type": "origins:sneaking",
+                                    "inverted": true
+                                },
+                                {
+                                    "type": "origins:equipped_item",
+                                    "equipment_slot": "mainhand",
+                                    "item_condition": {
+                                        "type": "origins:empty"
+                                    },
+                                    "inverted": true
+                                }
+                            ]
+                        }
+                    ] 
                 }
             ]
         },

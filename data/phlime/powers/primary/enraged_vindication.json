@@ -72,15 +72,12 @@
                                             "type": "origins:and",
                                             "actions": [
                                                 {
-                                                    "type": "origins:target_action",
-                                                    "action": {
-                                                        "type": "apoli:damage",
-                                                        "amount": 9,
-                                                        "source": {
-                                                            "name": "magic.player",
-                                                            "magic": true,
-                                                            "bypasses_armor": false
-                                                        }
+                                                    "type": "apoli:damage",
+                                                    "amount": 12,
+                                                    "source": {
+                                                        "name": "magic.player",
+                                                        "magic": true,
+                                                        "bypasses_armor": false
                                                     }
                                                 },
                                                 {

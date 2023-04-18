@@ -9,6 +9,7 @@
 		"phlime:supps/modes_sprites",
 		"phlime:passives/rogue",
 		"phlime:passives/combat",
+		"phlime:passives/transformation",
 		"phlime:passives/guardian",
 		"phlime:passives/regen_off",
 		"phlime:primary/dark_bond",
