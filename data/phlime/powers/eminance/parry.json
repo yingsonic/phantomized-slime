@@ -10,18 +10,59 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:swing_hand",
-                    "hand": "MAIN_HAND"
-                },
-                {
                     "type": "origins:trigger_cooldown",
                     "power": "*:*_cd"
+                },
+                {
+                    "type": "apoli:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:slowness",
+                        "duration": 4,
+                        "amplifier": 254,
+                        "is_ambient": true,
+                        "show_particles": false,
+                        "show_icon": false
+                    }
+                },
+                {
+                    "type": "apoli:delay",
+                    "ticks": 2,
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:swing_hand",
+                                "hand": "MAIN_HAND"
+                            },
+                            {
+                                "type": "origins:play_sound",
+                                "sound": "item.shield.block",
+                                "volume": 2,
+                                "pitch": 1
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "apoli:delay",
+                    "ticks": 12,
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_fast_cd",
+                        "operation": "set",
+                        "change": 61
+                    }
                 }
             ]   
         },
         "modifier": {
             "operation": "multiply_total",
             "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:amount",
+            "comparison": ">",
+            "compare_to": 2
         },
         "condition": {
             "type": "origins:and",
@@ -45,6 +86,97 @@
             ]
         }
     },
+    "unmoving_check": {
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "apoli:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_fast_cd",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "apoli:change_resource",
+                        "resource": "*:*_cd",
+                        "operation": "set",
+                        "change": 200
+                    }
+                },
+                {
+                    "type": "apoli:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_fast_cd",
+                        "comparison": "<",
+                        "compare_to": 58
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "particle dust 0.5 0.3 0.8 1.5 ~ ~ ~ 0.5 1.5 0.5 0.7 3 force"
+                    }
+                },
+                {
+                    "type": "apoli:change_resource",
+                    "resource": "*:*_fast_cd",
+                    "operation": "add",
+                    "change": -1
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_fast_cd",
+            "comparison": ">",
+            "compare_to": 0
+        },
+        "interval": 1
+    },
+    "unmoving_cancel": {
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_fast_cd",
+                        "comparison": "<",
+                        "compare_to": 58
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "particle dust 0.7 0.2 0.2 2 ~ ~ ~ 0.5 1.5 0.5 0.7 15 force"
+                    }
+                },
+                {
+                    "type": "apoli:change_resource",
+                    "resource": "*:*_fast_cd",
+                    "operation": "set",
+                    "change": 0
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_fast_cd",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:moving"
+                }
+            ]
+        },
+        "interval": 1
+    },
     "particles": {
         "type": "apoli:action_over_time",
         "entity_action": {
@@ -59,7 +191,7 @@
                     },
                     "action": {
                         "type": "origins:execute_command",
-                        "command": "execute anchored eyes positioned ^-0.31 ^-0.3 ^0.1 run particle dust 0.6 0.4 0.8 1 ~ ~ ~ 0 0 0 0.5 10 force"
+                        "command": "execute anchored eyes positioned ^-0.31 ^-0.3 ^0.1 run particle dust 0.5 0.3 0.95 1 ~ ~ ~ 0 0 0 0.5 10 force"
                     }
                 },
                 {
@@ -71,7 +203,7 @@
                     },
                     "action": {
                         "type": "origins:execute_command",
-                        "command": "execute anchored eyes positioned ~ ~2 ~ positioned ^-0.2 ^-0.5 ^-0.25 run particle dust 0.6 0.4 0.8 1 ~ ~ ~ 0 0 0 0.5 10 force"
+                        "command": "execute anchored eyes positioned ~ ~2 ~ positioned ^-0.2 ^-0.5 ^-0.25 run particle dust 0.5 0.3 0.95 1 ~ ~ ~ 0 0 0 0.5 10 force"
                     }
                 },
                 {
@@ -83,7 +215,7 @@
                     },
                     "action": {
                         "type": "origins:execute_command",
-                        "command": "execute anchored eyes positioned ~ ~2 ~ positioned ^-0.55 ^-0.7 ^0.45 run particle dust 0.6 0.4 0.8 1 ~ ~ ~ 0 0 0 0.5 10 force"
+                        "command": "execute anchored eyes positioned ~ ~2 ~ positioned ^-0.55 ^-0.7 ^0.45 run particle dust 0.5 0.3 0.95 1 ~ ~ ~ 0 0 0 0.5 10 force"
                     }
                 }
             ]
@@ -110,6 +242,24 @@
             ]
         },
         "interval": 10
+    },
+    "parried": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "fast_cd": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 61,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
     },
     "cd": {
         "type": "apoli:cooldown",
