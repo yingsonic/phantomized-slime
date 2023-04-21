@@ -4,7 +4,9 @@
 		"phlime:passives/regen_off",
 		"phlime:abilities/heal",
 		"phlime:eminance/passives",
-		"phlime:eminance/parry"
+		"phlime:eminance/parry",
+		"phlime:static_charge",
+		"phlime:eminance/discharge"
 	],
 	"icon": {
 		"item": "minecraft:barrier"

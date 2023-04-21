@@ -1,0 +1,64 @@
+{
+    "name": "§6§n",
+    "description": "\n",
+    "hidden": false,
+
+    "type": "origins:multiple",
+    "charge": {
+        "type": "origins:self_action_on_hit",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_var",
+            "operation": "add",
+            "change": 10
+        },
+        "cooldown": 100
+    },
+    "passive_light": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_var",
+            "operation": "add",
+            "change": 1
+        },
+        "condition": {
+            "type": "origins:in_block",
+            "block_condition": {
+                "type": "origins:light_level",
+                "light_type": "block",
+                "comparison": ">=",
+                "compare_to": 7
+            }
+        },
+        "interval": 100
+    },
+    "passive_dark": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_var",
+            "operation": "add",
+            "change": 2
+        },
+        "condition": {
+            "type": "origins:in_block",
+            "block_condition": {
+                "type": "origins:light_level",
+                "light_type": "block",
+                "comparison": "<",
+                "compare_to": 7
+            }
+        },
+        "interval": 100
+    },
+    "var": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true
+        }
+    }
+}
