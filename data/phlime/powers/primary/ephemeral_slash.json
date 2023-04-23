@@ -90,14 +90,14 @@
                                                 "type": "origins:target_condition",
                                                 "condition": {
                                                     "type": "origins:nbt",
-                                                    "nbt": "{Tags: ['shadowSlashPlayerPos']}"
+                                                    "nbt": "{Tags: ['shadowSlashEntityPos']}"
                                                 }
                                             },
                                             "action": {
                                                 "type": "origins:target_action",
                                                 "action": {
                                                     "type": "origins:execute_command",
-                                                    "command": "execute positioned ~ ~1.5 ~ facing ^-100 ^1 ^ positioned ^0.75 ^-0.75 ^-0.625 run function phlime:particles/slash/1"
+                                                    "command": "particle dust 0 0 0 1.5 ~ ~1 ~ 0.5 1 0.5 0.7 20 force"
                                                 }
                                             }
                                         },
@@ -272,14 +272,14 @@
                                                             "type": "origins:target_condition",
                                                             "condition": {
                                                                 "type": "origins:nbt",
-                                                                "nbt": "{Tags: ['shadowSlashPlayerPos']}"
+                                                                "nbt": "{Tags: ['shadowSlashEntityPos']}"
                                                             }
                                                         },
                                                         "action": {
                                                             "type": "origins:target_action",
                                                             "action": {
                                                                 "type": "origins:execute_command",
-                                                                "command": "execute positioned ~ ~1.5 ~ facing ^-100 ^1 ^ positioned ^0.75 ^-0.75 ^0.625 run function phlime:particles/slash/2"
+                                                                "command": "particle dust 0 0 0 1.5 ~ ~1 ~ 0.5 1 0.5 0.7 20 force"
                                                             }
                                                         }
                                                     },
@@ -467,10 +467,6 @@
                                                                 "actions": [
                                                                     {
                                                                         "type": "origins:execute_command",
-                                                                        "command": "execute positioned ~ ~1.5 ~ facing ^-100 ^1 ^ positioned ^0.75 ^ ^-1.25 run function phlime:particles/slash/3"
-                                                                    },
-                                                                    {
-                                                                        "type": "origins:execute_command",
                                                                         "command": "tag @s add tempSlashEnding"
                                                                     }
                                                                 ]
@@ -490,6 +486,10 @@
                                                             "action": {
                                                                 "type": "origins:and",
                                                                 "actions": [
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "particle dust 0 0 0 2 ~ ~1 ~ 2.5 1.5 2.5 0.7 30 force"
+                                                                    },
                                                                     {
                                                                         "type": "apoli:area_of_effect",
                                                                         "bientity_action": {

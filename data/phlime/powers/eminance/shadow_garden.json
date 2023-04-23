@@ -1,0 +1,476 @@
+{
+    "name": "§6§n",
+    "description": "\n",
+    "hidden": false,
+
+    "type": "origins:multiple",
+    "ray": {
+        "type": "apoli:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:raycast",
+                    "distance": 30,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "visual",
+                    "fluid_handling": "any",
+                    "bientity_action": {
+                        "type": "origins:damage",
+                        "amount": 10,
+                        "source": {
+                            "name": "magic.player",
+                            "magic": true,
+                            "bypasses_armor": false
+                        }
+                    },
+                    "before_action": {
+                        "type": "origins:swing_hand",
+                        "hand": "MAIN_HAND"
+                    },
+                    "hit_action": {
+                        "type": "apoli:trigger_cooldown",
+                        "power": "*:*_ray_cd"
+                    },
+                    "miss_action": {
+                        "type": "origins:execute_command",
+                        "command": "title @s actionbar \"§cYou missed!\""
+                    },
+                    "command_at_hit": "particle minecraft:dust 0 0 0 3 ~ ~ ~ 0.5 0.5 0.5 0.05 15 force",
+                    "command_along_ray": "particle minecraft:dust 0 0 0 0.5 ~ ~ ~ 0 0 0 0.5 1 force",
+                    "command_step": 0.2,
+                    "command_along_ray_only_on_hit": true
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apoli:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:empty"
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_ray_cd",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": false,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 2
+        },
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "cooldown": 5
+    },
+    "ray_cd": {
+        "type": "apoli:cooldown",
+        "cooldown": 100,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 2
+        }
+    },
+    "sword": {
+        "type": "apoli:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_var",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "summon minecraft:armor_stand ~ ~ ~ {Marker:1b,Invisible:1b,PersistenceRequired:1b,Invulnerable:1b,NoGravity:1b,Tags:[\"tempGarden\"]}"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "function phlime:sid/garden"
+                            },
+                            {
+                                "type": "apoli:change_resource",
+                                "resource": "*:*_var",
+                                "operation": "set",
+                                "change": 1
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add inGarden"
+                            },
+                            {
+                                "type": "apoli:area_of_effect",
+                                "bientity_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "tag @s add inGarden"
+                                    }
+                                },
+                                "include_target": false,
+                                "radius": 25
+                            }
+                        ]
+                    },
+                    "else_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "apoli:execute_command",
+                                "command": "execute as @s at @s as @e if score @p gardenSID = @s gardenSID run kill @s[type=minecraft:armor_stand]"
+                            },
+                            {
+                                "type": "origins:trigger_cooldown",
+                                "power": "*:*_cd"
+                            },
+                            {
+                                "type": "apoli:change_resource",
+                                "resource": "*:*_var",
+                                "operation": "set",
+                                "change": 0
+                            },
+                            {
+                                "type": "apoli:area_of_effect",
+                                "bientity_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "tag @s remove inGarden"
+                                    }
+                                },
+                                "include_target": false,
+                                "radius": 30
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apoli:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "apoli:ingredient",
+                        "ingredient": {
+                            "tag": "phlime:swords"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_cd",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "cooldown": 20
+    },
+    "disallow": {
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s add tempPhlimeSelector"
+                },
+                {
+                    "type": "apoli:area_of_effect",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "apoli:area_of_effect",
+                                    "bientity_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:if_else",
+                                                "condition": {
+                                                    "type": "origins:target_condition",
+                                                    "condition": {
+                                                        "type": "origins:command",
+                                                        "command": "execute if entity @s[tag=inGarden]",
+                                                        "comparison": "==",
+                                                        "compare_to": 1
+                                                    }
+                                                },
+                                                "if_action": {
+                                                    "type": "origins:add_velocity",
+                                                    "y": 0.3,
+                                                    "z": -1,
+                                                    "set": true
+                                                },
+                                                "else_action": {
+                                                    "type": "origins:add_velocity",
+                                                    "y": 0.3,
+                                                    "z": 1,
+                                                    "set": true
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "bientity_condition": {
+                                        "type": "origins:and",
+                                        "conditions": [
+                                            {
+                                                "type": "origins:distance",
+                                                "comparison": ">=",
+                                                "compare_to": 24
+                                            },
+                                            {
+                                                "type": "origins:distance",
+                                                "comparison": "<",
+                                                "compare_to": 27
+                                            }
+                                        ]
+                                    },
+                                    "include_target": false,
+                                    "radius": 35
+                                }
+                            ]
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:command",
+                                    "command": "execute as @s if score @a[tag=tempPhlimeSelector,limit=1,sort=nearest] gardenSID = @s gardenSID",
+                                    "comparison": "==",
+                                    "compare_to": 1
+                                }
+                            }
+                        ]
+                    },
+                    "include_target": false,
+                    "radius": 80
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove tempPhlimeSelector"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_var",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "interval": 1
+    },
+    "effects": {
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "apoli:apply_effect",
+                    "effects": [
+                        {
+                            "effect": "minecraft:strength",
+                            "duration": 19,
+                            "amplifier": 0,
+                            "is_ambient": true,
+                            "show_particles": false,
+                            "show_icon": false
+                        },
+                        {
+                            "effect": "minecraft:speed",
+                            "duration": 19,
+                            "amplifier": 1,
+                            "is_ambient": true,
+                            "show_particles": false,
+                            "show_icon": false
+                        }
+                    ]
+                }
+            ]
+        },
+        "rising_action": {
+            "type": "apoli:execute_command",
+            "command": "scale set pehkui:entity_reach 1.15 @s"
+        },
+        "falling_action": {
+            "type": "apoli:execute_command",
+            "command": "scale reset pehkui:entity_reach @s"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_var",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "interval": 9
+    },
+    "border": {
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s add tempPhlimeSelector"
+                },
+                {
+                    "type": "apoli:area_of_effect",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "function phlime:particles/garden/animate"
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:command",
+                                    "command": "execute as @s if score @a[tag=tempPhlimeSelector,limit=1,sort=nearest] gardenSID = @s gardenSID",
+                                    "comparison": "==",
+                                    "compare_to": 1
+                                }
+                            }
+                        ]
+                    },
+                    "include_target": false,
+                    "radius": 80
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove tempPhlimeSelector"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_var",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "interval": 1
+    },
+    "flowers": {
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:chance",
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "execute facing ~ ~ ~1 positioned ~ ~0.5 ~ run function phlime:particles/flower"
+                    },
+                    "chance": 0.2
+                },
+                {
+                    "type": "origins:chance",
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "execute facing ~ ~ ~1 positioned ~ ~0.4 ~1.8 run function phlime:particles/flower"
+                    },
+                    "chance": 0.5
+                },
+                {
+                    "type": "origins:chance",
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "execute facing ~ ~ ~1 positioned ~1.2 ~0.4 ~-1.6 run function phlime:particles/flower"
+                    },
+                    "chance": 0.75
+                },
+                {
+                    "type": "origins:chance",
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "execute facing ~ ~ ~1 positioned ~1.2 ~0.4 ~1.6 run function phlime:particles/flower"
+                    },
+                    "chance": 0.5
+                },
+                {
+                    "type": "origins:chance",
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "execute facing ~ ~ ~1 positioned ~-1.4 ~0.4 ~-1.54 run function phlime:particles/flower"
+                    },
+                    "chance": 0.75
+                },
+                {
+                    "type": "origins:chance",
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "execute facing ~ ~ ~1 positioned ~-0.8 ~0.4 ~1 run function phlime:particles/flower"
+                    },
+                    "chance": 0.45
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_var",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:on_block"
+                }
+            ]
+        },
+        "interval": 25
+    },
+    "var": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "cd": {
+        "type": "apoli:cooldown",
+        "cooldown": 1000,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 0
+        }
+    }
+}
