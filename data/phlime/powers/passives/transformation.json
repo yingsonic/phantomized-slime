@@ -79,7 +79,9 @@
         "max": 300,
         "start_value": 0,
         "hud_render": {
-            "should_render": true
+            "should_render": true,
+            "sprite_location": "phlime:textures/zz_resource_bar.png",
+            "bar_index": 0
         }
     }
 }

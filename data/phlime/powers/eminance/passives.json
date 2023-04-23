@@ -5,18 +5,22 @@
 
     "type": "origins:multiple",
     "punch": {
-        "type": "origins:modify_damage_dealt",
-        "modifier": {
-            "operation": "multiply_total",
-            "value": 6
-        },
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "attribute": "generic.attack_damage",
+                "operation": "multiply_total",
+                "value": 6
+            }
+        ],
         "condition": {
             "type": "origins:equipped_item",
             "equipment_slot": "mainhand",
             "item_condition": {
                 "type": "origins:empty"
             }
-        }
+        },
+        "tick_rate": 1
     },
     "speed": {
         "type": "origins:conditioned_attribute",

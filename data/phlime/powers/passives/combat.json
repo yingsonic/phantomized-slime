@@ -65,7 +65,6 @@
                 "value": -0.2
             }
         ],
-        "tick_rate": 1,
         "condition": {
             "type": "apoli:and",
             "conditions": [
@@ -96,7 +95,8 @@
                     }
                 }
             ]
-        }
+        },
+        "tick_rate": 1
     },
     "pickaxe": {
         "type": "origins:action_over_time",

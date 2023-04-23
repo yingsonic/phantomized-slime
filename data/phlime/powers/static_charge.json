@@ -39,7 +39,7 @@
             "type": "origins:change_resource",
             "resource": "*:*_var",
             "operation": "add",
-            "change": 2
+            "change": 3
         },
         "condition": {
             "type": "origins:in_block",

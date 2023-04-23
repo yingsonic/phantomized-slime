@@ -368,7 +368,7 @@
                         ]
                     },
                     "include_target": false,
-                    "radius": 80
+                    "radius": 40
                 },
                 {
                     "type": "origins:execute_command",
@@ -393,7 +393,7 @@
                     "type": "origins:chance",
                     "action": {
                         "type": "origins:execute_command",
-                        "command": "execute facing ~ ~ ~1 positioned ~ ~0.5 ~ run function phlime:particles/flower"
+                        "command": "execute facing ~ ~ ~1 positioned ~ ~0.45 ~ run function phlime:particles/flower"
                     },
                     "chance": 0.2
                 },
@@ -401,7 +401,7 @@
                     "type": "origins:chance",
                     "action": {
                         "type": "origins:execute_command",
-                        "command": "execute facing ~ ~ ~1 positioned ~ ~0.4 ~1.8 run function phlime:particles/flower"
+                        "command": "execute facing ~ ~ ~1 positioned ~ ~0.45 ~1.8 run function phlime:particles/flower"
                     },
                     "chance": 0.5
                 },
@@ -409,7 +409,7 @@
                     "type": "origins:chance",
                     "action": {
                         "type": "origins:execute_command",
-                        "command": "execute facing ~ ~ ~1 positioned ~1.2 ~0.4 ~-1.6 run function phlime:particles/flower"
+                        "command": "execute facing ~ ~ ~1 positioned ~1.2 ~0.45 ~-1.6 run function phlime:particles/flower"
                     },
                     "chance": 0.75
                 },
@@ -417,7 +417,7 @@
                     "type": "origins:chance",
                     "action": {
                         "type": "origins:execute_command",
-                        "command": "execute facing ~ ~ ~1 positioned ~1.2 ~0.4 ~1.6 run function phlime:particles/flower"
+                        "command": "execute facing ~ ~ ~1 positioned ~1.2 ~0.45 ~1.6 run function phlime:particles/flower"
                     },
                     "chance": 0.5
                 },
@@ -425,7 +425,7 @@
                     "type": "origins:chance",
                     "action": {
                         "type": "origins:execute_command",
-                        "command": "execute facing ~ ~ ~1 positioned ~-1.4 ~0.4 ~-1.54 run function phlime:particles/flower"
+                        "command": "execute facing ~ ~ ~1 positioned ~-1.4 ~0.45 ~-1.54 run function phlime:particles/flower"
                     },
                     "chance": 0.75
                 },
@@ -433,7 +433,7 @@
                     "type": "origins:chance",
                     "action": {
                         "type": "origins:execute_command",
-                        "command": "execute facing ~ ~ ~1 positioned ~-0.8 ~0.4 ~1 run function phlime:particles/flower"
+                        "command": "execute facing ~ ~ ~1 positioned ~-0.8 ~0.45 ~1 run function phlime:particles/flower"
                     },
                     "chance": 0.45
                 }

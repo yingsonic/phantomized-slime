@@ -26,7 +26,7 @@
                         "actions": [
                             {
                                 "type": "apoli:damage",
-                                "amount": 10,
+                                "amount": 12,
                                 "source": {
                                     "name": "magic.player",
                                     "magic": true,
@@ -65,6 +65,12 @@
         "condition": {
             "type": "origins:and",
             "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:eminance/shadow_garden_var",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
                 {
                     "type": "origins:resource",
                     "resource": "*:static_charge_var",

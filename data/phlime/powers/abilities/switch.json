@@ -19,23 +19,22 @@
             "actions": [
                 {
                     "condition": {
-                        "type": "apoli:resource",
-                        "resource": "*:*_cd",
-                        "comparison": "==",
-                        "compare_to": 0,
-                        "inverted": true
-                    },
-                    "action": {
-                        "type": "origins:nothing"
-                    }
-                },
-                {
-                    "condition": {
-                        "type": "apoli:resource",
-                        "resource": "*:*_var",
-                        "comparison": "==",
-                        "compare_to": 1,
-                        "inverted": true
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "apoli:resource",
+                                "resource": "*:*_cd",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "apoli:resource",
+                                "resource": "*:*_var",
+                                "comparison": "==",
+                                "compare_to": 1,
+                                "inverted": true
+                            }
+                        ]
                     },
                     "action": {
                         "type": "apoli:and",
@@ -51,6 +50,19 @@
                                 "power": "*:*_cd"
                             }
                         ]
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "apoli:resource",
+                        "resource": "*:*_cd",
+                        "comparison": "==",
+                        "compare_to": 0,
+                        "inverted": true
+                    },
+                    "action": {
+                        "type": "apoli:execute_command",
+                        "command": "title @s actionbar \"§cYou're on cooldown!\""
                     }
                 },
                 {
@@ -76,23 +88,22 @@
             "actions": [
                 {
                     "condition": {
-                        "type": "apoli:resource",
-                        "resource": "*:*_cd",
-                        "comparison": "==",
-                        "compare_to": 0,
-                        "inverted": true
-                    },
-                    "action": {
-                        "type": "origins:nothing"
-                    }
-                },
-                {
-                    "condition": {
-                        "type": "apoli:resource",
-                        "resource": "*:*_var",
-                        "comparison": "==",
-                        "compare_to": 2,
-                        "inverted": true
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "apoli:resource",
+                                "resource": "*:*_cd",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "apoli:resource",
+                                "resource": "*:*_var",
+                                "comparison": "==",
+                                "compare_to": 2,
+                                "inverted": true
+                            }
+                        ]
                     },
                     "action": {
                         "type": "apoli:and",
@@ -108,6 +119,19 @@
                                 "power": "*:*_cd"
                             }
                         ]
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "apoli:resource",
+                        "resource": "*:*_cd",
+                        "comparison": "==",
+                        "compare_to": 0,
+                        "inverted": true
+                    },
+                    "action": {
+                        "type": "apoli:execute_command",
+                        "command": "title @s actionbar \"§cYou're on cooldown!\""
                     }
                 },
                 {
@@ -133,23 +157,22 @@
             "actions": [
                 {
                     "condition": {
-                        "type": "apoli:resource",
-                        "resource": "*:*_cd",
-                        "comparison": "==",
-                        "compare_to": 0,
-                        "inverted": true
-                    },
-                    "action": {
-                        "type": "origins:nothing"
-                    }
-                },
-                {
-                    "condition": {
-                        "type": "apoli:resource",
-                        "resource": "*:*_var",
-                        "comparison": "==",
-                        "compare_to": 3,
-                        "inverted": true
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "apoli:resource",
+                                "resource": "*:*_cd",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "apoli:resource",
+                                "resource": "*:*_var",
+                                "comparison": "==",
+                                "compare_to": 3,
+                                "inverted": true
+                            }
+                        ]
                     },
                     "action": {
                         "type": "apoli:and",
@@ -165,6 +188,19 @@
                                 "power": "*:*_cd"
                             }
                         ]
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "apoli:resource",
+                        "resource": "*:*_cd",
+                        "comparison": "==",
+                        "compare_to": 0,
+                        "inverted": true
+                    },
+                    "action": {
+                        "type": "apoli:execute_command",
+                        "command": "title @s actionbar \"§cYou're on cooldown!\""
                     }
                 },
                 {
@@ -198,9 +234,7 @@
         "type": "apoli:cooldown",
         "cooldown": 60,
         "hud_render": {
-            "should_render": true,
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
-            "bar_index": 9
+            "should_render": false
         }
     }
 }
