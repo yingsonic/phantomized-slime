@@ -8,5 +8,7 @@ scoreboard objectives add slashSID dummy "PhantomSlashSID"
 scoreboard objectives add vindSID dummy "EnragedVindicationSID"
 scoreboard objectives add gardenSID dummy "ShadowGardenSID"
 scoreboard objectives add atomicSID dummy "IAmAtomicSID"
+scoreboard objectives add transformCD dummy "TransformLimitCD"
+scoreboard objectives add transformTimer dummy "TransformTimer"
 
 # Misc commands

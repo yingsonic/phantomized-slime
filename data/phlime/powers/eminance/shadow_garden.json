@@ -487,8 +487,8 @@
         "cooldown": 1000,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
-            "bar_index": 0
+            "sprite_location": "phlime:textures/z_resource_bar.png",
+            "bar_index": 7
         }
     }
 }

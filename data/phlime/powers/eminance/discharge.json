@@ -17,7 +17,7 @@
                     "type": "origins:change_resource",
                     "resource": "*:static_charge_var",
                     "operation": "add",
-                    "change": -100
+                    "change": -50
                 },
                 {
                     "type": "origins:play_sound",
@@ -80,8 +80,8 @@
                 {
                     "type": "origins:resource",
                     "resource": "*:static_charge_var",
-                    "comparison": "==",
-                    "compare_to": 100
+                    "comparison": ">=",
+                    "compare_to": 50
                 }
             ]
         },

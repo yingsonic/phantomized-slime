@@ -224,6 +224,10 @@
                                 "resource": "*:*_secondary",
                                 "operation": "set",
                                 "change": 0
+                            },
+                            {
+                                "type": "apoli:execute_command",
+                                "command": "execute as @s at @s as @e[type=armor_stand] if score @p atomicSID = @s atomicSID run kill @s[type=minecraft:armor_stand]"
                             }
                         ]
                     }
@@ -268,14 +272,25 @@
             ]
         },
         "hud_render": {
-            "should_render": false,
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
-            "bar_index": 0
+            "should_render": false
         },
         "key": {
             "key": "key.origins.secondary_active"
         },
         "cooldown": 100
+    },
+    "immune": {
+        "type": "origins:modify_damage_taken",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_secondary",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        }
     },
     "explosions": {
         "type": "apoli:action_over_time",

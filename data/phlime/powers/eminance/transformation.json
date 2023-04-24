@@ -1,0 +1,69 @@
+{
+    "name": "§8§nTransformation",
+    "description": "?\n",
+    "hidden": false,
+
+    "type": "origins:multiple",
+    "timer": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "scoreboard players add @s transformTimer 1"
+        },
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "execute if score @s transformTimer matches ..11999",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if score @s transformTimer = @s transformTimer",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "transform": {
+        "type": "apoli:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "apoli:execute_command",
+                    "command": "execute as @s at @s as @e if score @p gardenSID = @s gardenSID run kill @s[type=minecraft:armor_stand]"
+                },
+                {
+                    "type": "apoli:execute_command",
+                    "command": "execute as @s at @s as @e if score @p atomicSID = @s atomicSID run kill @s[type=minecraft:armor_stand]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scoreboard players operation @s transformCD = @s transformTimer"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scoreboard players set @s transformTimer 0"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "origin set @s origins:origin phlime:phlime"
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": false,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 0
+        },
+        "key": {
+            "key": "key.origins.ternary_active"
+        },
+        "cooldown": 10
+    }
+}

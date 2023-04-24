@@ -33,6 +33,25 @@
         },
         "cooldown": 10
     },
+    "increase_dark": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_var",
+            "operation": "add",
+            "change": 3
+        },
+        "condition": {
+            "type": "origins:in_block",
+            "block_condition": {
+                "type": "origins:light_level",
+                "light_type": "block",
+                "comparison": "<",
+                "compare_to": 7
+            }
+        },
+        "interval": 100
+    },
     "transform": {
         "type": "apoli:active_self",
         "entity_action": {
@@ -40,7 +59,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "say transformation"
+                    "command": "origin set @s origins:origin phlime:eminance"
                 }
             ]
         },
@@ -62,6 +81,12 @@
                     "item_condition": {
                         "type": "origins:empty"
                     }
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if score @s transformCD matches 0",
+                    "comparison": "==",
+                    "compare_to": 1
                 }
             ]
         },
@@ -69,9 +94,23 @@
             "should_render": false
         },
         "key": {
-            "key": "key.origins.secondary_active"
+            "key": "key.origins.ternary_active"
         },
         "cooldown": 1
+    },
+    "cooldown": {
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "scoreboard players remove @s transformCD 1"
+        },
+        "condition": {
+            "type": "origins:command",
+            "command": "execute if score @s transformCD matches 1..",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "interval": 1
     },
     "var": {
         "type": "origins:resource",

@@ -166,5 +166,51 @@
             }
         },
         "interval": 9
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_timer",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:execute_command",
+                "command": "execute positioned ~ ~0.1 ~ run function phlime:particles/eminance/animate"
+            }
+        },
+        "rising_action": {
+            "type": "origins:trigger_cooldown",
+            "power": "*:*_timer"
+        },
+        "falling_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_timer",
+            "operation": "set",
+            "change": 0
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:moving",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:on_block"
+                }
+            ]
+        },
+        "interval": 2
+    },
+    "timer": {
+        "type": "apoli:cooldown",
+        "cooldown": 10,
+        "hud_render": {
+            "should_render": false
+        }
     }
 }

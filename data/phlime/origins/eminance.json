@@ -8,7 +8,8 @@
 		"phlime:static_charge",
 		"phlime:eminance/discharge",
 		"phlime:eminance/shadow_garden",
-		"phlime:eminance/atomic"
+		"phlime:eminance/atomic",
+		"phlime:eminance/transformation"
 	],
 	"icon": {
 		"item": "minecraft:barrier"
