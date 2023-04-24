@@ -291,6 +291,34 @@
         },
         "interval": 1
     },
+    "attributes": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "generic.attack_damage",
+            "operation": "multiply_total",
+            "value": 0.5
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_var",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:empty"
+                    },
+                    "inverted": true
+                }
+            ]
+        },
+        "tick_rate": 1
+    },
     "effects": {
         "type": "apoli:action_over_time",
         "entity_action": {
@@ -298,24 +326,14 @@
             "actions": [
                 {
                     "type": "apoli:apply_effect",
-                    "effects": [
-                        {
-                            "effect": "minecraft:strength",
-                            "duration": 19,
-                            "amplifier": 0,
-                            "is_ambient": true,
-                            "show_particles": false,
-                            "show_icon": false
-                        },
-                        {
-                            "effect": "minecraft:speed",
-                            "duration": 19,
-                            "amplifier": 1,
-                            "is_ambient": true,
-                            "show_particles": false,
-                            "show_icon": false
-                        }
-                    ]
+                    "effect": {
+                        "effect": "minecraft:speed",
+                        "duration": 19,
+                        "amplifier": 1,
+                        "is_ambient": true,
+                        "show_particles": false,
+                        "show_icon": false
+                    }
                 }
             ]
         },

@@ -20,6 +20,12 @@
                     "change": -100
                 },
                 {
+                    "type": "origins:play_sound",
+                    "sound": "item.totem.use",
+                    "volume": 1,
+                    "pitch": 1.5
+                },
+                {
                     "type": "apoli:area_of_effect",
                     "bientity_action": {
                         "type": "origins:and",
@@ -69,7 +75,7 @@
                     "type": "origins:resource",
                     "resource": "*:eminance/shadow_garden_var",
                     "comparison": "==",
-                    "compare_to": 1
+                    "compare_to": 0
                 },
                 {
                     "type": "origins:resource",

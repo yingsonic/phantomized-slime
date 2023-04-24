@@ -7,5 +7,6 @@ scoreboard objectives add bondSID dummy "DarkBondSID"
 scoreboard objectives add slashSID dummy "PhantomSlashSID"
 scoreboard objectives add vindSID dummy "EnragedVindicationSID"
 scoreboard objectives add gardenSID dummy "ShadowGardenSID"
+scoreboard objectives add atomicSID dummy "IAmAtomicSID"
 
 # Misc commands

@@ -11,7 +11,217 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "function phlime:atomic"
+                    "command": "function phlime:atomic/start"
+                },
+                {
+                    "type": "apoli:change_resource",
+                    "resource": "*:*_primary",
+                    "operation": "set",
+                    "change": 1
+                },
+                {
+                    "type": "apoli:change_resource",
+                    "resource": "*:*_ternary",
+                    "operation": "set",
+                    "change": 1
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:on_block"
+                    },
+                    "if_action": {
+                        "type": "origins:add_velocity",
+                        "y": 4,
+                        "set": true
+                    },
+                    "else_action": {
+                        "type": "origins:add_velocity",
+                        "y": 1.5,
+                        "set": true
+                    }
+                },
+                {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "apoli:delay",
+                            "ticks": 5,
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "time add 4000"
+                            }
+                        },
+                        {
+                            "type": "apoli:delay",
+                            "ticks": 10,
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "time add 4000"
+                            }
+                        },
+                        {
+                            "type": "apoli:delay",
+                            "ticks": 15,
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "time add 1000"
+                            }
+                        },
+                        {
+                            "type": "apoli:delay",
+                            "ticks": 20,
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "time add 1000"
+                            }
+                        },
+                        {
+                            "type": "apoli:delay",
+                            "ticks": 25,
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "time add 1000"
+                            }
+                        },
+                        {
+                            "type": "apoli:delay",
+                            "ticks": 30,
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "time add 1000"
+                            }
+                        },
+                        {
+                            "type": "apoli:delay",
+                            "ticks": 35,
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "time add 1000"
+                            }
+                        },
+                        {
+                            "type": "apoli:delay",
+                            "ticks": 40,
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "time add 1000"
+                            }
+                        },
+                        {
+                            "type": "apoli:delay",
+                            "ticks": 80,
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "time add 2000"
+                            }
+                        },
+                        {
+                            "type": "apoli:delay",
+                            "ticks": 100,
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "time add 2000"
+                            }
+                        },
+                        {
+                            "type": "apoli:delay",
+                            "ticks": 110,
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "time add 1500"
+                            }
+                        },
+                        {
+                            "type": "apoli:delay",
+                            "ticks": 120,
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "time add 1500"
+                            }
+                        },
+                        {
+                            "type": "apoli:delay",
+                            "ticks": 130,
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "time add 1500"
+                            }
+                        },
+                        {
+                            "type": "apoli:delay",
+                            "ticks": 140,
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "time add 1500"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "apoli:delay",
+                    "ticks": 20,
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "apoli:change_resource",
+                                "resource": "*:*_secondary",
+                                "operation": "set",
+                                "change": 1
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "function phlime:atomic/place"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 40,
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "apoli:change_resource",
+                                "resource": "*:*_explosion",
+                                "operation": "set",
+                                "change": 1
+                            },
+                            {
+                                "type": "apoli:change_resource",
+                                "resource": "*:*_primary",
+                                "operation": "set",
+                                "change": 0
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "apoli:delay",
+                    "ticks": 140,
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "apoli:change_resource",
+                                "resource": "*:*_secondary",
+                                "operation": "set",
+                                "change": 0
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "apoli:delay",
+                    "ticks": 300,
+                    "action": {
+                        "type": "apoli:change_resource",
+                        "resource": "*:*_ternary",
+                        "operation": "set",
+                        "change": 0
+                    }
                 }
             ]
         },
@@ -29,6 +239,16 @@
                     "resource": "*:static_charge_var",
                     "comparison": "==",
                     "compare_to": 100
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "tag": "phlime:swords"
+                        }
+                    }
                 }
             ]
         },
@@ -41,5 +261,284 @@
             "key": "key.origins.secondary_active"
         },
         "cooldown": 5
+    },
+    "explosions": {
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s add tempEminanceSelector"
+                },
+                {
+                    "type": "apoli:area_of_effect",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "playsound minecraft:entity.lightning_bolt.impact block @a ~ ~ ~ 2 1"
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "particle minecraft:explosion_emitter ~ ~ ~ 10 8 10 1 35"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:delay",
+                                            "ticks": 5,
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "playsound minecraft:entity.lightning_bolt.impact block @a ~ ~ ~ 2 1"
+                                                    },
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "particle minecraft:explosion_emitter ~ ~ ~ 10 8 10 1 35"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:delay",
+                                            "ticks": 10,
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "playsound minecraft:entity.lightning_bolt.impact block @a ~ ~ ~ 2 1"
+                                                    },
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "particle minecraft:explosion_emitter ~ ~ ~ 10 8 10 1 35"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:delay",
+                                            "ticks": 15,
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "playsound minecraft:entity.lightning_bolt.impact block @a ~ ~ ~ 2 1"
+                                                    },
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "particle minecraft:explosion_emitter ~ ~ ~ 10 8 10 1 35"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:delay",
+                                            "ticks": 20,
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "playsound minecraft:entity.lightning_bolt.impact block @a ~ ~ ~ 2 1"
+                                                    },
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "particle minecraft:explosion_emitter ~ ~ ~ 10 8 10 1 35"
+                                                    },
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "fill ~-10 ~16 ~-10 ~10 ~-16 ~10 air replace minecraft:reinforced_deepslate"
+                                                    },
+                                                    {
+                                                        "type": "origins:explode",
+                                                        "power": 12,
+                                                        "destruction_type": "break",
+                                                        "damage_self": false,
+                                                        "indestructible": {
+                                                            "type": "origins:and",
+                                                            "conditions": [
+                                                                {
+                                                                    "type": "origins:block",
+                                                                    "block": "obsidian"
+                                                                },
+                                                                {
+                                                                    "type": "origins:in_tag",
+                                                                    "tag": "dragon_immune"
+                                                                },
+                                                                {
+                                                                    "type": "origins:block",
+                                                                    "block": "reinforced_deepslate"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "create_fire": false
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "apoli:area_of_effect",
+                                    "bientity_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "apoli:damage",
+                                                "amount": 100,
+                                                "source": {
+                                                    "name": "magic.player",
+                                                    "magic": true,
+                                                    "bypasses_armor": false
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "bientity_condition": {
+                                        "type": "origins:and",
+                                        "conditions": [
+                                            {
+                                                "type": "origins:target_condition",
+                                                "condition": {
+                                                    "type": "origins:command",
+                                                    "command": "execute if entity @s[tag=tempEminanceSelector]",
+                                                    "comparison": "==",
+                                                    "compare_to": 0
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "include_target": false,
+                                    "radius": 20
+                                }
+                            ]
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:command",
+                                    "command": "execute as @s if score @a[tag=tempEminanceSelector,limit=1,sort=nearest] atomicSID = @s atomicSID",
+                                    "comparison": "==",
+                                    "compare_to": 1
+                                }
+                            }
+                        ]
+                    },
+                    "include_target": false,
+                    "radius": 20
+                },
+                {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "tag @s remove tempEminanceSelector"
+                        },
+                        {
+                            "type": "apoli:change_resource",
+                            "resource": "*:*_explosion",
+                            "operation": "set",
+                            "change": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_explosion",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "interval": 2
+    },
+    "air_speed": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_primary",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "fall_damage": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "fall"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_ternary",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "flight": {
+        "type": "origins:creative_flight",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_secondary",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "primary": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "secondary": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "ternary": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "explosion": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
     }
 }
