@@ -37,7 +37,7 @@
                     },
                     "else_action": {
                         "type": "origins:add_velocity",
-                        "y": 1.5,
+                        "y": 1.25,
                         "set": true
                     }
                 },
@@ -188,19 +188,34 @@
                                 "resource": "*:*_explosion",
                                 "operation": "set",
                                 "change": 1
-                            },
-                            {
-                                "type": "apoli:change_resource",
-                                "resource": "*:*_primary",
-                                "operation": "set",
-                                "change": 0
                             }
                         ]
                     }
                 },
                 {
                     "type": "apoli:delay",
-                    "ticks": 140,
+                    "ticks": 60,
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "apoli:change_resource",
+                                "resource": "*:*_primary",
+                                "operation": "set",
+                                "change": 0
+                            },
+                            {
+                                "type": "apoli:change_resource",
+                                "resource": "*:static_charge_var",
+                                "operation": "add",
+                                "change": -100
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "apoli:delay",
+                    "ticks": 160,
                     "action": {
                         "type": "origins:and",
                         "actions": [
@@ -260,7 +275,7 @@
         "key": {
             "key": "key.origins.secondary_active"
         },
-        "cooldown": 5
+        "cooldown": 100
     },
     "explosions": {
         "type": "apoli:action_over_time",
@@ -468,7 +483,7 @@
             "comparison": "==",
             "compare_to": 1
         },
-        "interval": 2
+        "interval": 1
     },
     "air_speed": {
         "type": "origins:modify_air_speed",

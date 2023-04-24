@@ -10,7 +10,7 @@
             "type": "origins:change_resource",
             "resource": "*:*_var",
             "operation": "add",
-            "change": 10
+            "change": 5
         },
         "cooldown": 100
     },
@@ -58,7 +58,9 @@
         "max": 100,
         "start_value": 0,
         "hud_render": {
-            "should_render": true
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 2
         }
     }
 }

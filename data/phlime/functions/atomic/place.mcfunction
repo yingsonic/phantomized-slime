@@ -1,6 +1,5 @@
 say I... AM... ATOMIC!
 
-execute positioned ~ ~-1 ~ run function phlime:atomic/pillar
 execute positioned ~ ~-2 ~ run function phlime:atomic/pillar
 execute positioned ~ ~-3 ~ run function phlime:atomic/pillar
 execute positioned ~ ~-4 ~ run function phlime:atomic/pillar
