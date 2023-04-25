@@ -37,9 +37,9 @@
                         "type": "origins:execute_command",
                         "command": "title @s actionbar \"§cYou missed!\""
                     },
-                    "command_at_hit": "particle minecraft:dust 0 0 0 3 ~ ~ ~ 0.5 0.5 0.5 0.05 15 force",
+                    "command_at_hit": "particle minecraft:dust 0 0 0 3 ~ ~ ~ 0.1 0.1 0.1 0.5 5 force",
                     "command_along_ray": "particle minecraft:dust 0 0 0 0.5 ~ ~ ~ 0 0 0 0.5 1 force",
-                    "command_step": 0.2,
+                    "command_step": 0.1,
                     "command_along_ray_only_on_hit": true
                 }
             ]
@@ -77,8 +77,8 @@
         "cooldown": 100,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
-            "bar_index": 2
+            "sprite_location": "phlime:textures/z_resource_bar.png",
+            "bar_index": 9
         }
     },
     "sword": {

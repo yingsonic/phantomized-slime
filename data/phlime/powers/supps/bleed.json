@@ -1,0 +1,24 @@
+{
+    "type": "origins:multiple",
+    "effect": {
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "origins:damage",
+            "amount": 2,
+            "source": {
+                "name": "magic.player",
+                "magic": true,
+                "bypasses_armor": true
+            }
+        },
+        "interval": 10
+    },
+    "remove": {
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "power revoke @s phlime:supps/bleed"
+        },
+        "interval": 50
+    }
+}

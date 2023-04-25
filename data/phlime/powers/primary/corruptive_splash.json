@@ -1,6 +1,6 @@
 {
-    "name": "§6§n",
-    "description": "\n",
+    "name": "§5§nCorruptive Vortex",
+    "description": "Press your primary in the Guardian state to unleash many Modified Shadow Tendrils at once, pulling in entities around you and creating a deadly vortex, slashing and cleaving everything whilst inflicting blindness to those unfortunate enough to have their eyes slashed open by surviving it. This consumes and requires 100 stamina, with an 8 second cooldown.\n",
     "hidden": false,
 
     "type": "origins:multiple",

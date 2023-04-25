@@ -7,7 +7,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/active.png",
-            "text": "§5Switch to Rogue by using [Active Power (Ternary)]\nSwitch to Combat by using [Active Power (Quaternary)]\nSwitch to Guardian by using [Active Power (Quinary)]\n\n§9§lCooldown: 5s"
+            "text": "§5Switch to Rogue by using [Active Power (Ternary)]\nSwitch to Combat by using [Active Power (Quaternary)]\nSwitch to Guardian by using [Active Power (Quinary)]\n\n§9Cooldown: 5s"
         }
     ],
 
@@ -17,6 +17,25 @@
         "entity_action": {
             "type": "apoli:if_else_list",
             "actions": [
+                {
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:passives/transformation_var",
+                                "comparison": "==",
+                                "compare_to": 300
+                            },
+                            {
+                                "type": "origins:sneaking"
+                            }
+                        ]
+                    },
+                    "action": {
+                        "type": "origins:nothing"
+                    }
+                },
                 {
                     "condition": {
                         "type": "origins:and",
@@ -67,7 +86,7 @@
                 },
                 {
                     "condition": {
-                        "type": "apoli:constant",
+                        "type": "origins:constant",
                         "value": true
                     },
                     "action": {

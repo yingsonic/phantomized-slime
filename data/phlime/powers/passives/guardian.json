@@ -1,7 +1,15 @@
 {
-    "name": "§6§nGuardian",
-    "description": "In guardian mode, you are altered to defend and guard those you swore to protect.\n",
+    "name": "§5§nGuardian State",
+    "description": "In guardian mode, you are altered to defend and guard those you swore to protect. Everyone in a 10 block radius will be given regeneration and resistance, including yourself when protecting others.\n\n§7§oThe following are primary abilities that are unique to certain conditions.\n",
     "hidden": false,
+
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "§5Activate by pressing your quinary when switching is not on cooldown"
+        }
+    ],
 
     "type": "origins:multiple",
     "particles": {

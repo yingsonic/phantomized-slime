@@ -1,7 +1,20 @@
 {
-    "name": "§6§nCombat",
-    "description": "In combat mode, you are ever so closer attuned to the shadows.\n",
+    "name": "§4§nCombat State",
+    "description": "In this state, you are ever so closer attuned to the shadows, being able to easily mould your structure to adapt at will. Manipulating your body, you are able to use tools at a greater potential.\n",
     "hidden": false,
+
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "§4Activate by pressing your quaternary when switching is not on cooldown"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/info.png",
+            "text": "§4Sword: 25% increase in range, 50% increase in swing speed but 20% less overall damage.\n\nPickaxe: Haste 2 while holding to be able to mine towards fleeing enemies.\n\nAxe: Slowness 1 when holding, but deal 50% more damage.\n\nHoe: Generate a scythe, details listed below as a sub-power of this state."
+        }
+    ],
 
     "type": "origins:multiple",
     "particles": {
@@ -98,7 +111,7 @@
         },
         "tick_rate": 1
     },
-    "pickaxe": {
+    "pickaxe_effect": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:apply_effect",
@@ -133,5 +146,73 @@
             ]
         },
         "interval": 5
+    },
+    "axe_effect": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:apply_effect",
+            "effect": {
+                "effect": "minecraft:slowness",
+                "duration": 8,
+                "amplifier": 0,
+                "is_ambient": true,
+                "show_particles": false,
+                "show_icon": false
+            }
+        },
+        "condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:abilities/switch_var",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "apoli:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "apoli:ingredient",
+                        "ingredient": {
+                            "tag": "phlime:axes"
+                        }
+                    }
+                }
+            ]
+        },
+        "interval": 5
+    },
+    "axe_attr": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "attribute": "generic.attack_damage",
+                "operation": "multiply_total",
+                "value": 0.5
+            }
+        ],
+        "condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:abilities/switch_var",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "apoli:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "apoli:ingredient",
+                        "ingredient": {
+                            "tag": "phlime:axes"
+                        }
+                    }
+                }
+            ]
+        },
+        "tick_rate": 1
     }
 }

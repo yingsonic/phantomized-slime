@@ -110,47 +110,28 @@
     "disable_tools": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:if_else_list",
-            "actions": [
-                {
-                    "condition": {
-                        "type": "apoli:equipped_item",
-                        "equipment_slot": "mainhand",
-                        "item_condition": {
-                            "type": "origins:ingredient",
-                            "ingredient": {
-                                "type": "origins:ingredient",
-                                "tag": "phlime:tools"
-                            }
-                        }
-                    },
-                    "action": {
-                        "type": "origins:drop_inventory",
-                        "inventory_type": "inventory",
-                        "item_condition": {
-                            "type": "origins:and",
-                            "conditions": [
-                                {
-                                    "type": "origins:ingredient",
-                                    "ingredient": {
-                                        "type": "origins:ingredient",
-                                        "tag": "phlime:tools"
-                                    }
-                                },
-                                {
-                                    "type": "origins:amount",
-                                    "comparison": "==",
-                                    "compare_to": 1
-                                }
-                            ]
-                        },
-                        "retain_ownership": true,
-                        "amount": 1
-                    }
-                }
-            ]
+            "type": "apoli:apply_effect",
+            "effect": {
+                "effect": "minecraft:mining_fatigue",
+                "duration": 3,
+                "amplifier": 10,
+                "is_ambient": true,
+                "show_particles": false,
+                "show_icon": false
+            }
         },
-        "interval": 10
+        "condition": {
+            "type": "apoli:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "type": "origins:ingredient",
+                    "tag": "phlime:tools"
+                }
+            }
+        },
+        "interval": 1
     },
     "jump_boost": {
         "type": "apoli:action_over_time",

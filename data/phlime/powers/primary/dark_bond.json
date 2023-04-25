@@ -1,6 +1,6 @@
 {
-    "name": "§6§n",
-    "description": "\n",
+    "name": "§0§nDark Bond",
+    "description": "Press your primary while in the Rogue state to throw out a Shadow Tendril and constrain an entity; this makes it blind and immobile for 3 seconds. This consumes 30 stamina and requires at least 20 stamina to activate, with a 12 second cooldown.\n",
     "hidden": false,
 
     "type": "origins:multiple",

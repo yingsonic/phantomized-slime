@@ -1,7 +1,15 @@
 {
-    "name": "§6§n",
-    "description": "\n",
+    "name": "§0§nShadow Scythe",
+    "description": "Press your senary while holding a stone hoe to convert it to a Shadow Scythe, consuming 15 stamina. On hit, this scythe will perform a coordinated AOE attack and consume 1/5th of it's durability while damaging the opponent. This coordinated attack spawns a powerful Shadow Strike, dealing a low amount of true damage and inflicting slowness and blindness, with a 1 second cooldown.\n\nAdditionally, you will gain 1 stack of Shadow Litmus when first getting your scythe and on scythe hit. Max 5 stacks. When you have the max amount of stacks, you will deal 100% more damage on your coordinated attack. Having any amount of stacks means changing state will instantly spawn a mini Shadow Strike in an AOE around you.\n",
     "hidden": false,
+
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "§7Use your senary while holding a stone hoe to activate"
+        }
+    ],
 
     "type": "origins:multiple",
     "spawn": {
@@ -365,8 +373,8 @@
         "cooldown": 600,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
-            "bar_index": 17,
+            "sprite_location": "phlime:textures/z_resource_bar.png",
+            "bar_index": 8,
             "condition": {
                 "type": "origins:and",
                 "conditions": [

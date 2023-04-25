@@ -1,6 +1,6 @@
 {
-    "name": "§6§n",
-    "description": "\n",
+    "name": "§4§nTendril Whip",
+    "description": "Press your primary while in the Combat state to whip with a Shadow Tendril. This inflicts a considerable amount of knockback if they do not have a speed debuff, as well as dealing a great amount of damage with moderate range. This consumes and requires 50 stamina to activate, unless you have a Shadow Scythe equipped, which halves the stamina needed.\n\nAny enemies that are hit with the Shadow Tendril have a 50% chance that they will enter the Whiplash state, which will render them temporarily blind and immobile for 1 second.\n",
     "hidden": false,
 
     "type": "origins:multiple",

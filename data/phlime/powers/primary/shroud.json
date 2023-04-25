@@ -1,7 +1,20 @@
 {
-    "name": "§6§n",
-    "description": "\n",
+    "name": "§7§nEphemeral State",
+    "description": "In this state, you become slightly more translucent and are able to phase through objects with ease. The movement boost no longer emits white ash and no longer has a stamina restriction. You still deal 20% less overall damage, but also take 1.5x more damage than usual.\n\n§0§nShroud§r\nEvery 10 seconds in your ephemeral state you will gain 1 stack of Shroud. Max 3 stacks. If you have any stacks of Shroud you will be 50% quieter when exiting and the following is able to be activated: Within 3 seconds of exiting your ephemeral state, press your primary to unleash an alternative AOE attack that blinds enemies temporarily.\n",
     "hidden": false,
+
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "§7Press your senary while in the Rogue State to fade into an Ephemeral State\n\nPress your primary with at least 1 shroud stack after coming out of an Ephemeral State to activate Shroud"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/info.png",
+            "text": "§7Shroud:\n1 stack: 3 seconds\n2 stacks: 5 seconds\n3 stacks: 8 seconds"
+        }
+    ],
 
     "type": "origins:multiple",
     "main": {

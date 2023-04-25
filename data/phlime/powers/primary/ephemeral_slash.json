@@ -1,6 +1,6 @@
 {
-    "name": "§6§n",
-    "description": "\n",
+    "name": "§7§nPhantom Slash",
+    "description": "If a sword is equipped in your main hand while in the Combat state, press your primary to make an anchor at your current position, creating massive slashes of darkness in front of you, greatly damaging any unfortunate enough to be hit. This ability will first hit twice, and finally unleash a final slash, inflicting bleed. You must be on a block to use this ability. This consumes and requires 75 stamina, with a 10 second cooldown.\n",
     "hidden": false,
 
     "type": "origins:multiple",
@@ -495,6 +495,19 @@
                                                                         "bientity_action": {
                                                                             "type": "origins:and",
                                                                             "actions": [
+                                                                                {
+                                                                                    "type": "origins:target_action",
+                                                                                    "action": {
+                                                                                        "type": "origins:if_else",
+                                                                                        "condition": {
+                                                                                            "type": "origins:living"
+                                                                                        },
+                                                                                        "if_action": {
+                                                                                            "type": "origins:execute_command",
+                                                                                            "command": "power grant @s phlime:supps/bleed"
+                                                                                        }
+                                                                                    }
+                                                                                },
                                                                                 {
                                                                                     "type": "apoli:damage",
                                                                                     "amount": 10,

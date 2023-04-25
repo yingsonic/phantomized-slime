@@ -320,7 +320,7 @@
                                                 },
                                                 {
                                                     "type": "origins:execute_command",
-                                                    "command": "particle minecraft:explosion_emitter ~ ~ ~ 10 8 10 1 35"
+                                                    "command": "particle minecraft:explosion_emitter ~ ~ ~ 10 8 10 1 10"
                                                 }
                                             ]
                                         },
@@ -336,7 +336,7 @@
                                                     },
                                                     {
                                                         "type": "origins:execute_command",
-                                                        "command": "particle minecraft:explosion_emitter ~ ~ ~ 10 8 10 1 35"
+                                                        "command": "particle minecraft:explosion_emitter ~ ~ ~ 10 8 10 1 10"
                                                     }
                                                 ]
                                             }
@@ -353,7 +353,7 @@
                                                     },
                                                     {
                                                         "type": "origins:execute_command",
-                                                        "command": "particle minecraft:explosion_emitter ~ ~ ~ 10 8 10 1 35"
+                                                        "command": "particle minecraft:explosion_emitter ~ ~ ~ 10 8 10 1 10"
                                                     }
                                                 ]
                                             }
@@ -370,7 +370,7 @@
                                                     },
                                                     {
                                                         "type": "origins:execute_command",
-                                                        "command": "particle minecraft:explosion_emitter ~ ~ ~ 10 8 10 1 35"
+                                                        "command": "particle minecraft:explosion_emitter ~ ~ ~ 10 8 10 1 10"
                                                     }
                                                 ]
                                             }
@@ -387,7 +387,7 @@
                                                     },
                                                     {
                                                         "type": "origins:execute_command",
-                                                        "command": "particle minecraft:explosion_emitter ~ ~ ~ 10 8 10 1 35"
+                                                        "command": "particle minecraft:explosion_emitter ~ ~ ~ 10 8 10 1 10"
                                                     },
                                                     {
                                                         "type": "origins:execute_command",
@@ -395,8 +395,8 @@
                                                     },
                                                     {
                                                         "type": "origins:explode",
-                                                        "power": 12,
-                                                        "destruction_type": "break",
+                                                        "power": 10,
+                                                        "destruction_type": "none",
                                                         "damage_self": false,
                                                         "indestructible": {
                                                             "type": "origins:and",

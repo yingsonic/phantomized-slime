@@ -2,22 +2,25 @@
 	"powers": [
 		"phlime:setup",
 		"phlime:abilities/switch",
-		"phlime:abilities/scythe",
 		"phlime:stamina",
 		"phlime:supps/stam_regen",
 		"phlime:abilities/heal",
 		"phlime:supps/modes_sprites",
+
 		"phlime:passives/rogue",
+		"phlime:primary/shroud",
 		"phlime:passives/combat",
-		"phlime:passives/transformation",
+		"phlime:abilities/scythe",
 		"phlime:passives/guardian",
-		"phlime:passives/regen_off",
+
 		"phlime:primary/dark_bond",
 		"phlime:primary/tendril_whip",
-		"phlime:primary/corruptive_splash",
 		"phlime:primary/ephemeral_slash",
 		"phlime:primary/enraged_vindication",
-		"phlime:primary/shroud",
+		"phlime:primary/corruptive_splash",
+
+		"phlime:passives/transformation",
+		"phlime:passives/regen_off",
 		"phlime:supps/scythe_stacks",
 		"phlime:disable_jump"
 	],
@@ -28,7 +31,7 @@
 	"impact": 3,
 
 	"name": "§5Phantomized Slime",
-	"description": "A reborn slime after dying to a player who was attempting to run from §o'something'§r lurking in the shadows. As a reborn slime, you have experienced death and swear to avenge and protect those in need.\n\nDue to being just a meek little slime, you avoid trouble and stick to the shadows, remembering what hunted the original player that killed you.",
+	"description": "A reborn slime after dying to a player who was attempting to run from §o'something'§r lurking in the shadows. As a reborn slime, you have experienced death and swear to avenge and protect those in need.\n\nDue to being just a meek little slime, you avoid trouble and stick to the shadows, remembering what hunted the original player that killed you.\n",
 	
 	"comment": "Made by yingsonic on Fiverr"
 }
