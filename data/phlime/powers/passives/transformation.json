@@ -22,7 +22,7 @@
         },
         "damage_condition": {
             "type": "origins:name",
-            "name": "magic.player",
+            "name": "magic",
             "inverted": true
         },
         "cooldown": 60
@@ -37,7 +37,7 @@
         },
         "damage_condition": {
             "type": "origins:name",
-            "name": "magic.player"
+            "name": "magic"
         },
         "cooldown": 60
     },

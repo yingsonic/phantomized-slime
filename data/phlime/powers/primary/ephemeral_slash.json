@@ -17,7 +17,7 @@
                 "type": "origins:target_action",
                 "action": {
                     "type": "origins:execute_command",
-                    "command": "summon minecraft:armor_stand ~ ~ ~ {Marker:1b,CustomName:{\"text\":\"Phantom Slash\",\"color\":\"dark_grey\"},Invisible:1b,PersistenceRequired:1b,Invulnerable:1b,NoGravity:1b,Tags:[\"shadowSlashEntityPos\",\"tempSlash\"]}"
+                    "command": "summon minecraft:armor_stand ~ ~ ~ {Marker:1b,CustomName:{\"text\":\"Phantom Slash\",\"color\":\"grey\"},Invisible:1b,PersistenceRequired:1b,Invulnerable:1b,NoGravity:1b,Tags:[\"shadowSlashEntityPos\",\"tempSlash\"]}"
                 }
             },
             "hit_action": {
@@ -42,7 +42,7 @@
                     },
                     {
                         "type": "origins:execute_command",
-                        "command": "summon minecraft:armor_stand ~ ~ ~ {Marker:1b,CustomName:{\"text\":\"Phantom Slash\",\"color\":\"dark_grey\"},Invisible:1b,PersistenceRequired:1b,Invulnerable:1b,NoGravity:1b,Tags:[\"shadowSlashPlayerPos\",\"tempSlash\"]}"
+                        "command": "summon minecraft:armor_stand ~ ~ ~ {Marker:1b,CustomName:{\"text\":\"Phantom Slash\",\"color\":\"grey\"},Invisible:1b,PersistenceRequired:1b,Invulnerable:1b,NoGravity:1b,Tags:[\"shadowSlashPlayerPos\",\"tempSlash\"]}"
                     },
                     {
                         "type": "apoli:execute_command",
@@ -122,7 +122,7 @@
                                                                     "type": "apoli:damage",
                                                                     "amount": 3,
                                                                     "source": {
-                                                                        "name": "magic.player",
+                                                                        "name": "magic",
                                                                         "magic": true,
                                                                         "bypasses_armor": false
                                                                     }
@@ -304,7 +304,7 @@
                                                                                 "type": "apoli:damage",
                                                                                 "amount": 3,
                                                                                 "source": {
-                                                                                    "name": "magic.player",
+                                                                                    "name": "magic",
                                                                                     "magic": true,
                                                                                     "bypasses_armor": false
                                                                                 }
@@ -512,7 +512,7 @@
                                                                                     "type": "apoli:damage",
                                                                                     "amount": 10,
                                                                                     "source": {
-                                                                                        "name": "magic.player",
+                                                                                        "name": "magic",
                                                                                         "magic": true,
                                                                                         "bypasses_armor": false
                                                                                     }

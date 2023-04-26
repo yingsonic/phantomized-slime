@@ -1,12 +1,13 @@
 {
 	"powers": [
 		"phlime:setup",
+		"phlime:eminance/passives",
 		"phlime:passives/regen_off",
 		"phlime:abilities/heal",
-		"phlime:eminance/passives",
-		"phlime:eminance/parry",
 		"phlime:static_charge",
 		"phlime:eminance/discharge",
+		"phlime:eminance/parry",
+		"phlime:eminance/shadow_ray",
 		"phlime:eminance/shadow_garden",
 		"phlime:eminance/atomic",
 		"phlime:eminance/transformation"
@@ -17,9 +18,9 @@
 	"order": 10,
 	"impact": 3,
 
-	"name": "§5The Eminance of Shadow",
-	"description": "...?",
+	"name": "§4Eminance of Shadow",
+	"description": "\n§4§l...?",
 	
 	"comment": "Made by yingsonic on Fiverr",
-    "unchoosable": true
+    "unchoosable": false
 }

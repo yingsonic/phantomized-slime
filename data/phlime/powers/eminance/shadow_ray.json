@@ -1,0 +1,84 @@
+{
+    "name": "§0§nShadow Ray",
+    "description": "If primary is used bare handed, you will fire a Shadow Ray; a stream of dark particles with a 30 block range, doing moderate damage.\n",
+    "hidden": false,
+
+    "type": "origins:multiple",
+    "ray": {
+        "type": "apoli:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:raycast",
+                    "distance": 30,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "visual",
+                    "fluid_handling": "any",
+                    "bientity_action": {
+                        "type": "origins:damage",
+                        "amount": 10,
+                        "source": {
+                            "name": "magic",
+                            "magic": true,
+                            "bypasses_armor": false
+                        }
+                    },
+                    "before_action": {
+                        "type": "origins:swing_hand",
+                        "hand": "MAIN_HAND"
+                    },
+                    "hit_action": {
+                        "type": "apoli:trigger_cooldown",
+                        "power": "*:*_cd"
+                    },
+                    "miss_action": {
+                        "type": "origins:execute_command",
+                        "command": "title @s actionbar \"§cYou missed!\""
+                    },
+                    "command_at_hit": "particle minecraft:dust 0 0 0 3 ~ ~ ~ 0.1 0.1 0.1 0.5 5 force",
+                    "command_along_ray": "particle minecraft:dust 0 0 0 0.5 ~ ~ ~ 0 0 0 0.5 1 force",
+                    "command_step": 0.1,
+                    "command_along_ray_only_on_hit": true
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apoli:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:empty"
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_cd",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": false,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 2
+        },
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "cooldown": 5
+    },
+    "cd": {
+        "type": "apoli:cooldown",
+        "cooldown": 100,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "phlime:textures/z_resource_bar.png",
+            "bar_index": 9
+        }
+    }
+}

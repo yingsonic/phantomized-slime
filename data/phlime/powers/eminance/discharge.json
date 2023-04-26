@@ -1,6 +1,6 @@
 {
-    "name": "§6§n",
-    "description": "\n",
+    "name": "§6§nPlasma Discharge",
+    "description": "If secondary is used with at least 50 stacks, the plasma charged can be discharged in a non-explosive wide ranged aoe, paralyzing everyone in it as well as inflicting some damage.\n",
     "hidden": false,
 
     "type": "origins:multiple",
@@ -34,7 +34,7 @@
                                 "type": "apoli:damage",
                                 "amount": 12,
                                 "source": {
-                                    "name": "magic.player",
+                                    "name": "magic",
                                     "magic": true,
                                     "bypasses_armor": false
                                 }

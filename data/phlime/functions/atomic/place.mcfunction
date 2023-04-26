@@ -10,5 +10,5 @@ execute positioned ~ ~-8 ~ run function phlime:atomic/pillar
 execute positioned ~ ~-9 ~ run function phlime:atomic/pillar
 execute positioned ~ ~-10 ~ run function phlime:atomic/pillar
 
-summon minecraft:armor_stand ~ ~-4 ~ {Marker:1b,Invisible:1b,PersistenceRequired:1b,Invulnerable:1b,NoGravity:1b,Tags:["atomicPos", "tempAtomic"]}
+summon minecraft:armor_stand ~ ~-4 ~ {CustomName:{"text":"Atomic Bomb","color":"dark_purple"},Marker:1b,Invisible:1b,PersistenceRequired:1b,Invulnerable:1b,NoGravity:1b,Tags:["atomicPos", "tempAtomic"]}
 function phlime:sid/atomic

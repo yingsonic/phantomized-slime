@@ -55,7 +55,7 @@
                                             "type": "apoli:damage",
                                             "amount": 1.5,
                                             "source": {
-                                                "name": "magic.player",
+                                                "name": "magic",
                                                 "magic": true,
                                                 "bypasses_armor": true
                                             }
@@ -161,7 +161,7 @@
                                             "type": "apoli:damage",
                                             "amount": 3,
                                             "source": {
-                                                "name": "magic.player",
+                                                "name": "magic",
                                                 "magic": true,
                                                 "bypasses_armor": true
                                             }

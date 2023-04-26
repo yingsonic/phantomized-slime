@@ -6,7 +6,7 @@
             "type": "origins:damage",
             "amount": 2,
             "source": {
-                "name": "magic.player",
+                "name": "magic",
                 "magic": true,
                 "bypasses_armor": true
             }

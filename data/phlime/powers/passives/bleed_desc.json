@@ -1,0 +1,7 @@
+{
+    "name": "§4§nBleed",
+    "description": "Bleed is a new status effect that gives short but very damaging tick damage, this damage is considered true damage and bypasses armor and is applied to enemies when using certain abilities.\n\n§7§oThe following are the four states you can be in, depending on your mode or if you are ephemeral.\n",
+    "hidden": false,
+
+    "type": "origins:simple"
+}

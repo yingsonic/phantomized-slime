@@ -4,6 +4,7 @@
 		"phlime:abilities/switch",
 		"phlime:stamina",
 		"phlime:supps/stam_regen",
+		"phlime:passives/bleed_desc",
 		"phlime:abilities/heal",
 		"phlime:supps/modes_sprites",
 

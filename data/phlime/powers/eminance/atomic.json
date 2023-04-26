@@ -1,6 +1,6 @@
 {
-    "name": "§6§n",
-    "description": "\n",
+    "name": "§6§nI... am... ATOMIC!",
+    "description": "If a sword is in the main hand during 'Plasma Discharge' whilst Shadow Garden is active, you instead will jump up and unleash a small explosive pillar, enabling flight temporarily and manipulating time and space while decimating everything in the area. §oNothing will be left.§r\n\nYou become temporarily immune to all attacks and gain flight.\n",
     "hidden": false,
 
     "type": "origins:multiple",
@@ -320,7 +320,7 @@
                                                 },
                                                 {
                                                     "type": "origins:execute_command",
-                                                    "command": "particle minecraft:explosion_emitter ~ ~ ~ 10 8 10 1 10"
+                                                    "command": "particle minecraft:explosion_emitter ~ ~ ~ 10 8 10 1 25"
                                                 }
                                             ]
                                         },
@@ -336,7 +336,7 @@
                                                     },
                                                     {
                                                         "type": "origins:execute_command",
-                                                        "command": "particle minecraft:explosion_emitter ~ ~ ~ 10 8 10 1 10"
+                                                        "command": "particle minecraft:explosion_emitter ~ ~ ~ 10 8 10 1 25"
                                                     }
                                                 ]
                                             }
@@ -353,7 +353,7 @@
                                                     },
                                                     {
                                                         "type": "origins:execute_command",
-                                                        "command": "particle minecraft:explosion_emitter ~ ~ ~ 10 8 10 1 10"
+                                                        "command": "particle minecraft:explosion_emitter ~ ~ ~ 10 8 10 1 25"
                                                     }
                                                 ]
                                             }
@@ -370,7 +370,7 @@
                                                     },
                                                     {
                                                         "type": "origins:execute_command",
-                                                        "command": "particle minecraft:explosion_emitter ~ ~ ~ 10 8 10 1 10"
+                                                        "command": "particle minecraft:explosion_emitter ~ ~ ~ 10 8 10 1 25"
                                                     }
                                                 ]
                                             }
@@ -387,35 +387,15 @@
                                                     },
                                                     {
                                                         "type": "origins:execute_command",
-                                                        "command": "particle minecraft:explosion_emitter ~ ~ ~ 10 8 10 1 10"
+                                                        "command": "particle minecraft:explosion_emitter ~ ~ ~ 10 8 10 1 25"
                                                     },
                                                     {
                                                         "type": "origins:execute_command",
                                                         "command": "fill ~-10 ~16 ~-10 ~10 ~-16 ~10 air replace minecraft:reinforced_deepslate"
                                                     },
                                                     {
-                                                        "type": "origins:explode",
-                                                        "power": 10,
-                                                        "destruction_type": "none",
-                                                        "damage_self": false,
-                                                        "indestructible": {
-                                                            "type": "origins:and",
-                                                            "conditions": [
-                                                                {
-                                                                    "type": "origins:block",
-                                                                    "block": "obsidian"
-                                                                },
-                                                                {
-                                                                    "type": "origins:in_tag",
-                                                                    "tag": "dragon_immune"
-                                                                },
-                                                                {
-                                                                    "type": "origins:block",
-                                                                    "block": "reinforced_deepslate"
-                                                                }
-                                                            ]
-                                                        },
-                                                        "create_fire": false
+                                                        "type": "origins:execute_command",
+                                                        "command": "execute positioned ~ ~-3 ~ run summon minecraft:creeper ~ ~ ~ {Fuse:0,CustomName:'[{\"text\":\"Atomic Bomb\",\"color\":\"dark_purple\"}]',ExplosionRadius:15}"
                                                     }
                                                 ]
                                             }
@@ -431,7 +411,7 @@
                                                 "type": "apoli:damage",
                                                 "amount": 100,
                                                 "source": {
-                                                    "name": "magic.player",
+                                                    "name": "magic",
                                                     "magic": true,
                                                     "bypasses_armor": false
                                                 }
@@ -444,10 +424,20 @@
                                             {
                                                 "type": "origins:target_condition",
                                                 "condition": {
-                                                    "type": "origins:command",
-                                                    "command": "execute if entity @s[tag=tempEminanceSelector]",
-                                                    "comparison": "==",
-                                                    "compare_to": 0
+                                                    "type": "origins:and",
+                                                    "conditions": [
+                                                        {
+                                                            "type": "origins:entity_type",
+                                                            "entity_type": "fireball",
+                                                            "inverted": true
+                                                        },
+                                                        {
+                                                            "type": "origins:command",
+                                                            "command": "execute if entity @s[tag=tempEminanceSelector]",
+                                                            "comparison": "==",
+                                                            "compare_to": 0
+                                                        }
+                                                    ]
                                                 }
                                             }
                                         ]
