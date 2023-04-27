@@ -288,14 +288,24 @@
                                                     "actions": [
                                                         {
                                                             "type": "apoli:apply_effect",
-                                                            "effect": {
-                                                                "effect": "minecraft:blindness",
-                                                                "duration": 30,
-                                                                "amplifier": 0,
-                                                                "is_ambient": true,
-                                                                "show_particles": true,
-                                                                "show_icon": false
-                                                            }
+                                                            "effects": [
+                                                                {
+                                                                    "effect": "minecraft:blindness",
+                                                                    "duration": 30,
+                                                                    "amplifier": 0,
+                                                                    "is_ambient": true,
+                                                                    "show_particles": true,
+                                                                    "show_icon": false
+                                                                },
+                                                                {
+                                                                    "effect": "minecraft:slowness",
+                                                                    "duration": 90,
+                                                                    "amplifier": 0,
+                                                                    "is_ambient": true,
+                                                                    "show_particles": true,
+                                                                    "show_icon": false
+                                                                }
+                                                            ]
                                                         },
                                                         {
                                                             "type": "origins:play_sound",
@@ -338,6 +348,41 @@
             "resource": "*:abilities/switch_var",
             "comparison": "==",
             "compare_to": 2
+        },
+        "interval": 1
+    },
+    "cancel": {
+        "type": "apoli:action_over_time",
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_has",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_uses",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "*:*_spawn_cd"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @e[limit=1,sort=nearest,type=item,nbt={Item:{tag:{Tags:[\"shadowScythe\"]}}}]"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:command",
+            "command": "execute if entity @s[nbt={Inventory:[{id:\"minecraft:stone_sword\",tag:{Tags:[\"shadowScythe\"]}}]}]",
+            "comparison": "==",
+            "compare_to": 1
         },
         "interval": 1
     },

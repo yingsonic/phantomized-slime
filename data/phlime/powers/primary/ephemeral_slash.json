@@ -25,14 +25,24 @@
                 "actions": [
                     {
                         "type": "apoli:apply_effect",
-                        "effect": {
-                            "effect": "minecraft:slowness",
-                            "duration": 30,
-                            "amplifier": 254,
-                            "is_ambient": true,
-                            "show_particles": false,
-                            "show_icon": false
-                        }
+                        "effects": [
+                            {
+                                "effect": "minecraft:slowness",
+                                "duration": 30,
+                                "amplifier": 254,
+                                "is_ambient": true,
+                                "show_particles": false,
+                                "show_icon": false
+                            },
+                            {
+                                "effect": "minecraft:jump_boost",
+                                "duration": 30,
+                                "amplifier": 254,
+                                "is_ambient": true,
+                                "show_particles": false,
+                                "show_icon": false
+                            }
+                        ]
                     },
                     {
                         "type": "apoli:change_resource",

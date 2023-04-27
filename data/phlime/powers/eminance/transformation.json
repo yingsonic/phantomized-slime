@@ -1,6 +1,6 @@
 {
-    "name": "§8§nTransformation",
-    "description": "§oTo transform back into a slime, use your ternary while sneaking. \n",
+    "name": "§0§l§nTransformation",
+    "description": "To transform back into a slime, use your ternary while sneaking. However long you've spent in this form will be converted to the amount of time you need to wait before transforming back, with the max cooldown being 10 mins.",
     "hidden": false,
 
     "type": "origins:multiple",

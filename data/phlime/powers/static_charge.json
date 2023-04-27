@@ -1,6 +1,6 @@
 {
-    "name": "§6§n",
-    "description": "\n",
+    "name": "§6§nStatic Charge",
+    "description": "Your §kstamina§r is now replaced with Static Charge. You will passively gain a few stacks of Static Charge when in the light or dark, with being in the dark giving you bonus stacks. Additionally, every 5 seconds on hit you can gain 5 stacks.\n",
     "hidden": false,
 
     "type": "origins:multiple",

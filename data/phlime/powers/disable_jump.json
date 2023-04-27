@@ -8,7 +8,7 @@
         "type": "origins:modify_jump",
         "modifier": {
             "operation": "multiply_total",
-            "value": -1
+            "value": -1.2
         },
         "condition": {
             "type": "origins:resource",

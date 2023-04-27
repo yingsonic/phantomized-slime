@@ -1,13 +1,13 @@
 {
-    "name": "§c§nSlimey Regeneration",
-    "description": "Being a slime, you are able to heal and reconstruct your body in a more instantaneous way.\n",
+    "name": "§c§n§kSlimey§r§c§n Regeneration",
+    "description": "Being a §kslime§r, you are abl§ke§r to heal and recons§ktruc§rt your body in a more in§kstantan§reous way.\n",
     "hidden": false,
 
     "badges": [
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/active.png",
-            "text": "Use %s to toggle healing, each instance costs stamina\nWill not heal if lacking stamina or if health is full"
+            "text": "Use %s to toggle healing, each instance costs stamina\nWill not heal §kif lacking stamina or§r if health is full"
         }
     ],
 
@@ -37,7 +37,7 @@
                     },
                     {
                         "type": "origins:execute_command",
-                        "command": "title @s actionbar \"§cYou have stopped healing.\""
+                        "command": "title @s actionbar \"§cYo§ku§r§c h§kav§r§ce st§kop§r§cped heali§kng§r§c.\""
                     }
                 ]
             },
@@ -56,7 +56,7 @@
                     },
                     {
                         "type": "origins:execute_command",
-                        "command": "title @s actionbar \"§aYou are now healing.\""
+                        "command": "title @s actionbar \"§aY§ko§r§au are §kn§r§aow he§kali§r§ang.\""
                     }
                 ]
             }
@@ -66,7 +66,7 @@
             "should_render": false
         },
         "key": {
-            "key": "key.origins.secondary_active"
+            "key": "key.origins.senary_active"
         }
     },
     "var": {

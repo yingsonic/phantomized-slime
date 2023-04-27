@@ -54,6 +54,14 @@
                                         "show_icon": false
                                     },
                                     {
+                                        "effect": "minecraft:jump_boost",
+                                        "duration": 60,
+                                        "amplifier": 254,
+                                        "is_ambient": true,
+                                        "show_particles": false,
+                                        "show_icon": false
+                                    },
+                                    {
                                         "effect": "minecraft:blindness",
                                         "duration": 60,
                                         "amplifier": 0,

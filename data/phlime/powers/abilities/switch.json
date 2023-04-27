@@ -1,13 +1,13 @@
 {
     "name": "§5§nAdaptive Biology",
-    "description": "You are evolved, and as a slime are able to modify your molecular structure to aid you in battle. Switch states with the corresponding keybinds noted in the badge.\n",
+    "description": "You are evolved, and as a slime are able to modify your molecular structure to aid you in battle. Switch states with the corresponding keybinds noted in the badge, with a cooldown of 3 seconds.\n",
     "hidden": false,
 
     "badges": [
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/active.png",
-            "text": "§5Switch to Rogue by using [Active Power (Ternary)]\nSwitch to Combat by using [Active Power (Quaternary)]\nSwitch to Guardian by using [Active Power (Quinary)]\n\n§9Cooldown: 5s"
+            "text": "§5Switch to Rogue by using [Active Power (Ternary)]\nSwitch to Combat by using [Active Power (Quaternary)]\nSwitch to Guardian by using [Active Power (Quinary)]"
         }
     ],
 

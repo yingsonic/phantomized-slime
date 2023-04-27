@@ -1,6 +1,6 @@
 {
     "name": "§5§nShadow Garden",
-    "description": "If primary is used with a sword in main hand, enlight the surrounding area in a purple light and buff your damage, speed, and reach when in the area. No entities will be able to enter nor exit the Shadow Garden while it is active. The Shadow Garden has a 50 second cooldown may be dispelled by pressing your primary a second time with a sword in hand or on death.\n",
+    "description": "If primary is used with a sword in main hand, enlight the surrounding area in a purple light and buff your damage, speed, and reach when in the area. No entities will be able to enter nor exit the Shadow Garden while it is active. The Shadow Garden has a 50 second cooldown may be dispelled by pressing your primary a second time with a sword in hand.\n",
     "hidden": false,
 
     "type": "origins:multiple",

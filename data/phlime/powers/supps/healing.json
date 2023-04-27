@@ -1,0 +1,181 @@
+{
+    "name": "§6§n",
+    "description": "\n",
+    "hidden": true,
+
+    "type": "origins:multiple",
+    "heal": {
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "apoli:and",
+            "actions": [
+                {
+                    "type": "apoli:change_resource",
+                    "resource": "*:stamina_var",
+                    "operation": "add",
+                    "change": -25
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @s run function phlime:particles/heal"
+                },
+                {
+                    "type": "apoli:heal",
+                    "amount": 1
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 8,
+                    "action": {
+                        "type": "apoli:heal",
+                        "amount": 1
+                    }
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:origin",
+                    "origin": "phlime:phlime",
+                    "layer": "origins:origin"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:abilities/switch_var",
+                    "comparison": "==",
+                    "compare_to": 3,
+                    "inverted": true
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:abilities/heal_var",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:stamina_var",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:health",
+                    "comparison": "==",
+                    "compare_to": 20,
+                    "inverted": true
+                }
+            ]
+        },
+        "interval": 60
+    },
+    "heal_guardian": {
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "apoli:and",
+            "actions": [
+                {
+                    "type": "apoli:change_resource",
+                    "resource": "*:stamina_var",
+                    "operation": "add",
+                    "change": -25
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @s run function phlime:particles/heal"
+                },
+                {
+                    "type": "apoli:heal",
+                    "amount": 1
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 8,
+                    "action": {
+                        "type": "apoli:heal",
+                        "amount": 1
+                    }
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:origin",
+                    "origin": "phlime:phlime",
+                    "layer": "origins:origin"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:abilities/switch_var",
+                    "comparison": "==",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:abilities/heal_var",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:stamina_var",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:health",
+                    "comparison": "==",
+                    "compare_to": 20,
+                    "inverted": true
+                }
+            ]
+        },
+        "interval": 40
+    },
+    "heal_eminance": {
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "apoli:and",
+            "actions": [
+                {
+                    "type": "apoli:heal",
+                    "amount": 1
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 15,
+                    "action": {
+                        "type": "apoli:heal",
+                        "amount": 1
+                    }
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:origin",
+                    "origin": "phlime:eminance",
+                    "layer": "origins:origin"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:eminance/heal_var",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:health",
+                    "comparison": "==",
+                    "compare_to": 20,
+                    "inverted": true
+                }
+            ]
+        },
+        "interval": 20
+    }
+}

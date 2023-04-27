@@ -63,230 +63,318 @@
     "transform": {
         "type": "apoli:active_self",
         "entity_action": {
-            "type": "origins:and",
+            "type": "origins:if_else_list",
             "actions": [
                 {
-                    "type": "origins:play_sound",
-                    "sound": "item.totem.use",
-                    "volume": 1,
-                    "pitch": 1.5
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:command",
+                                "command": "execute if score @s transformCD matches 0",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            {
+                                "type": "origins:command",
+                                "command": "execute if score @s transformCD = @s transformCD",
+                                "comparison": "==",
+                                "compare_to": 0
+                            }
+                        ]
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:play_sound",
+                                "sound": "item.totem.use",
+                                "volume": 1,
+                                "pitch": 1.5
+                            },
+                            {
+                                "type": "origins:play_sound",
+                                "sound": "entity.wither.break_block",
+                                "volume": 1,
+                                "pitch": 1
+                            },
+                            {
+                                "type": "apoli:change_resource",
+                                "resource": "*:*_transforming",
+                                "operation": "set",
+                                "change": 1
+                            },
+                            {
+                                "type": "origins:play_sound",
+                                "sound": "entity.wither.break_block",
+                                "volume": 1,
+                                "pitch": 1
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle dust 0.7 0.2 0.3 1.5 ~ ~0.5 ~ 0.75 1 0.75 0 5 force @a"
+                            },
+                            {
+                                "type": "apoli:change_resource",
+                                "resource": "*:disable_jump_var",
+                                "operation": "set",
+                                "change": 1
+                            },
+                            {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:delay",
+                                        "ticks": 10,
+                                        "action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:play_sound",
+                                                    "sound": "entity.wither.break_block",
+                                                    "volume": 1,
+                                                    "pitch": 1
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "particle dust 0.7 0.2 0.3 1.5 ~ ~0.5 ~ 0.75 1 0.75 0 5 force @a"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:delay",
+                                        "ticks": 20,
+                                        "action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:play_sound",
+                                                    "sound": "entity.wither.break_block",
+                                                    "volume": 1,
+                                                    "pitch": 1
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "particle dust 0.7 0.2 0.3 1.5 ~ ~0.5 ~ 0.75 1 0.75 0 5 force @a"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:delay",
+                                        "ticks": 25,
+                                        "action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:play_sound",
+                                                    "sound": "entity.wither.break_block",
+                                                    "volume": 1,
+                                                    "pitch": 1
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "particle dust 0.7 0.2 0.3 1.5 ~ ~0.5 ~ 0.75 1 0.75 0 5 force @a"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:delay",
+                                        "ticks": 30,
+                                        "action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:play_sound",
+                                                    "sound": "entity.wither.break_block",
+                                                    "volume": 1,
+                                                    "pitch": 1
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "particle dust 0.7 0.2 0.3 1.5 ~ ~0.5 ~ 0.75 1 0.75 0 5 force @a"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:delay",
+                                        "ticks": 33,
+                                        "action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:play_sound",
+                                                    "sound": "entity.wither.break_block",
+                                                    "volume": 1,
+                                                    "pitch": 1
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "particle dust 0.7 0.2 0.3 1.5 ~ ~0.5 ~ 0.75 1 0.75 0 5 force @a"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:delay",
+                                        "ticks": 35,
+                                        "action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:play_sound",
+                                                    "sound": "entity.wither.break_block",
+                                                    "volume": 1,
+                                                    "pitch": 1
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "particle dust 0.7 0.2 0.3 1.5 ~ ~0.5 ~ 0.75 1 0.75 0 5 force @a"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:delay",
+                                        "ticks": 37,
+                                        "action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:play_sound",
+                                                    "sound": "entity.wither.break_block",
+                                                    "volume": 1,
+                                                    "pitch": 1
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "particle dust 0.7 0.2 0.3 1.5 ~ ~0.5 ~ 0.75 1 0.75 0 5 force @a"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:delay",
+                                        "ticks": 39,
+                                        "action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:play_sound",
+                                                    "sound": "entity.wither.break_block",
+                                                    "volume": 1,
+                                                    "pitch": 1
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "particle dust 0.7 0.2 0.3 1.5 ~ ~0.5 ~ 0.75 1 0.75 0 5 force @a"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:delay",
+                                        "ticks": 40,
+                                        "action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:play_sound",
+                                                    "sound": "entity.wither.break_block",
+                                                    "volume": 1,
+                                                    "pitch": 1
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "particle dust 0.7 0.2 0.3 1.5 ~ ~0.5 ~ 0.75 1 0.75 0 5 force @a"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:delay",
+                                        "ticks": 42,
+                                        "action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "origin set @s origins:origin phlime:eminance"
+                                                },
+                                                {
+                                                    "type": "origins:play_sound",
+                                                    "sound": "entity.wither.death",
+                                                    "volume": 1.5,
+                                                    "pitch": 1
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
                 },
                 {
-                    "type": "origins:play_sound",
-                    "sound": "entity.wither.break_block",
-                    "volume": 1,
-                    "pitch": 1
-                },
-                {
-                    "type": "apoli:change_resource",
-                    "resource": "*:*_transforming",
-                    "operation": "set",
-                    "change": 1
-                },
-                {
-                    "type": "origins:play_sound",
-                    "sound": "entity.wither.break_block",
-                    "volume": 1,
-                    "pitch": 1
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "particle dust 0.7 0.2 0.3 1.5 ~ ~0.5 ~ 0.75 1 0.75 0 5 force @a"
-                },
-                {
-                    "type": "origins:and",
-                    "actions": [
-                        {
-                            "type": "origins:delay",
-                            "ticks": 10,
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:play_sound",
-                                        "sound": "entity.wither.break_block",
-                                        "volume": 1,
-                                        "pitch": 1
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "particle dust 0.7 0.2 0.3 1.5 ~ ~0.5 ~ 0.75 1 0.75 0 5 force @a"
-                                    }
-                                ]
+                    "condition": {
+                        "type": "origins:command",
+                        "command": "execute if score @s transformCD matches 0",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "bossbar add transformcd {\"text\":\"§lTransform Cooldown\",\"color\":\"dark_purple\"}"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "bossbar set transformcd color purple"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "bossbar set minecraft:transformcd max 12000"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute store result bossbar minecraft:transformcd value run scoreboard players get @s transformCD"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_checking",
+                                "operation": "set",
+                                "change": 1
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "bossbar set minecraft:transformcd players @s"
+                            },
+                            {
+                                "type": "origins:delay",
+                                "ticks": 30,
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "bossbar remove minecraft:transformcd"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_checking",
+                                            "operation": "set",
+                                            "change": 0
+                                        }
+                                    ]
+                                }
                             }
-                        },
-                        {
-                            "type": "origins:delay",
-                            "ticks": 20,
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:play_sound",
-                                        "sound": "entity.wither.break_block",
-                                        "volume": 1,
-                                        "pitch": 1
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "particle dust 0.7 0.2 0.3 1.5 ~ ~0.5 ~ 0.75 1 0.75 0 5 force @a"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "origins:delay",
-                            "ticks": 25,
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:play_sound",
-                                        "sound": "entity.wither.break_block",
-                                        "volume": 1,
-                                        "pitch": 1
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "particle dust 0.7 0.2 0.3 1.5 ~ ~0.5 ~ 0.75 1 0.75 0 5 force @a"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "origins:delay",
-                            "ticks": 30,
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:play_sound",
-                                        "sound": "entity.wither.break_block",
-                                        "volume": 1,
-                                        "pitch": 1
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "particle dust 0.7 0.2 0.3 1.5 ~ ~0.5 ~ 0.75 1 0.75 0 5 force @a"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "origins:delay",
-                            "ticks": 33,
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:play_sound",
-                                        "sound": "entity.wither.break_block",
-                                        "volume": 1,
-                                        "pitch": 1
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "particle dust 0.7 0.2 0.3 1.5 ~ ~0.5 ~ 0.75 1 0.75 0 5 force @a"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "origins:delay",
-                            "ticks": 35,
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:play_sound",
-                                        "sound": "entity.wither.break_block",
-                                        "volume": 1,
-                                        "pitch": 1
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "particle dust 0.7 0.2 0.3 1.5 ~ ~0.5 ~ 0.75 1 0.75 0 5 force @a"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "origins:delay",
-                            "ticks": 37,
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:play_sound",
-                                        "sound": "entity.wither.break_block",
-                                        "volume": 1,
-                                        "pitch": 1
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "particle dust 0.7 0.2 0.3 1.5 ~ ~0.5 ~ 0.75 1 0.75 0 5 force @a"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "origins:delay",
-                            "ticks": 39,
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:play_sound",
-                                        "sound": "entity.wither.break_block",
-                                        "volume": 1,
-                                        "pitch": 1
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "particle dust 0.7 0.2 0.3 1.5 ~ ~0.5 ~ 0.75 1 0.75 0 5 force @a"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "origins:delay",
-                            "ticks": 40,
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:play_sound",
-                                        "sound": "entity.wither.break_block",
-                                        "volume": 1,
-                                        "pitch": 1
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "particle dust 0.7 0.2 0.3 1.5 ~ ~0.5 ~ 0.75 1 0.75 0 5 force @a"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "origins:delay",
-                            "ticks": 42,
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "origin set @s origins:origin phlime:eminance"
-                                    },
-                                    {
-                                        "type": "origins:play_sound",
-                                        "sound": "entity.wither.death",
-                                        "volume": 2,
-                                        "pitch": 1
-                                    }
-                                ]
-                            }
-                        }
-                    ]
+                        ]
+                    }
                 }
             ]
         },
@@ -308,23 +396,6 @@
                     "item_condition": {
                         "type": "origins:empty"
                     }
-                },
-                {
-                    "type": "origins:or",
-                    "conditions": [
-                        {
-                            "type": "origins:command",
-                            "command": "execute if score @s transformCD matches 0",
-                            "comparison": "==",
-                            "compare_to": 1
-                        },
-                        {
-                            "type": "origins:command",
-                            "command": "execute if score @s transformCD = @s transformCD",
-                            "comparison": "==",
-                            "compare_to": 0
-                        }
-                    ]
                 }
             ]
         },
@@ -334,7 +405,21 @@
         "key": {
             "key": "key.origins.ternary_active"
         },
-        "cooldown": 1
+        "cooldown": 30
+    },
+    "check_update": {
+        "type": "apoli:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute store result bossbar minecraft:transformcd value run scoreboard players get @s transformCD"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_checking",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "interval": 1
     },
     "effects": {
         "type": "apoli:action_over_time",
@@ -352,7 +437,7 @@
                     "change": -8
                 },
                 {
-                    "type": "origins:apply_effect",
+                    "type": "apoli:apply_effect",
                     "effect": {
                         "effect": "minecraft:slowness",
                         "duration": 3,
@@ -398,6 +483,15 @@
             "compare_to": 1
         },
         "interval": 1
+    },
+    "checking": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
     },
     "var": {
         "type": "origins:resource",

@@ -4,8 +4,8 @@
 		"phlime:abilities/switch",
 		"phlime:stamina",
 		"phlime:supps/stam_regen",
-		"phlime:passives/bleed_desc",
 		"phlime:abilities/heal",
+		"phlime:passives/bleed_desc",
 		"phlime:supps/modes_sprites",
 
 		"phlime:passives/rogue",
@@ -23,16 +23,18 @@
 		"phlime:passives/transformation",
 		"phlime:passives/regen_off",
 		"phlime:supps/scythe_stacks",
-		"phlime:disable_jump"
+		"phlime:disable_jump",
+		"phlime:passives/drop_on_death"
 	],
 	"icon": {
-		"item": "minecraft:wither_rose"
+		"item": "minecraft:slime_ball",
+		"tag": "{CustomModelData:8730002}"
 	},
 	"order": 10,
 	"impact": 3,
 
 	"name": "§5Phantomized Slime",
-	"description": "A reborn slime after dying to a player who was attempting to run from §o'something'§r lurking in the shadows. As a reborn slime, you have experienced death and swear to avenge and protect those in need.\n\nDue to being just a meek little slime, you avoid trouble and stick to the shadows, remembering what hunted the original player that killed you.\n",
+	"description": "A reborn slime after dying to a player who was attempting to run from §o'something'§r lurking in the shadows. As a reborn slime, you have experienced death and swear to avenge and protect those in need.\n\nDue to being just a meek little slime, you avoid trouble and stick to the shadows, remembering what hunted the original player that killed you.\n\n§oAlthough, you can feel something inside you burning.\n",
 	
 	"comment": "Made by yingsonic on Fiverr"
 }

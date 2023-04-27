@@ -3,7 +3,7 @@
 		"phlime:setup",
 		"phlime:eminance/passives",
 		"phlime:passives/regen_off",
-		"phlime:abilities/heal",
+		"phlime:eminance/heal",
 		"phlime:static_charge",
 		"phlime:eminance/discharge",
 		"phlime:eminance/parry",
@@ -13,13 +13,13 @@
 		"phlime:eminance/transformation"
 	],
 	"icon": {
-		"item": "minecraft:barrier"
+		"item": "minecraft:wither_rose"
 	},
 	"order": 10,
 	"impact": 3,
 
-	"name": "§4Eminance of Shadow",
-	"description": "\n§4§l...?",
+	"name": "§8Eminance of Shadow",
+	"description": "\n§0§l...?\n",
 	
 	"comment": "Made by yingsonic on Fiverr",
     "unchoosable": false
