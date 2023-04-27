@@ -1,5 +1,6 @@
 {
     "type": "apoli:multiple",
+    "hidden": true,
     "main": {
         "type": "apoli:action_over_time",
         "entity_action": {

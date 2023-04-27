@@ -1,7 +1,7 @@
 {
     "name": "§6§n",
     "description": "\n",
-    "hidden": false,
+    "hidden": true,
 
     "type": "origins:multiple",
     "gain": {

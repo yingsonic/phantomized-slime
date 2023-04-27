@@ -51,16 +51,32 @@
                                             "is_ambient": true,
                                             "show_particles": false,
                                             "show_icon": false
-                                        },
-                                        {
-                                            "effect": "minecraft:jump_boost",
-                                            "duration": 60,
-                                            "amplifier": 254,
-                                            "is_ambient": true,
-                                            "show_particles": false,
-                                            "show_icon": false
                                         }
                                     ]
+                                }
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:living"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "power grant @s phlime:supps/disable_jump"
+                                }
+                            },
+                            {
+                                "type": "origins:delay",
+                                "ticks": 60,
+                                "action": {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:living"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:execute_command",
+                                        "command": "power revoke @s phlime:supps/disable_jump"
+                                    }
                                 }
                             }
                         ]

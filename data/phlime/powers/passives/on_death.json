@@ -1,0 +1,39 @@
+{
+    "name": "§6§n",
+    "description": "\n",
+    "hidden": true,
+
+    "type": "origins:multiple",
+    "drop": {
+        "type": "apoli:action_over_time",
+        "rising_action": {
+            "type": "origins:chance",
+            "chance": 0.5,
+            "action": {
+                "type": "origins:execute_command",
+                "command": "summon item ~ ~ ~ {Item:{id:\"minecraft:slime_ball\",Count:1b,tag:{display:{Name:'{\"text\":\"Phantomized Slimeball\",\"color\":\"dark_gray\",\"italic\":false}'},CustomModelData:8730002}}}"
+            }
+        },
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<=",
+            "compare_to": 0
+        },
+        "interval": 1
+    },
+    "enable_jump": {
+        "type": "apoli:action_over_time",
+        "rising_action": {
+            "type": "apoli:change_resource",
+            "resource": "*:disable_jump_var",
+            "operation": "set",
+            "change": 0
+        },
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<=",
+            "compare_to": 0
+        },
+        "interval": 1
+    }
+}
